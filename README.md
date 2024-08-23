@@ -1,6 +1,6 @@
 # Rental Room App
 
-`live` : <>
+`live` : <https://room-rental-app-kris1027.vercel.app/>
 
 ## Challenges Faced During the Movie Rating App
 
@@ -19,6 +19,7 @@
 -  TypeScript
 -  Next.js
 -  Tailwind CSS
+-  Supabase
 
 ## List to do:
 
@@ -30,6 +31,7 @@
 -  reservations (id, created_at, user_id, room_id, start_date, end_date, status)
 -  [x] Build app layout
 -  [x] Build navigation, logo and footer
+-  [x] Application deployment (Vercel)
 -  [ ] Strona główna panelu admina
 -  [ ] Implementacja logiki rejestracji
 -  [ ] Implementacja logiki logowania
@@ -65,5 +67,4 @@
 -  [ ] Testy integracyjne
 -  [ ] Testy end-to-end (E2E)
 -  [ ] Konfiguracja środowiska produkcyjnego
--  [ ] Deployment aplikacji (Vercel)
 -  [ ] Konfiguracja domeny
