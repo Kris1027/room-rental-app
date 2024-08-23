@@ -25,10 +25,10 @@
 -  [ ] Instalacja i konfiguracja Supabase
 -  [ ] Konfiguracja środowiska (zmienne środowiskowe)
 -  [ ] Projektowanie bazy danych w Supabase
-       Tabela users (id, email, password, role)
-       Tabela rooms (id, name, description, price, image_url)
-       Tabela reservations (id, user_id, room_id, start_date, end_date, status)
-       Tabela settings (opcjonalnie, dla globalnych ustawień aplikacji)
+-  Tabela users (id, email, password, role)
+-  Tabela rooms (id, name, description, price, image_url)
+-  Tabela reservations (id, user_id, room_id, start_date, end_date, status)
+-  Tabela settings (opcjonalnie, dla globalnych ustawień aplikacji)
 -  [ ] Implementacja logiki rejestracji
 -  [ ] Implementacja logiki logowania
 -  [ ] Konfiguracja middleware dla ochrony tras
