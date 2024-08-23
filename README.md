@@ -22,7 +22,7 @@
 
 ## List to do:
 
--  [ ] Instalacja i konfiguracja Supabase
+-  [x] Supabase installation and configuration
 -  [x] Environment configuration (environment variables)
 -  [ ] Projektowanie bazy danych w Supabase
 -  Tabela users (id, email, password, role)
