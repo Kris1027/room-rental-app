@@ -24,12 +24,12 @@
 
 -  [x] Supabase installation and configuration
 -  [x] Environment configuration (environment variables)
--  [ ] Design the database in Supabase
+-  [x] Design the database in Supabase
 -  users (id, created_at, email, password, isAdmin, full_name)
 -  rooms (id, created_at, name, description, max_capacity, regular_price, discount, image_urls)
 -  reservations (id, created_at, user_id, room_id, start_date, end_date, status)
--  [ ] Stworzenie layoutu aplikacji
--  [ ] Implementacja nawigacji
+-  [x] Build app layout
+-  [x] Build navigation, logo and footer
 -  [ ] Strona główna panelu admina
 -  [ ] Implementacja logiki rejestracji
 -  [ ] Implementacja logiki logowania
