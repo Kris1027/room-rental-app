@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Rental Room App
 
-## Getting Started
+`live` : <>
 
-First, run the development server:
+## Challenges Faced During the Movie Rating App
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 1. Not yet
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-  not yet
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 6. Biggest Challenge: Not yet
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+-  not yet
 
-## Learn More
+## Technologies:
 
-To learn more about Next.js, take a look at the following resources:
+-  JavaScript
+-  React
+-  TypeScript
+-  Next.js
+-  Tailwind CSS
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## List to do:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+-  [ ] Instalacja i konfiguracja Supabase
+-  [ ] Konfiguracja środowiska (zmienne środowiskowe)
+-  [ ] Projektowanie bazy danych w Supabase
+       Tabela users (id, email, password, role)
+       Tabela rooms (id, name, description, price, image_url)
+       Tabela reservations (id, user_id, room_id, start_date, end_date, status)
+       Tabela settings (opcjonalnie, dla globalnych ustawień aplikacji)
+-  [ ] Implementacja logiki rejestracji
+-  [ ] Implementacja logiki logowania
+-  [ ] Konfiguracja middleware dla ochrony tras
+-  [ ] Stworzenie layoutu aplikacji
+-  [ ] Implementacja nawigacji
+-  [ ] Implementacja strony logowania
+-  [ ] Formularz logowania
+-  [ ] Integracja z Supabase Auth
+-  [ ] Implementacja strony rejestracji
+-  [ ] Formularz rejestracji
+-  [ ] Strona główna panelu admina
+-  [ ] CRUD dla pokoi (dodawanie, edycja, usuwanie)
+-  [ ] Zarządzanie rezerwacjami (przeglądanie, zatwierdzanie, anulowanie)
+-  [ ] Zarządzanie użytkownikami
+-  [ ] Implementacja listy pokoi
+-  [ ] Strona z listą dostępnych pokoi
+-  [ ] Filtrowanie i sortowanie pokoi
+-  [ ] Budowa strony szczegółów pokoju
+-  [ ] Wyświetlanie informacji o pokoju
+-  [ ] Galeria zdjęć
+-  [ ] Implementacja systemu rezerwacji
+-  [ ] Formularz rezerwacji na stronie szczegółów pokoju
+-  [ ] Logika sprawdzania dostępności terminów
+-  [ ] Proces potwierdzenia rezerwacji
+-  [ ] Strona profilu użytkownika
+-  [ ] Wyświetlanie informacji o użytkowniku
+-  [ ] Lista aktywnych rezerwacji użytkownika
+-  [ ] Możliwość anulowania rezerwacji
+-  [ ] Implementacja wyszukiwarki pokoi
+-  [ ] Formularz wyszukiwania (daty, liczba gości, etc.)
+-  [ ] Wyświetlanie wyników wyszukiwania
+-  [ ] Implementacja paginacji dla długich list
+-  [ ] Dodanie komunikatów o błędach i potwierdzeniach
+-  [ ] Testy jednostkowe dla kluczowych funkcji
+-  [ ] Testy integracyjne
+-  [ ] Testy end-to-end (E2E)
+-  [ ] Konfiguracja środowiska produkcyjnego
+-  [ ] Deployment aplikacji (Vercel)
+-  [ ] Konfiguracja domeny
