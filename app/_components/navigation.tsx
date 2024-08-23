@@ -9,7 +9,7 @@ const navItems = [
    { name: 'About', path: '/about' },
    { name: 'Rooms', path: '/rooms' },
    { name: 'Account', path: '/account' },
-   { name: 'Admin', path: '/admin' },
+   { name: 'Admin', path: '/account/admin-dashboard' },
 ];
 
 export function Navigation() {
