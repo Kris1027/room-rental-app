@@ -24,11 +24,10 @@
 
 -  [x] Supabase installation and configuration
 -  [x] Environment configuration (environment variables)
--  [ ] Projektowanie bazy danych w Supabase
--  Tabela users (id, email, password, role)
--  Tabela rooms (id, name, description, price, image_url)
--  Tabela reservations (id, user_id, room_id, start_date, end_date, status)
--  Tabela settings (opcjonalnie, dla globalnych ustawień aplikacji)
+-  [ ] Design the database in Supabase
+-  users (id, created_at, email, password, isAdmin, full_name)
+-  rooms (id, created_at, name, description, max_capacity, regular_price, discount, image_urls)
+-  reservations (id, created_at, user_id, room_id, start_date, end_date, status)
 -  [ ] Stworzenie layoutu aplikacji
 -  [ ] Implementacja nawigacji
 -  [ ] Strona główna panelu admina
