@@ -26,8 +26,10 @@ export function Navigation() {
                   <li key={item.name}>
                      <Link
                         href={item.path}
-                        className={`hover:text-blue-300 transition duration-300 ${
-                           pathname === item.path ? 'text-blue-300' : ''
+                        className={`hover:bg-gradient-to-r hover:from-blue-500 hover:to-teal-400 hover:bg-clip-text hover:text-transparent transition duration-300 ${
+                           pathname === item.path
+                              ? 'bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent'
+                              : ''
                         }`}
                      >
                         {item.name}

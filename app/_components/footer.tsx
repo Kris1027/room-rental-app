@@ -16,7 +16,7 @@ export function Footer() {
                   <li>
                      <Link
                         href='/terms'
-                        className='hover:text-blue-300 transition duration-300'
+                        className='hover:bg-gradient-to-r hover:from-blue-500 hover:to-teal-400 hover:bg-clip-text hover:text-transparent transition duration-300'
                      >
                         Terms of Service
                      </Link>
@@ -24,7 +24,7 @@ export function Footer() {
                   <li>
                      <Link
                         href='/privacy'
-                        className='hover:text-blue-300 transition duration-300'
+                        className='hover:bg-gradient-to-r hover:from-blue-500 hover:to-teal-400 hover:bg-clip-text hover:text-transparent transition duration-300'
                      >
                         Privacy Policy
                      </Link>
@@ -32,7 +32,7 @@ export function Footer() {
                   <li>
                      <Link
                         href='/contact'
-                        className='hover:text-blue-300 transition duration-300'
+                        className='hover:bg-gradient-to-r hover:from-blue-500 hover:to-teal-400 hover:bg-clip-text hover:text-transparent transition duration-300'
                      >
                         Contact Us
                      </Link>
