@@ -23,23 +23,23 @@
 ## List to do:
 
 -  [ ] Instalacja i konfiguracja Supabase
--  [ ] Konfiguracja środowiska (zmienne środowiskowe)
+-  [x] Environment configuration (environment variables)
 -  [ ] Projektowanie bazy danych w Supabase
 -  Tabela users (id, email, password, role)
 -  Tabela rooms (id, name, description, price, image_url)
 -  Tabela reservations (id, user_id, room_id, start_date, end_date, status)
 -  Tabela settings (opcjonalnie, dla globalnych ustawień aplikacji)
+-  [ ] Stworzenie layoutu aplikacji
+-  [ ] Implementacja nawigacji
+-  [ ] Strona główna panelu admina
 -  [ ] Implementacja logiki rejestracji
 -  [ ] Implementacja logiki logowania
 -  [ ] Konfiguracja middleware dla ochrony tras
--  [ ] Stworzenie layoutu aplikacji
--  [ ] Implementacja nawigacji
 -  [ ] Implementacja strony logowania
 -  [ ] Formularz logowania
 -  [ ] Integracja z Supabase Auth
 -  [ ] Implementacja strony rejestracji
 -  [ ] Formularz rejestracji
--  [ ] Strona główna panelu admina
 -  [ ] CRUD dla pokoi (dodawanie, edycja, usuwanie)
 -  [ ] Zarządzanie rezerwacjami (przeglądanie, zatwierdzanie, anulowanie)
 -  [ ] Zarządzanie użytkownikami
