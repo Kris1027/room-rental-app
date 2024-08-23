@@ -4,7 +4,12 @@ import Logo from '@/app/_components/logo';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-const navItems = [
+type NavLinks = {
+   name: string;
+   path: string;
+};
+
+const navItems: NavLinks[] = [
    { name: 'Home', path: '/' },
    { name: 'About', path: '/about' },
    { name: 'Rooms', path: '/rooms' },
