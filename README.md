@@ -32,6 +32,7 @@
 -  [x] Build app layout
 -  [x] Build navigation, logo and footer
 -  [x] Application deployment (Vercel)
+-  [x] Admin Dashboard layout and sidebar
 -  [ ] Strona główna panelu admina
 -  [ ] Implementacja logiki rejestracji
 -  [ ] Implementacja logiki logowania

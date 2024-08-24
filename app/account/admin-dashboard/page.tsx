@@ -1,3 +1,3 @@
-export default function Admin() {
-   return <h2>Admin</h2>;
+export default function AdminDashboard() {
+   return <div>Content</div>;
 }
