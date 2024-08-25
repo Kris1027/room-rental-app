@@ -1,4 +1,4 @@
-import { Sidebar } from '@/app/account/admin-dashboard/sidebar';
+import { Sidebar } from '@/app/admin-dashboard/sidebar';
 
 export default function AdminLayout({
    children,

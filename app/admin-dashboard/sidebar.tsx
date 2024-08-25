@@ -10,12 +10,12 @@ type NavItems = {
 
 const navItems: NavItems[] = [
    { name: 'Home', path: '/' },
-   { name: 'Dashboard', path: '/account/admin-dashboard' },
-   { name: 'Users', path: '/account/admin-dashboard/users' },
-   { name: 'Rooms', path: '/account/admin-dashboard/rooms' },
-   { name: 'Reservations', path: '/account/admin-dashboard/reservations' },
-   { name: 'Messages', path: '/account/admin-dashboard/messages' },
-   { name: 'Settings', path: '/account/admin-dashboard/settings' },
+   { name: 'Dashboard', path: '/admin-dashboard' },
+   { name: 'Users', path: '/admin-dashboard/users' },
+   { name: 'Rooms', path: '/admin-dashboard/rooms' },
+   { name: 'Reservations', path: '/admin-dashboard/reservations' },
+   { name: 'Messages', path: '/admin-dashboard/messages' },
+   { name: 'Settings', path: '/admin-dashboard/settings' },
 ];
 
 export function Sidebar() {

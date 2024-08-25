@@ -14,7 +14,7 @@ const navItems: NavLinks[] = [
    { name: 'About', path: '/about' },
    { name: 'Rooms', path: '/rooms' },
    { name: 'Account', path: '/account' },
-   { name: 'Admin', path: '/account/admin-dashboard' },
+   { name: 'Admin', path: '/admin-dashboard' },
 ];
 
 export function Navigation() {

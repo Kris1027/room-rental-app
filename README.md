@@ -33,7 +33,7 @@
 -  [x] Build navigation, logo and footer
 -  [x] Application deployment (Vercel)
 -  [x] Admin Dashboard layout and sidebar
--  [ ] Strona główna panelu admina
+-  [x] Main page of Admin Dashboard
 -  [ ] Implementacja logiki rejestracji
 -  [ ] Implementacja logiki logowania
 -  [ ] Konfiguracja middleware dla ochrony tras
