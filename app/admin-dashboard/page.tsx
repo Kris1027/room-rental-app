@@ -11,13 +11,13 @@ export default function AdminDashboard() {
    const totalUsers = users.length;
    const totalRooms = rooms.length;
    const totalReservations = reservations.length;
-   const totalMessages = 10;
+   let totalMessages = 10;
 
    return (
-      <div className='grid grid-cols-3 gap-4 p-4'>
+      <div className='grid grid-cols-1 gap-2 p-2 text-md sm:grid-cols-2 lg:grid-cols-3 lg:gap-4 lg:p-4 xl:grid-cols-5'>
          <Link
             href='/admin-dashboard/users'
-            className='flex justify-between items-center p-10 border-slate-400 border-2'
+            className='flex justify-between items-center p-4 rounded-xl hover:scale-110 duration-300 bg-orange-500 text-white'
          >
             <span>
                <FaUser size={64} />
@@ -26,7 +26,7 @@ export default function AdminDashboard() {
          </Link>
          <Link
             href='/admin-dashboard/rooms'
-            className='flex justify-between items-center p-10 border-slate-400 border-2'
+            className='flex justify-between items-center p-4 rounded-xl hover:scale-110 duration-300 bg-red-500 text-white'
          >
             <span>
                <MdBedroomChild size={64} />
@@ -35,7 +35,7 @@ export default function AdminDashboard() {
          </Link>
          <Link
             href='/admin-dashboard/reservations'
-            className='flex justify-between items-center p-10 border-slate-400 border-2'
+            className='flex justify-between items-center p-4 rounded-xl hover:scale-110 duration-300 bg-blue-500 text-white'
          >
             <span>
                <FaRegCalendarCheck size={64} />
@@ -44,16 +44,19 @@ export default function AdminDashboard() {
          </Link>
          <Link
             href='/admin-dashboard/messages'
-            className='flex justify-between items-center p-10 border-slate-400 border-2'
+            className='flex justify-between items-center p-4 rounded-xl hover:scale-110 duration-300 bg-green-500 text-white'
          >
             <span>
                <FaMessage size={64} />
             </span>
-            <span>{totalMessages} Messages</span>
+            <span>
+               {totalMessages} Message
+               {totalMessages === 1 ? '' : 's'}
+            </span>
          </Link>
          <Link
             href='/admin-dashboard/settings'
-            className='flex justify-between items-center p-10 border-slate-400 border-2'
+            className='flex justify-between items-center p-4 rounded-xl hover:scale-110 duration-300 bg-indigo-500 text-white'
          >
             <span>
                <IoSettingsSharp size={64} />
