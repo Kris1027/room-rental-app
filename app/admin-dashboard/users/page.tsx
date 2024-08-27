@@ -1,3 +1,4 @@
+import { Button } from '@/app/_components/button';
 import { GetUsers } from '@/app/_lib/users-api';
 import { formatDateTime } from '@/app/_utils/format-date-time';
 import { usersProps } from '@/app/types/data-types';
@@ -52,6 +53,10 @@ export default async function AdminUsers() {
                            >
                               {user.is_admin ? 'Yes' : 'No'}
                            </span>
+                        </td>
+                        <td className='space-x-1'>
+                           <Button size='small'>Edit</Button>
+                           <Button size='small'>Delete</Button>
                         </td>
                      </tr>
                   ))}
