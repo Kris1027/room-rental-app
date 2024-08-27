@@ -1,5 +1,6 @@
 import { Button } from '@/app/_components/button';
 import { GetRooms } from '@/app/_lib/rooms-api';
+import { Expander } from '@/app/_utils/expander';
 import { formatDateTime } from '@/app/_utils/format-date-time';
 import { roomsProps } from '@/app/types/data-types';
 import Image from 'next/image';
@@ -65,7 +66,9 @@ export default async function AdminRooms() {
                            />
                         </td>
                         <td className='px-6 py-4'>{room.name}</td>
-                        <td className='px-6 py-4'>{room.description}</td>
+                        <td className='px-6 py-4'>
+                           <Expander text={room.description} />
+                        </td>
                         <td className='px-6 py-4'>{room.regular_price}</td>
                         <td className='px-6 py-4'>{room.max_capacity}</td>
                         <td className='px-6 py-4'>
