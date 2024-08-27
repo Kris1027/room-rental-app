@@ -1,14 +1,18 @@
+import { GetUsers } from '@/app/_lib/users-api';
 import { reservations } from '@/app/fake-data/reservations';
-import { MdBedroomChild } from 'react-icons/md';
 import { rooms } from '@/app/fake-data/rooms';
-import { users } from '@/app/fake-data/users';
-import { FaUser, FaRegCalendarCheck } from 'react-icons/fa';
 import Link from 'next/link';
+import { FaRegCalendarCheck, FaUser } from 'react-icons/fa';
 import { FaMessage } from 'react-icons/fa6';
 import { IoSettingsSharp } from 'react-icons/io5';
+import { MdBedroomChild } from 'react-icons/md';
 
-export default function AdminDashboard() {
-   const totalUsers = users.length;
+export default async function AdminDashboard() {
+   const users = await GetUsers();
+
+   console.log(users);
+
+   // const totalUsers = users.length;
    const totalRooms = rooms.length;
    const totalReservations = reservations.length;
    let totalMessages = 10;
@@ -22,7 +26,7 @@ export default function AdminDashboard() {
             <span>
                <FaUser size={64} />
             </span>
-            <span>{totalUsers} Users</span>
+            <span>{14} Users</span>
          </Link>
          <Link
             href='/admin-dashboard/rooms'
