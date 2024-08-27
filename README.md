@@ -35,7 +35,7 @@
 -  [x] Admin Dashboard layout and sidebar
 -  [x] Main page of admin dashboard
 -  [x] Users managament in admin dashboard
--  [ ] Rooms managament in admin dashboard
+-  [x] Rooms managament in admin dashboard
 -  [ ] Reservations managament in admin dashboard
 -  [ ] Messages managament in admin dashboard
 -  [ ] Settings managament in admin dashboard

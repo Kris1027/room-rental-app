@@ -1,17 +1,18 @@
 import { GetUsers } from '@/app/_lib/users-api';
 import { reservations } from '@/app/fake-data/reservations';
-import { rooms } from '@/app/fake-data/rooms';
 import Link from 'next/link';
 import { FaRegCalendarCheck, FaUser } from 'react-icons/fa';
 import { FaMessage } from 'react-icons/fa6';
 import { IoSettingsSharp } from 'react-icons/io5';
 import { MdBedroomChild } from 'react-icons/md';
+import { GetRooms } from '@/app/_lib/rooms-api';
 
 export default async function AdminDashboard() {
    const users = await GetUsers();
+   const rooms = await GetRooms();
 
    const totalUsers = users?.length;
-   const totalRooms = rooms.length;
+   const totalRooms = rooms?.length;
    const totalReservations = reservations.length;
    let totalMessages = 10;
 
