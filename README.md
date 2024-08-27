@@ -34,39 +34,11 @@
 -  [x] Application deployment (Vercel)
 -  [x] Admin Dashboard layout and sidebar
 -  [x] Main page of admin dashboard
+-  [x] Users managament in admin dashboard
+-  [ ] Rooms managament in admin dashboard
+-  [ ] Reservations managament in admin dashboard
+-  [ ] Messages managament in admin dashboard
+-  [ ] Settings managament in admin dashboard
+-  [ ] Edit, Delete and Add New User in admin dashboard
+-  [ ] Edit, Delete and Add New Room in admin dashboard
 -  [ ] Build chart in the main page of admin dashboard
--  [ ] Implementacja logiki rejestracji
--  [ ] Implementacja logiki logowania
--  [ ] Konfiguracja middleware dla ochrony tras
--  [ ] Implementacja strony logowania
--  [ ] Formularz logowania
--  [ ] Integracja z Supabase Auth
--  [ ] Implementacja strony rejestracji
--  [ ] Formularz rejestracji
--  [ ] CRUD dla pokoi (dodawanie, edycja, usuwanie)
--  [ ] Zarządzanie rezerwacjami (przeglądanie, zatwierdzanie, anulowanie)
--  [ ] Zarządzanie użytkownikami
--  [ ] Implementacja listy pokoi
--  [ ] Strona z listą dostępnych pokoi
--  [ ] Filtrowanie i sortowanie pokoi
--  [ ] Budowa strony szczegółów pokoju
--  [ ] Wyświetlanie informacji o pokoju
--  [ ] Galeria zdjęć
--  [ ] Implementacja systemu rezerwacji
--  [ ] Formularz rezerwacji na stronie szczegółów pokoju
--  [ ] Logika sprawdzania dostępności terminów
--  [ ] Proces potwierdzenia rezerwacji
--  [ ] Strona profilu użytkownika
--  [ ] Wyświetlanie informacji o użytkowniku
--  [ ] Lista aktywnych rezerwacji użytkownika
--  [ ] Możliwość anulowania rezerwacji
--  [ ] Implementacja wyszukiwarki pokoi
--  [ ] Formularz wyszukiwania (daty, liczba gości, etc.)
--  [ ] Wyświetlanie wyników wyszukiwania
--  [ ] Implementacja paginacji dla długich list
--  [ ] Dodanie komunikatów o błędach i potwierdzeniach
--  [ ] Testy jednostkowe dla kluczowych funkcji
--  [ ] Testy integracyjne
--  [ ] Testy end-to-end (E2E)
--  [ ] Konfiguracja środowiska produkcyjnego
--  [ ] Konfiguracja domeny

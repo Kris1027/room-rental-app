@@ -8,6 +8,9 @@ export default async function AdminUsers() {
 
    return (
       <div className='overflow-x-auto shadow-md sm:rounded-lg'>
+         <div className='px-6 py-4'>
+            <Button>Add New User</Button>
+         </div>
          <table className='w-full text-sm text-left text-gray-500'>
             <thead className='text-xs text-gray-700 uppercase bg-gray-50'>
                <tr>
@@ -56,7 +59,9 @@ export default async function AdminUsers() {
                         </td>
                         <td className='space-x-1'>
                            <Button size='small'>Edit</Button>
-                           <Button size='small'>Delete</Button>
+                           <Button size='small' type='submit'>
+                              Delete
+                           </Button>
                         </td>
                      </tr>
                   ))}
