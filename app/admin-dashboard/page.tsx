@@ -10,9 +10,7 @@ import { MdBedroomChild } from 'react-icons/md';
 export default async function AdminDashboard() {
    const users = await GetUsers();
 
-   console.log(users);
-
-   // const totalUsers = users.length;
+   const totalUsers = users?.length;
    const totalRooms = rooms.length;
    const totalReservations = reservations.length;
    let totalMessages = 10;
@@ -26,7 +24,7 @@ export default async function AdminDashboard() {
             <span>
                <FaUser size={64} />
             </span>
-            <span>{14} Users</span>
+            <span>{totalUsers} Users</span>
          </Link>
          <Link
             href='/admin-dashboard/rooms'
