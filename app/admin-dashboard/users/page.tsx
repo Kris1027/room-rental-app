@@ -1,4 +1,5 @@
 import { GetUsers } from '@/app/_lib/users-api';
+import { formatDateTime } from '@/app/_utils/format-date-time';
 import { usersProps } from '@/app/types/data-types';
 
 export default async function AdminUsers() {
@@ -35,7 +36,7 @@ export default async function AdminUsers() {
                      >
                         <td className='px-6 py-4'>{user.id}</td>
                         <td className='px-6 py-4'>
-                           {new Date(user.created_at).toLocaleDateString()}
+                           {formatDateTime(user.created_at)}
                         </td>
                         <td className='px-6 py-4 font-medium text-gray-900 whitespace-nowrap'>
                            {user.full_name}
