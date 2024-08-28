@@ -1,20 +1,16 @@
+import { GetRooms } from '@/app/_lib/rooms-api';
 import { GetUsers } from '@/app/_lib/users-api';
-import { reservations } from '@/app/fake-data/reservations';
 import Link from 'next/link';
 import { FaRegCalendarCheck, FaUser } from 'react-icons/fa';
 import { FaMessage } from 'react-icons/fa6';
 import { IoSettingsSharp } from 'react-icons/io5';
 import { MdBedroomChild } from 'react-icons/md';
-import { GetRooms } from '@/app/_lib/rooms-api';
 
 export default async function AdminDashboard() {
    const users = await GetUsers();
    const rooms = await GetRooms();
 
-   const totalUsers = users?.length;
-   const totalRooms = rooms?.length;
-   const totalReservations = reservations.length;
-   let totalMessages = 10;
+   let messages = 11;
 
    return (
       <div className='grid grid-cols-1 gap-2 p-2 text-md sm:grid-cols-2 lg:grid-cols-3 lg:gap-4 lg:p-4 xl:grid-cols-5'>
@@ -25,7 +21,7 @@ export default async function AdminDashboard() {
             <span>
                <FaUser size={64} />
             </span>
-            <span>{totalUsers} Users</span>
+            <span>{users && users.length} Users</span>
          </Link>
          <Link
             href='/admin-dashboard/rooms'
@@ -34,7 +30,7 @@ export default async function AdminDashboard() {
             <span>
                <MdBedroomChild size={64} />
             </span>
-            <span>{totalRooms} Rooms</span>
+            <span>{rooms && rooms.length} Rooms</span>
          </Link>
          <Link
             href='/admin-dashboard/reservations'
@@ -43,7 +39,7 @@ export default async function AdminDashboard() {
             <span>
                <FaRegCalendarCheck size={64} />
             </span>
-            <span>{totalReservations} Reservations</span>
+            <span>{6} Reservations</span>
          </Link>
          <Link
             href='/admin-dashboard/messages'
@@ -53,8 +49,8 @@ export default async function AdminDashboard() {
                <FaMessage size={64} />
             </span>
             <span>
-               {totalMessages} Message
-               {totalMessages === 1 ? '' : 's'}
+               {messages} Message
+               {messages === 1 ? '' : 's'}
             </span>
          </Link>
          <Link
