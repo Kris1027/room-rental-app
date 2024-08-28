@@ -27,7 +27,7 @@ export type reservationsProps = {
    end_date: string;
    num_nights: number;
    num_guests: number;
-   room_price: number;
-   status_price: number;
+   total_price: number;
+   status: number;
    is_paid: boolean;
 };
