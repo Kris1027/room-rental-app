@@ -17,3 +17,17 @@ export type roomsProps = {
    max_capacity: number;
    discount: number;
 };
+
+export type reservationsProps = {
+   id: number;
+   created_at: string;
+   user_id: number;
+   room_id: number;
+   start_date: string;
+   end_date: string;
+   num_nights: number;
+   num_guests: number;
+   room_price: number;
+   status_price: number;
+   is_paid: boolean;
+};
