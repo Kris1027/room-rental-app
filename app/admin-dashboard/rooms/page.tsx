@@ -5,6 +5,8 @@ import { formatDateTime } from '@/app/_utils/format-date-time';
 import { roomsProps } from '@/app/types/data-types';
 import Image from 'next/image';
 
+export const revalidate = 0;
+
 export default async function AdminRooms() {
    const rooms = (await GetRooms()) as roomsProps[];
 

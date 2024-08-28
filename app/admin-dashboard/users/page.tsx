@@ -3,6 +3,8 @@ import { GetUsers } from '@/app/_lib/users-api';
 import { formatDateTime } from '@/app/_utils/format-date-time';
 import { usersProps } from '@/app/types/data-types';
 
+export const revalidate = 0;
+
 export default async function AdminUsers() {
    const users = (await GetUsers()) as usersProps[];
 

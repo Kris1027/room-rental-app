@@ -28,6 +28,6 @@ export type reservationsProps = {
    num_nights: number;
    num_guests: number;
    total_price: number;
-   status: number;
+   status: 'unconfirmed' | 'confirmed' | 'canceled';
    is_paid: boolean;
 };

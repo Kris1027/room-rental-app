@@ -3,6 +3,8 @@ import { GetReservations } from '@/app/_lib/reservations-api';
 import { formatDateTime } from '@/app/_utils/format-date-time';
 import { reservationsProps } from '@/app/types/data-types';
 
+export const revalidate = 0;
+
 export default async function AdminReservations() {
    const reservations = (await GetReservations()) as reservationsProps[];
 
@@ -46,6 +48,9 @@ export default async function AdminReservations() {
                   </th>
                   <th scope='col' className='px-6 py-3'>
                      Paid
+                  </th>
+                  <th scope='col' className='px-6 py-3'>
+                     Actions
                   </th>
                </tr>
             </thead>
