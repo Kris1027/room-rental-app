@@ -29,5 +29,5 @@ export type reservationsProps = {
    num_guests: number;
    total_price: number;
    status: 'unconfirmed' | 'confirmed' | 'canceled';
-   is_paid: boolean;
+   is_paid: 'Yes' | 'No';
 };
