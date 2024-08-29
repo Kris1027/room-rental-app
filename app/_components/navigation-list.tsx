@@ -2,6 +2,7 @@ import { NavigationListItem } from '@/app/_components/navigation-list-item';
 import { auth } from '@/auth';
 import Image from 'next/image';
 import Link from 'next/link';
+import { LoginButton } from '@/app/_components/login-button';
 
 export type NavLinks = {
    name: string;
@@ -26,7 +27,7 @@ export async function NavigationList() {
             {navItems.map((item) => (
                <NavigationListItem key={item.name} item={item} />
             ))}
-            {session?.user && (
+            {session?.user ? (
                <Link href={'/account'}>
                   <li className='flex items-center space-x-1'>
                      <Image
@@ -39,6 +40,8 @@ export async function NavigationList() {
                      <p>{userName}</p>
                   </li>
                </Link>
+            ) : (
+               <LoginButton />
             )}
          </ul>
       </nav>
