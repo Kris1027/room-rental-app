@@ -1,6 +1,7 @@
 import { Button } from '@/app/_components/button';
 import { GetReservations } from '@/app/_lib/reservations-api';
 import { formatDateTime } from '@/app/_utils/format-date-time';
+import { StatusStyle } from '@/app/_utils/status-style';
 import { reservationsProps } from '@/app/types/data-types';
 
 export const revalidate = 0;
@@ -17,42 +18,24 @@ export default async function AdminReservations() {
             <table className='w-full text-sm text-left text-gray-500'>
                <thead className='text-xs text-gray-700 uppercase bg-gray-50 hidden md:table-header-group'>
                   <tr>
-                     <th scope='col' className='px-4 py-2'>
-                        ID
-                     </th>
-                     <th scope='col' className='px-4 py-2'>
-                        Created At
-                     </th>
-                     <th scope='col' className='px-4 py-2'>
-                        User ID
-                     </th>
-                     <th scope='col' className='px-4 py-2'>
-                        Room ID
-                     </th>
-                     <th scope='col' className='px-4 py-2'>
-                        Start date
-                     </th>
-                     <th scope='col' className='px-4 py-2'>
-                        End date
-                     </th>
-                     <th scope='col' className='px-4 py-2'>
-                        Nights
-                     </th>
-                     <th scope='col' className='px-4 py-2'>
-                        Guests
-                     </th>
-                     <th scope='col' className='px-4 py-2'>
-                        Total price
-                     </th>
-                     <th scope='col' className='px-4 py-2'>
-                        Status
-                     </th>
-                     <th scope='col' className='px-4 py-2'>
-                        Paid
-                     </th>
-                     <th scope='col' className='px-4 py-2'>
-                        Actions
-                     </th>
+                     {[
+                        'ID',
+                        'Created At',
+                        'User ID',
+                        'Room ID',
+                        'Start date',
+                        'End date',
+                        'Nights',
+                        'Guests',
+                        'Total price',
+                        'Status',
+                        'Paid',
+                        'Actions',
+                     ].map((header) => (
+                        <th key={header} scope='col' className='px-4 py-2'>
+                           {header}
+                        </th>
+                     ))}
                   </tr>
                </thead>
                <tbody>
@@ -62,87 +45,82 @@ export default async function AdminReservations() {
                            key={reservation.id}
                            className='bg-white border-b hover:bg-gray-50 flex flex-col md:table-row'
                         >
-                           <td className='flex justify-between md:table-cell px-4 py-2'>
-                              <span className='font-bold md:hidden'>ID:</span>{' '}
-                              {reservation.id}
-                           </td>
-                           <td className='flex justify-between md:table-cell px-4 py-2'>
-                              <span className='font-bold md:hidden'>
-                                 Created At:
-                              </span>{' '}
-                              {formatDateTime(reservation.created_at)}
-                           </td>
-                           <td className='flex justify-between md:table-cell px-4 py-2'>
-                              <span className='font-bold md:hidden'>
-                                 User ID:
-                              </span>{' '}
-                              {reservation.user_id}
-                           </td>
-                           <td className='flex justify-between md:table-cell px-4 py-2'>
-                              <span className='font-bold md:hidden'>
-                                 Room ID:
-                              </span>{' '}
-                              {reservation.room_id}
-                           </td>
-                           <td className='flex justify-between md:table-cell px-4 py-2'>
-                              <span className='font-bold md:hidden'>
-                                 Start date:
-                              </span>{' '}
-                              {formatDateTime(reservation.start_date)}
-                           </td>
-                           <td className='flex justify-between md:table-cell px-4 py-2'>
-                              <span className='font-bold md:hidden'>
-                                 End date:
-                              </span>{' '}
-                              {formatDateTime(reservation.end_date)}
-                           </td>
-                           <td className='flex justify-between md:table-cell px-4 py-2'>
-                              <span className='font-bold md:hidden'>
-                                 Nights:
-                              </span>{' '}
-                              {reservation.num_nights}
-                           </td>
-                           <td className='flex justify-between md:table-cell px-4 py-2'>
-                              <span className='font-bold md:hidden'>
-                                 Guests:
-                              </span>{' '}
-                              {reservation.num_guests}
-                           </td>
-                           <td className='flex justify-between md:table-cell px-4 py-2'>
-                              <span className='font-bold md:hidden'>
-                                 Total price:
-                              </span>{' '}
-                              {reservation.total_price}
-                           </td>
-                           <td className='flex justify-between md:table-cell px-4 py-2'>
-                              <span className='font-bold md:hidden'>
-                                 Status:
-                              </span>{' '}
-                              {reservation.status}
-                           </td>
-                           <td className='flex justify-between md:table-cell px-4 py-2'>
-                              <span className='font-bold md:hidden'>Paid:</span>
-                              <span
-                                 className={`px-2 py-1 rounded text-xs font-medium ${
-                                    reservation.is_paid
-                                       ? 'bg-green-100 text-green-800'
-                                       : 'bg-red-100 text-red-800'
-                                 }`}
+                           {[
+                              { label: 'ID', value: reservation.id },
+                              {
+                                 label: 'Created At',
+                                 value: formatDateTime(reservation.created_at),
+                              },
+                              { label: 'User ID', value: reservation.user_id },
+                              { label: 'Room ID', value: reservation.room_id },
+                              {
+                                 label: 'Start date',
+                                 value: formatDateTime(reservation.start_date),
+                              },
+                              {
+                                 label: 'End date',
+                                 value: formatDateTime(reservation.end_date),
+                              },
+                              {
+                                 label: 'Nights',
+                                 value: reservation.num_nights,
+                              },
+                              {
+                                 label: 'Guests',
+                                 value: reservation.num_guests,
+                              },
+                              {
+                                 label: 'Total price',
+                                 value: reservation.total_price,
+                              },
+                              {
+                                 label: 'Status',
+                                 value: (
+                                    <span
+                                       className={`px-2 py-1 rounded text-xs font-medium ${StatusStyle(
+                                          reservation.status
+                                       )}`}
+                                    >
+                                       {reservation.status}
+                                    </span>
+                                 ),
+                              },
+                              {
+                                 label: 'Paid',
+                                 value: (
+                                    <span
+                                       className={`px-2 py-1 rounded text-xs font-medium ${
+                                          reservation.is_paid
+                                             ? 'bg-green-100 text-green-800'
+                                             : 'bg-red-100 text-red-800'
+                                       }`}
+                                    >
+                                       {reservation.is_paid ? 'Yes' : 'No'}
+                                    </span>
+                                 ),
+                              },
+                              {
+                                 label: 'Actions',
+                                 value: (
+                                    <div className='space-y-1 space-x-1 text-center'>
+                                       <Button size='small'>Edit</Button>
+                                       <Button size='small' type='submit'>
+                                          Delete
+                                       </Button>
+                                    </div>
+                                 ),
+                              },
+                           ].map(({ label, value }, index) => (
+                              <td
+                                 key={index}
+                                 className='flex justify-between md:table-cell px-4 py-2'
                               >
-                                 {reservation.is_paid ? 'Yes' : 'No'}
-                              </span>
-                           </td>
-                           <td className='flex justify-between md:table-cell px-4 py-2'>
-                              <span className='font-bold md:hidden'>
-                                 Actions:
-                              </span>
-                              <div className='space-y-1 space-x-1 text-center'>
-                                 <Button size='small'>Edit</Button>
-                                 <Button size='small' type='submit'>
-                                    Delete
-                                 </Button>
-                              </div>
-                           </td>
+                                 <span className='font-bold md:hidden'>
+                                    {label}:
+                                 </span>
+                                 {value}
+                              </td>
+                           ))}
                         </tr>
                      ))}
                </tbody>
