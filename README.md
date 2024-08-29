@@ -4,13 +4,13 @@
 
 ## Challenges Faced During the Movie Rating App
 
-### 1. Not yet
+### 1.
 
--  not yet
+-
 
-### 6. Biggest Challenge: Not yet
+### 6. Biggest Challenge:
 
--  not yet
+-
 
 ## Technologies:
 
@@ -37,6 +37,7 @@
 -  [x] Users managament in admin dashboard
 -  [x] Rooms managament in admin dashboard
 -  [x] Reservations managament in admin dashboard
+-  [ ] Authentication (nextAuth)
 -  [ ] Messages managament in admin dashboard
 -  [ ] Settings managament in admin dashboard
 -  [ ] Edit, Delete and Add New User in admin dashboard
