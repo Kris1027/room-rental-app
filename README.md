@@ -20,6 +20,7 @@
 -  Next.js
 -  Tailwind CSS
 -  Supabase
+-  NextAuth
 
 ## List to do:
 
@@ -38,6 +39,7 @@
 -  [x] Rooms managament in admin dashboard
 -  [x] Reservations managament in admin dashboard
 -  [ ] Authentication (nextAuth)
+-  [ ] Authorization
 -  [ ] Messages managament in admin dashboard
 -  [ ] Settings managament in admin dashboard
 -  [ ] Edit, Delete and Add New User in admin dashboard
