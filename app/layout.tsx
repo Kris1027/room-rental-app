@@ -1,5 +1,5 @@
 import { Footer } from '@/app/_components/footer';
-import { Navigation } from '@/app/_components/navigation';
+import { TopBar } from '@/app/_components/top-bar';
 import type { Metadata } from 'next';
 import './globals.css';
 
@@ -16,7 +16,7 @@ export default function RootLayout({
    return (
       <html lang='en' className='h-full'>
          <body className='flex flex-col min-h-screen'>
-            <Navigation />
+            <TopBar />
             <div className='flex-grow flex overflow-hidden'>{children}</div>
             <Footer />
          </body>
