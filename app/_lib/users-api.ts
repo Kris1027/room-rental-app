@@ -1,5 +1,4 @@
 import { supabase } from '@/app/_lib/supabase';
-import { usersProps } from '@/app/types/data-types';
 
 export async function GetUsers() {
    const { data: users, error } = await supabase.from('users').select('*');
@@ -21,7 +20,10 @@ export async function getUser(email: string) {
    return data;
 }
 
-export async function createUser(newUser: usersProps) {
+export async function createUser(newUser: {
+   email: string;
+   full_name: string;
+}) {
    {
       const { data, error } = await supabase.from('users').insert([newUser]);
 

@@ -1,9 +1,9 @@
 export type usersProps = {
-   id?: number;
-   created_at?: string;
+   id: number;
+   created_at: string;
    email: string;
    full_name: string;
-   is_admin?: boolean;
+   is_admin: boolean;
 };
 
 export type roomsProps = {
