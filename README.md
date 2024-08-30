@@ -38,7 +38,7 @@
 -  [x] Users managament in admin dashboard
 -  [x] Rooms managament in admin dashboard
 -  [x] Reservations managament in admin dashboard
--  [ ] Authentication (nextAuth)
+-  [x] Authentication (nextAuth)
 -  [ ] Authorization
 -  [ ] Messages managament in admin dashboard
 -  [ ] Settings managament in admin dashboard
