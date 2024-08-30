@@ -6,6 +6,8 @@ export default async function Account() {
    const userImage = session?.user?.image as string;
    const userName = session?.user?.name as string;
 
+   console.log(session);
+
    return (
       <div>
          <h2>Account</h2>
