@@ -16,19 +16,23 @@ const authConfig = {
       },
       async signIn({ user }: { user: User | AdapterUser }) {
          try {
-            const existingUser = await getUser(user?.email ?? '');
+            if (user.email) {
+               const existingUser = await getUser(user.email);
 
-            if (!existingUser && user.email && user.name)
-               await createUser({ email: user.email, full_name: user.name });
-
+               if (!existingUser && user.name) {
+                  await createUser({ email: user.email, full_name: user.name });
+               }
+            }
             return true;
          } catch {
             return false;
          }
       },
       async session({ session }: { session: Session }) {
-         const guest = await getUser(session.user.email);
-         session.user.userId = guest.id;
+         if (session.user) {
+            const guest = await getUser(session.user.email ?? '');
+            session.user.userId = guest.id;
+         }
          return session;
       },
    },
