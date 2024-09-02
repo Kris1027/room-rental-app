@@ -1,6 +1,6 @@
 import { supabase } from '@/app/_lib/supabase';
 
-export async function GetRooms() {
+export async function getRooms() {
    const { data: rooms, error } = await supabase.from('rooms').select('*');
 
    if (error) {

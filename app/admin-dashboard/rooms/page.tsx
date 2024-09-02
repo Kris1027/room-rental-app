@@ -1,5 +1,5 @@
 import { Button } from '@/app/_components/button';
-import { GetRooms } from '@/app/_lib/rooms-api';
+import { getRooms } from '@/app/_lib/rooms-api';
 import { Expander } from '@/app/_utils/expander';
 import { formatDateTime } from '@/app/_utils/format-date-time';
 import { roomsProps } from '@/app/types/data-types';
@@ -8,7 +8,7 @@ import Image from 'next/image';
 export const revalidate = 0;
 
 export default async function AdminRooms() {
-   const rooms = (await GetRooms()) as roomsProps[];
+   const rooms = (await getRooms()) as roomsProps[];
 
    return (
       <div className='overflow-x-auto shadow-md sm:rounded-lg'>
