@@ -1,6 +1,6 @@
 import { supabase } from '@/app/_lib/supabase';
 
-export async function GetReservations() {
+export async function getReservations() {
    const { data: reservations, error } = await supabase
       .from('reservations')
       .select('*');

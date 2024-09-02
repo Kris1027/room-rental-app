@@ -1,3 +1,4 @@
+import { getReservations } from '@/app/_lib/reservations-api';
 import { GetRooms } from '@/app/_lib/rooms-api';
 import { GetUsers } from '@/app/_lib/users-api';
 import Link from 'next/link';
@@ -9,6 +10,7 @@ import { MdBedroomChild } from 'react-icons/md';
 export default async function AdminDashboard() {
    const users = await GetUsers();
    const rooms = await GetRooms();
+   const reservations = await getReservations();
 
    let messages = 11;
 
@@ -39,7 +41,7 @@ export default async function AdminDashboard() {
             <span>
                <FaRegCalendarCheck size={64} />
             </span>
-            <span>{6} Reservations</span>
+            <span>{reservations && reservations.length} Reservations</span>
          </Link>
          <Link
             href='/admin-dashboard/messages'
