@@ -10,3 +10,18 @@ export async function GetRooms() {
 
    return rooms;
 }
+
+export async function getRoom(roomId: number) {
+   const { data: room, error } = await supabase
+      .from('rooms')
+      .select('*')
+      .eq('id', roomId)
+      .single();
+
+   if (error) {
+      console.error('Error fetching room:', error);
+      return null;
+   }
+
+   return room;
+}
