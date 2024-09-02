@@ -1,5 +1,5 @@
 import { Button } from '@/app/_components/button';
-import { GetReservations } from '@/app/_lib/reservations-api';
+import { getReservations } from '@/app/_lib/reservations-api';
 import { formatDateTime } from '@/app/_utils/format-date-time';
 import { StatusStyle } from '@/app/_utils/status-style';
 import { reservationsProps } from '@/app/types/data-types';
@@ -7,7 +7,7 @@ import { reservationsProps } from '@/app/types/data-types';
 export const revalidate = 0;
 
 export default async function AdminReservations() {
-   const reservations = (await GetReservations()) as reservationsProps[];
+   const reservations = (await getReservations()) as reservationsProps[];
 
    return (
       <div className='shadow-md sm:rounded-lg'>
