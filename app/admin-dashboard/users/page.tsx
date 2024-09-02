@@ -1,12 +1,12 @@
 import { Button } from '@/app/_components/button';
-import { GetUsers } from '@/app/_lib/users-api';
+import { getUsers } from '@/app/_lib/users-api';
 import { formatDateTime } from '@/app/_utils/format-date-time';
 import { usersProps } from '@/app/types/data-types';
 
 export const revalidate = 0;
 
 export default async function AdminUsers() {
-   const users = (await GetUsers()) as usersProps[];
+   const users = (await getUsers()) as usersProps[];
 
    return (
       <div className='shadow-md sm:rounded-lg'>

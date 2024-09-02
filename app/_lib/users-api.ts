@@ -1,6 +1,6 @@
 import { supabase } from '@/app/_lib/supabase';
 
-export async function GetUsers() {
+export async function getUsers() {
    const { data: users, error } = await supabase.from('users').select('*');
 
    if (error) {
