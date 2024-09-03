@@ -60,12 +60,10 @@ export default async function AdminUsers() {
                               {
                                  label: 'Actions',
                                  value: (
-                                    <div className='space-y-1 space-x-1 text-center'>
+                                    <span className='flex gap-1'>
                                        <Button size='small'>Edit</Button>
-                                       <Button size='small' type='submit'>
-                                          Delete
-                                       </Button>
-                                    </div>
+                                       <Button size='small'>Delete</Button>
+                                    </span>
                                  ),
                               },
                            ].map(({ label, value }, index) => (

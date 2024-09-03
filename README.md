@@ -40,8 +40,8 @@
 -  [x] Reservations managament in admin dashboard
 -  [x] Authentication (nextAuth)
 -  [x] Authorization
--  [ ] Messages managament in admin dashboard
--  [ ] Settings managament in admin dashboard
 -  [ ] Edit, Delete and Add New User in admin dashboard
 -  [ ] Edit, Delete and Add New Room in admin dashboard
+-  [ ] Messages managament in admin dashboard
+-  [ ] Settings managament in admin dashboard
 -  [ ] Build chart in the main page of admin dashboard
