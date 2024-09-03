@@ -5,6 +5,7 @@ import { auth } from '@/auth';
 import Image from 'next/image';
 import Link from 'next/link';
 import { RiAdminLine } from 'react-icons/ri';
+import { AdminButton } from './admin-button';
 
 export type NavLinks = {
    name: string;
@@ -42,13 +43,7 @@ export async function NavigationList() {
                   </li>
                </Link>
             )}
-            {session?.user.isAdmin && (
-               <Link href={'/admin-dashboard'}>
-                  <li className='flex items-center gap-1'>
-                     <RiAdminLine size={24} /> Admin Dashboard
-                  </li>
-               </Link>
-            )}
+            <AdminButton />
             {session?.user ? <SignOutButton /> : <LoginLink />}
          </ul>
       </nav>
