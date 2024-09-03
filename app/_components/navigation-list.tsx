@@ -1,11 +1,9 @@
+import { AccountButton } from '@/app/_components/account-button';
+import { AdminButton } from '@/app/_components/admin-button';
 import { LoginLink } from '@/app/_components/login-link';
 import { NavigationListItem } from '@/app/_components/navigation-list-item';
 import { SignOutButton } from '@/app/_components/sign-out-button';
 import { auth } from '@/auth';
-import Image from 'next/image';
-import Link from 'next/link';
-import { RiAdminLine } from 'react-icons/ri';
-import { AdminButton } from './admin-button';
 
 export type NavLinks = {
    name: string;
@@ -14,8 +12,6 @@ export type NavLinks = {
 
 export async function NavigationList() {
    const session = await auth();
-   const userName = session?.user?.name as string;
-   const userImage = session?.user?.image as string;
 
    const navItems: NavLinks[] = [
       { name: 'Home', path: '/' },
@@ -29,20 +25,7 @@ export async function NavigationList() {
             {navItems.map((item) => (
                <NavigationListItem key={item.name} item={item} />
             ))}
-            {session?.user && (
-               <Link href={'/account'}>
-                  <li className='flex items-center space-x-1'>
-                     <Image
-                        className='rounded-full'
-                        src={userImage}
-                        width={40}
-                        height={40}
-                        alt='profile image'
-                     />
-                     <p>{userName}</p>
-                  </li>
-               </Link>
-            )}
+            <AccountButton />
             <AdminButton />
             {session?.user ? <SignOutButton /> : <LoginLink />}
          </ul>

@@ -7,7 +7,7 @@ export async function AdminButton() {
 
    return (
       <>
-         {session?.user && session?.user?.isAdmin && (
+         {session?.user?.isAdmin && (
             <Link href={'/admin-dashboard'}>
                <li className='flex items-center gap-1'>
                   <RiAdminLine size={24} /> Admin Dashboard
