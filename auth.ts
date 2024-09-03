@@ -32,7 +32,7 @@ const authConfig = {
          if (session.user) {
             const guest = await getUser(session.user.email ?? '');
             session.user.userId = guest.id;
-            session.user.is_admin = guest.is_admin;
+            session.user.isAdmin = guest.is_admin;
          }
          return session;
       },
