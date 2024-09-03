@@ -1,7 +1,8 @@
 import { getUsers } from '@/app/_lib/users-api';
 import { UserForm } from '@/app/admin-dashboard/users/user-form';
-import { usersProps } from '@/app/types/data-types';
-import { UsersList } from './users-list';
+import { UsersColumns } from '@/app/admin-dashboard/users/users-columns';
+import { UsersList } from '@/app/admin-dashboard/users/users-list';
+import { type usersProps } from '@/app/types/data-types';
 
 export const revalidate = 0;
 
@@ -15,18 +16,7 @@ export default async function AdminUsers() {
             <table className='w-full text-sm text-left text-gray-500'>
                <thead className='text-xs text-gray-700 uppercase bg-gray-50 hidden md:table-header-group'>
                   <tr>
-                     {[
-                        'ID',
-                        'Created At',
-                        'Full Name',
-                        'Email',
-                        'Is Admin',
-                        'Actions',
-                     ].map((header) => (
-                        <th key={header} scope='col' className='px-4 py-2'>
-                           {header}
-                        </th>
-                     ))}
+                     <UsersColumns />
                   </tr>
                </thead>
                <tbody>
