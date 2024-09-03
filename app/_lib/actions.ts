@@ -1,8 +1,9 @@
 'use server';
 
+import { supabase } from '@/app/_lib/supabase';
 import { signIn, signOut } from '@/auth';
 import { revalidatePath } from 'next/cache';
-import { createUser, getUser } from './users-api';
+import { createUser, getUser } from '@/app/_lib/users-api';
 
 export async function signInAction() {
    await signIn('google', { redirectTo: '/account' });
@@ -35,4 +36,12 @@ export async function adminCreateUserAction(formData: FormData) {
       console.error('Error creating user:', error);
       return false;
    }
+}
+
+export async function adminDeleteUserAction(userId: number) {
+   const { error } = await supabase.from('users').delete().eq('id', userId);
+
+   if (error) throw new Error('User could not be deleted');
+
+   revalidatePath('/admin-dashboard/users');
 }

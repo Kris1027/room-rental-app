@@ -14,14 +14,8 @@ export default async function AdminUsers() {
          <UserForm />
          <div className='overflow-x-auto'>
             <table className='w-full text-sm text-left text-gray-500'>
-               <thead className='text-xs text-gray-700 uppercase bg-gray-50 hidden md:table-header-group'>
-                  <tr>
-                     <UsersColumns />
-                  </tr>
-               </thead>
-               <tbody>
-                  <UsersList users={users} />
-               </tbody>
+               <UsersColumns />
+               <UsersList users={users} />
             </table>
          </div>
       </div>
