@@ -1,6 +1,7 @@
 import { Button } from '@/app/_components/button';
 import { getUsers } from '@/app/_lib/users-api';
 import { formatDateTime } from '@/app/_utils/format-date-time';
+import { TrueOrFalse } from '@/app/_utils/true-or-false';
 import { usersProps } from '@/app/types/data-types';
 
 export const revalidate = 0;
@@ -17,24 +18,18 @@ export default async function AdminUsers() {
             <table className='w-full text-sm text-left text-gray-500'>
                <thead className='text-xs text-gray-700 uppercase bg-gray-50 hidden md:table-header-group'>
                   <tr>
-                     <th scope='col' className='px-4 py-2'>
-                        ID
-                     </th>
-                     <th scope='col' className='px-4 py-2'>
-                        Created At
-                     </th>
-                     <th scope='col' className='px-4 py-2'>
-                        Full Name
-                     </th>
-                     <th scope='col' className='px-4 py-2'>
-                        Email
-                     </th>
-                     <th scope='col' className='px-4 py-2'>
-                        Admin
-                     </th>
-                     <th scope='col' className='px-4 py-2'>
-                        Actions
-                     </th>
+                     {[
+                        'ID',
+                        'Created At',
+                        'Full Name',
+                        'Email',
+                        'Is Admin',
+                        'Actions',
+                     ].map((header) => (
+                        <th key={header} scope='col' className='px-4 py-2'>
+                           {header}
+                        </th>
+                     ))}
                   </tr>
                </thead>
                <tbody>
@@ -44,53 +39,46 @@ export default async function AdminUsers() {
                            key={user.id}
                            className='bg-white border-b hover:bg-gray-50 flex flex-col md:table-row'
                         >
-                           <td className='flex justify-between md:table-cell px-4 py-2'>
-                              <span className='font-bold md:hidden'>ID:</span>{' '}
-                              {user.id}
-                           </td>
-                           <td className='flex justify-between md:table-cell px-4 py-2'>
-                              <span className='font-bold md:hidden'>
-                                 Created At:
-                              </span>{' '}
-                              {formatDateTime(user.created_at)}
-                           </td>
-                           <td className='flex justify-between md:table-cell px-4 py-2 font-medium text-gray-900'>
-                              <span className='font-bold md:hidden'>
-                                 Full Name:
-                              </span>{' '}
-                              {user.full_name}
-                           </td>
-                           <td className='flex justify-between md:table-cell px-4 py-2'>
-                              <span className='font-bold md:hidden'>
-                                 Email:
-                              </span>{' '}
-                              {user.email}
-                           </td>
-                           <td className='flex justify-between md:table-cell px-4 py-2'>
-                              <span className='font-bold md:hidden'>
-                                 Admin:
-                              </span>
-                              <span
-                                 className={`px-2 py-1 rounded text-xs font-medium ${
-                                    user.is_admin
-                                       ? 'bg-green-100 text-green-800'
-                                       : 'bg-red-100 text-red-800'
-                                 }`}
+                           {[
+                              { label: 'ID', value: user.id },
+                              {
+                                 label: 'Created At',
+                                 value: formatDateTime(user.created_at),
+                              },
+                              { label: 'Full Name', value: user.full_name },
+                              { label: 'Email', value: user.email },
+                              {
+                                 label: 'Is Admin',
+                                 value: (
+                                    <span
+                                       className={TrueOrFalse(user.is_admin)}
+                                    >
+                                       {user.is_admin ? 'Yes' : 'No'}
+                                    </span>
+                                 ),
+                              },
+                              {
+                                 label: 'Actions',
+                                 value: (
+                                    <div className='space-y-1 space-x-1 text-center'>
+                                       <Button size='small'>Edit</Button>
+                                       <Button size='small' type='submit'>
+                                          Delete
+                                       </Button>
+                                    </div>
+                                 ),
+                              },
+                           ].map(({ label, value }, index) => (
+                              <td
+                                 key={label + index}
+                                 className='flex justify-between md:table-cell px-4 py-2'
                               >
-                                 {user.is_admin ? 'Yes' : 'No'}
-                              </span>
-                           </td>
-                           <td className='flex justify-between md:table-cell px-4 py-2'>
-                              <span className='font-bold md:hidden'>
-                                 Actions:
-                              </span>
-                              <div className='space-y-1 space-x-1 text-center'>
-                                 <Button size='small'>Edit</Button>
-                                 <Button size='small' type='submit'>
-                                    Delete
-                                 </Button>
-                              </div>
-                           </td>
+                                 <span className='font-bold md:hidden'>
+                                    {label}:
+                                 </span>
+                                 {value}
+                              </td>
+                           ))}
                         </tr>
                      ))}
                </tbody>

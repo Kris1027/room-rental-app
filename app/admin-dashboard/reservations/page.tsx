@@ -2,6 +2,7 @@ import { Button } from '@/app/_components/button';
 import { getReservations } from '@/app/_lib/reservations-api';
 import { formatDateTime } from '@/app/_utils/format-date-time';
 import { StatusStyle } from '@/app/_utils/status-style';
+import { TrueOrFalse } from '@/app/_utils/true-or-false';
 import { reservationsProps } from '@/app/types/data-types';
 
 export const revalidate = 0;
@@ -77,9 +78,9 @@ export default async function AdminReservations() {
                                  label: 'Status',
                                  value: (
                                     <span
-                                       className={`px-2 py-1 rounded text-xs font-medium ${StatusStyle(
+                                       className={StatusStyle(
                                           reservation.status
-                                       )}`}
+                                       )}
                                     >
                                        {reservation.status}
                                     </span>
@@ -89,11 +90,9 @@ export default async function AdminReservations() {
                                  label: 'Paid',
                                  value: (
                                     <span
-                                       className={`px-2 py-1 rounded text-xs font-medium ${
+                                       className={TrueOrFalse(
                                           reservation.is_paid
-                                             ? 'bg-green-100 text-green-800'
-                                             : 'bg-red-100 text-red-800'
-                                       }`}
+                                       )}
                                     >
                                        {reservation.is_paid ? 'Yes' : 'No'}
                                     </span>
