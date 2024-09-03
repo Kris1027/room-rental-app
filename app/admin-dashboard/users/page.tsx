@@ -2,6 +2,7 @@ import { Button } from '@/app/_components/button';
 import { getUsers } from '@/app/_lib/users-api';
 import { formatDateTime } from '@/app/_utils/format-date-time';
 import { TrueOrFalse } from '@/app/_utils/true-or-false';
+import { UserForm } from '@/app/admin-dashboard/users/user-form';
 import { usersProps } from '@/app/types/data-types';
 
 export const revalidate = 0;
@@ -13,6 +14,7 @@ export default async function AdminUsers() {
       <div className='shadow-md sm:rounded-lg'>
          <div className='p-4'>
             <Button>Add New User</Button>
+            <UserForm />
          </div>
          <div className='overflow-x-auto'>
             <table className='w-full text-sm text-left text-gray-500'>
