@@ -4,6 +4,7 @@ import { SignOutButton } from '@/app/_components/sign-out-button';
 import { auth } from '@/auth';
 import Image from 'next/image';
 import Link from 'next/link';
+import { RiAdminLine } from 'react-icons/ri';
 
 export type NavLinks = {
    name: string;
@@ -19,7 +20,6 @@ export async function NavigationList() {
       { name: 'Home', path: '/' },
       { name: 'About', path: '/about' },
       { name: 'Rooms', path: '/rooms' },
-      { name: 'Admin', path: '/admin-dashboard' },
    ];
 
    return (
@@ -39,6 +39,13 @@ export async function NavigationList() {
                         alt='profile image'
                      />
                      <p>{userName}</p>
+                  </li>
+               </Link>
+            )}
+            {session?.user.isAdmin && (
+               <Link href={'/admin-dashboard'}>
+                  <li className='flex items-center gap-1'>
+                     <RiAdminLine size={24} /> Admin Dashboard
                   </li>
                </Link>
             )}
