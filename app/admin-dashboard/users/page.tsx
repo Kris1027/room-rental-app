@@ -12,10 +12,7 @@ export default async function AdminUsers() {
 
    return (
       <div className='shadow-md sm:rounded-lg'>
-         <div className='p-4'>
-            <Button>Add New User</Button>
-            <UserForm />
-         </div>
+         <UserForm />
          <div className='overflow-x-auto'>
             <table className='w-full text-sm text-left text-gray-500'>
                <thead className='text-xs text-gray-700 uppercase bg-gray-50 hidden md:table-header-group'>
