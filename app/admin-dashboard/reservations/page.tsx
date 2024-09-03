@@ -4,10 +4,18 @@ import { formatDateTime } from '@/app/_utils/format-date-time';
 import { StatusStyle } from '@/app/_utils/status-style';
 import { TrueOrFalse } from '@/app/_utils/true-or-false';
 import { reservationsProps } from '@/app/types/data-types';
+import { auth } from '@/auth';
+import { redirect } from 'next/navigation';
 
 export const revalidate = 0;
 
 export default async function AdminReservations() {
+   const session = await auth();
+
+   if (!session?.user.isAdmin) {
+      redirect('/');
+   }
+
    const reservations = (await getReservations()) as reservationsProps[];
 
    return (

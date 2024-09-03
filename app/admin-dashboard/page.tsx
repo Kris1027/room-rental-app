@@ -1,13 +1,21 @@
 import { getReservations } from '@/app/_lib/reservations-api';
 import { getRooms } from '@/app/_lib/rooms-api';
 import { getUsers } from '@/app/_lib/users-api';
+import { auth } from '@/auth';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 import { FaRegCalendarCheck, FaUser } from 'react-icons/fa';
 import { FaMessage } from 'react-icons/fa6';
 import { IoSettingsSharp } from 'react-icons/io5';
 import { MdBedroomChild } from 'react-icons/md';
 
 export default async function AdminDashboard() {
+   const session = await auth();
+
+   if (!session?.user.isAdmin) {
+      redirect('/');
+   }
+
    const users = await getUsers();
    const rooms = await getRooms();
    const reservations = await getReservations();

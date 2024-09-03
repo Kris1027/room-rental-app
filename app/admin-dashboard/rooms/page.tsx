@@ -3,11 +3,19 @@ import { getRooms } from '@/app/_lib/rooms-api';
 import { Expander } from '@/app/_utils/expander';
 import { formatDateTime } from '@/app/_utils/format-date-time';
 import { roomsProps } from '@/app/types/data-types';
+import { auth } from '@/auth';
 import Image from 'next/image';
+import { redirect } from 'next/navigation';
 
 export const revalidate = 0;
 
 export default async function AdminRooms() {
+   const session = await auth();
+
+   if (!session?.user.isAdmin) {
+      redirect('/');
+   }
+
    const rooms = (await getRooms()) as roomsProps[];
 
    return (
