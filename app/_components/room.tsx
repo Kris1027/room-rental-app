@@ -4,7 +4,10 @@ import Link from 'next/link';
 
 export function Room({ room }: { room: roomsProps }) {
    return (
-      <Link href={`/rooms/${room.id}`}>
+      <Link
+         href={`/rooms/${room.id}`}
+         className='bg-white p-8 rounded-lg shadow-lg'
+      >
          <Image
             src={room.image_url}
             alt={room.name}

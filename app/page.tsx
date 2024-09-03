@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Home() {
    return (
-      <div className='bg-gray-100 p-8 mx-auto'>
+      <div className='bg-gray-100 p-8 mx-auto max-w-7xl'>
          <section
             className='bg-cover bg-center h-96 text-white flex items-center justify-center'
             style={{ backgroundImage: 'url(https://tiny.pl/b58hyw-z)' }}
