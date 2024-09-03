@@ -4,10 +4,7 @@ import Link from 'next/link';
 export default function Home() {
    return (
       <div className='bg-gray-100 p-8 mx-auto max-w-7xl'>
-         <section
-            className='bg-cover bg-center h-96 text-white flex items-center justify-center'
-            style={{ backgroundImage: 'url(https://tiny.pl/b58hyw-z)' }}
-         >
+         <section className='bg-cover bg-center h-96 text-white flex items-center justify-center rounded-lg bg-[url("https://tiny.pl/b58hyw-z")]'>
             <div className='bg-black/50 p-10 rounded-lg'>
                <h1 className='text-5xl font-bold mb-4'>
                   Welcome to The Grand Horizon Hotel
@@ -39,49 +36,51 @@ export default function Home() {
          </section>
 
          <section className='my-12 bg-white p-8 rounded-lg shadow-lg'>
-            <h2 className='text-3xl font-bold text-gray-800 mb-6'>
+            <h2 className='text-3xl font-bold text-gray-800 mb-6 text-center'>
                Our Amenities
             </h2>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
                <div className='flex flex-col items-center justify-center text-center'>
-                  <Image
-                     src='https://tiny.pl/0dgsq16n'
-                     alt='Spa'
-                     className='object-cover rounded-lg mb-4'
-                     width={300}
-                     height={200}
-                     style={{ aspectRatio: '3/2' }}
-                  />
-                  <h3 className='text-xl font-semibold'>World-Class Spa</h3>
+                  <div className='relative w-full h-96 hover:opacity-90'>
+                     <Image
+                        src='https://tiny.pl/0dgsq16n'
+                        alt='Spa'
+                        className='object-cover rounded-lg'
+                        fill
+                     />
+                  </div>
+                  <h3 className='text-xl font-semibold pt-4'>
+                     World-Class Spa
+                  </h3>
                   <p className='text-gray-600'>
                      Indulge in luxurious treatments that rejuvenate your body
                      and mind.
                   </p>
                </div>
                <div className='flex flex-col items-center justify-center text-center'>
-                  <Image
-                     src='https://tiny.pl/hh5_n4x8'
-                     alt='Dining'
-                     className='object-cover rounded-lg mb-4'
-                     width={300}
-                     height={200}
-                     style={{ aspectRatio: '3/2' }}
-                  />
-                  <h3 className='text-xl font-semibold'>Fine Dining</h3>
+                  <div className='relative w-full h-96 hover:opacity-90'>
+                     <Image
+                        src='https://tiny.pl/hh5_n4x8'
+                        alt='Dining'
+                        className='object-cover rounded-lg'
+                        fill
+                     />
+                  </div>
+                  <h3 className='text-xl font-semibold pt-4'>Fine Dining</h3>
                   <p className='text-gray-600'>
                      Savor gourmet dishes crafted by our award-winning chefs.
                   </p>
                </div>
                <div className='flex flex-col items-center justify-center text-center'>
-                  <Image
-                     src='https://tiny.pl/20s6m2tp'
-                     alt='Pool'
-                     className='object-cover rounded-lg mb-4'
-                     width={300}
-                     height={200}
-                     style={{ aspectRatio: '3/2' }}
-                  />
-                  <h3 className='text-xl font-semibold'>Infinity Pool</h3>
+                  <div className='relative w-full h-96 hover:opacity-90'>
+                     <Image
+                        src='https://tiny.pl/20s6m2tp'
+                        alt='Pool'
+                        className='object-cover rounded-lg'
+                        fill
+                     />
+                  </div>
+                  <h3 className='text-xl font-semibold pt-4'>Infinity Pool</h3>
                   <p className='text-gray-600'>
                      Relax by our stunning infinity pool with breathtaking ocean
                      views.
