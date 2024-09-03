@@ -3,13 +3,13 @@ import Link from 'next/link';
 
 export default function Home() {
    return (
-      <div className='bg-gray-100 p-8 mx-auto max-w-7xl'>
+      <div className='bg-gray-100 md:p-8 mx-auto max-w-7xl'>
          <section className='bg-cover bg-center h-96 text-white flex items-center justify-center rounded-lg bg-[url("https://tiny.pl/b58hyw-z")]'>
             <div className='bg-black/50 p-10 rounded-lg'>
-               <h1 className='text-5xl font-bold mb-4'>
+               <h1 className='text-3xl md:text-5xl font-bold mb-4'>
                   Welcome to The Grand Horizon Hotel
                </h1>
-               <p className='text-xl mb-6'>
+               <p className='text-lg md:text-xl mb-6'>
                   Experience luxury and comfort like never before.
                </p>
                <Link
@@ -41,7 +41,7 @@ export default function Home() {
             </h2>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
                <div className='flex flex-col items-center justify-center text-center'>
-                  <div className='relative w-full h-96 hover:opacity-90'>
+                  <div className='relative w-96 h-96 hover:opacity-90'>
                      <Image
                         src='https://tiny.pl/0dgsq16n'
                         alt='Spa'
@@ -58,7 +58,7 @@ export default function Home() {
                   </p>
                </div>
                <div className='flex flex-col items-center justify-center text-center'>
-                  <div className='relative w-full h-96 hover:opacity-90'>
+                  <div className='relative w-96 h-96 hover:opacity-90'>
                      <Image
                         src='https://tiny.pl/hh5_n4x8'
                         alt='Dining'
@@ -72,7 +72,7 @@ export default function Home() {
                   </p>
                </div>
                <div className='flex flex-col items-center justify-center text-center'>
-                  <div className='relative w-full h-96 hover:opacity-90'>
+                  <div className='relative w-96 h-96 hover:opacity-90'>
                      <Image
                         src='https://tiny.pl/20s6m2tp'
                         alt='Pool'
