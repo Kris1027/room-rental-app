@@ -44,4 +44,5 @@
 -  [ ] Edit, Delete and Add New Room in admin dashboard
 -  [ ] Messages managament in admin dashboard
 -  [ ] Settings managament in admin dashboard
+-  [ ] Validation (Zod)
 -  [ ] Build chart in the main page of admin dashboard

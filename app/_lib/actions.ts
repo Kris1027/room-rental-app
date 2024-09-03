@@ -2,7 +2,7 @@
 
 import { signIn, signOut } from '@/auth';
 import { revalidatePath } from 'next/cache';
-import { createUser } from './users-api';
+import { createUser, getUser } from './users-api';
 
 export async function signInAction() {
    await signIn('google', { redirectTo: '/account' });
@@ -16,7 +16,23 @@ export async function adminCreateUserAction(formData: FormData) {
    const full_name = formData.get('full_name') as string;
    const email = formData.get('email') as string;
 
-   await createUser({ full_name, email });
+   try {
+      if (email) {
+         const existingUser = await getUser(email);
 
-   revalidatePath('/admin-dashboard/users');
+         if (!existingUser && full_name) {
+            await createUser({ email, full_name });
+         } else {
+            console.error('User already exists or full name is missing.');
+            return false;
+         }
+      }
+
+      revalidatePath('/admin-dashboard/users');
+
+      return true;
+   } catch (error) {
+      console.error('Error creating user:', error);
+      return false;
+   }
 }
