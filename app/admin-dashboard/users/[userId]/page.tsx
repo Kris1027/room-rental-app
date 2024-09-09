@@ -5,12 +5,11 @@ import { CancelButton } from '@/app/admin-dashboard/users/cancel-button';
 import { GrUpdate } from 'react-icons/gr';
 
 export default async function UserUpdateForm(params: {
-   params: { userId: string };
+   params: { userId: number };
 }) {
-   const id = Number(params.params.userId);
+   const id = params.params.userId;
    const user = await getUserById(id);
 
-   console.log(user);
    return (
       <form
          action={adminUpdateUserAction}
@@ -28,8 +27,9 @@ export default async function UserUpdateForm(params: {
                   type='number'
                   name='id'
                   id='id'
-                  className='px-3 py-2 border rounded-md'
+                  className='px-3 py-2 border rounded-md bg-gray-100 outline-none'
                   defaultValue={user.id}
+                  readOnly
                />
             </div>
             <div className='flex flex-col'>
@@ -43,8 +43,8 @@ export default async function UserUpdateForm(params: {
                   type='text'
                   name='created_at'
                   id='created_at'
-                  className='px-3 py-2 border rounded-md'
-                  disabled
+                  className='px-3 py-2 border rounded-md bg-gray-100 outline-none'
+                  readOnly
                   defaultValue={user.created_at}
                />
             </div>

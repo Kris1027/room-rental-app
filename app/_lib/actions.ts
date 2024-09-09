@@ -1,9 +1,10 @@
 'use server';
 
 import { supabase } from '@/app/_lib/supabase';
+import { createUser, getUser } from '@/app/_lib/users-api';
 import { signIn, signOut } from '@/auth';
 import { revalidatePath } from 'next/cache';
-import { createUser, getUser } from '@/app/_lib/users-api';
+import { redirect } from 'next/navigation';
 
 export async function signInAction() {
    await signIn('google', { redirectTo: '/account' });
@@ -65,5 +66,6 @@ export async function adminUpdateUserAction(formData: FormData) {
 
    if (error) throw new Error('User could not be updated');
 
-   revalidatePath('/admin-dashboard/users');
+   revalidatePath('/admin-dashboard/users/' + id);
+   redirect('/admin-dashboard/users');
 }
