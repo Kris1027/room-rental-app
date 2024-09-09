@@ -1,7 +1,7 @@
 type ButtonProps = {
    onClick?: () => void;
    children: React.ReactNode;
-   variant?: 'primary' | 'secondary' | 'danger';
+   variant?: 'primary' | 'secondary' | 'danger' | 'positive';
    size?: 'small' | 'medium' | 'large';
    disabled?: boolean;
    fullWidth?: boolean;
@@ -27,6 +27,8 @@ export const Button: React.FC<ButtonProps> = ({
       secondary:
          'bg-gray-200 hover:bg-gray-300 text-gray-800 focus:ring-gray-500',
       danger: 'bg-red-600 hover:bg-red-700 text-white focus:ring-red-500',
+      positive:
+         'bg-green-600 hover:bg-green-700 text-white focus:ring-green-500',
    };
 
    const sizeStyles = {

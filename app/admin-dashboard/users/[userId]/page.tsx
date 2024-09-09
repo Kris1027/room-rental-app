@@ -1,6 +1,7 @@
 import { Button } from '@/app/_components/button';
 import { adminUpdateUserAction } from '@/app/_lib/actions';
 import { getUserById } from '@/app/_lib/users-api';
+import { CancelButton } from '@/app/admin-dashboard/users/cancel-button';
 
 export default async function UserUpdateForm(params: {
    params: { userId: string };
@@ -78,10 +79,10 @@ export default async function UserUpdateForm(params: {
             </div>
          </div>
          <div className='mt-4 flex justify-end space-x-2'>
-            <Button type='button' variant='secondary'>
-               Cancel
+            <CancelButton />
+            <Button type='submit' variant='positive'>
+               Update
             </Button>
-            <Button type='submit'>Update</Button>
          </div>
       </form>
    );

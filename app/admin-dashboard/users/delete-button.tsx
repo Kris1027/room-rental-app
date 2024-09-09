@@ -15,7 +15,7 @@ export function DeleteButton({ userId }: { userId: number }) {
    };
 
    return (
-      <Button onClick={handleDelete} disabled={isPending}>
+      <Button onClick={handleDelete} disabled={isPending} variant='danger'>
          <IoTrashBin />
          {isPending ? 'Deleting...' : 'Delete'}
       </Button>
