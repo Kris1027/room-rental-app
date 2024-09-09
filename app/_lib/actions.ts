@@ -45,3 +45,22 @@ export async function adminDeleteUserAction(userId: number) {
 
    revalidatePath('/admin-dashboard/users');
 }
+
+export async function adminUpdateUserAction(formData: FormData) {
+   const id = formData.get('id') as string;
+   const email = formData.get('email') as string;
+   const full_name = formData.get('full_name') as string;
+
+   const updatedFields = {
+      id: Number(id),
+      email,
+      full_name,
+   };
+
+   const { error } = await supabase
+      .from('users')
+      .update(updatedFields)
+      .eq('id', id);
+
+   if (error) throw new Error('User could not be updated');
+}

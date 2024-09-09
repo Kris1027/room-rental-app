@@ -21,6 +21,15 @@ export async function getUser(email: string) {
    return data;
 }
 
+export async function getUserById(id: number) {
+   const { data } = await supabase
+      .from('users')
+      .select('*')
+      .eq('id', id)
+      .single();
+   return data;
+}
+
 export async function createUser(newUser: {
    email: string;
    full_name: string;
@@ -35,20 +44,4 @@ export async function createUser(newUser: {
 
       return data;
    }
-}
-
-export async function updateUser(id: number, updatedFields: usersProps[]) {
-   const { data, error } = await supabase
-      .from('users')
-      .update(updatedFields)
-      .eq('id', id)
-      .select()
-      .single();
-
-   if (error) {
-      console.error(error);
-      throw new Error('User could not be updated');
-   }
-
-   return data;
 }

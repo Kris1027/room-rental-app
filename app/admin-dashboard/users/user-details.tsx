@@ -3,6 +3,8 @@ import { formatDateTime } from '@/app/_utils/format-date-time';
 import { TrueOrFalse } from '@/app/_utils/true-or-false';
 import { type usersProps } from '@/app/types/data-types';
 import { DeleteButton } from './delete-button';
+import Link from 'next/link';
+import { FaEdit } from 'react-icons/fa';
 
 export function UserDetails({ user }: { user: usersProps }) {
    return (
@@ -27,7 +29,15 @@ export function UserDetails({ user }: { user: usersProps }) {
                label: 'Actions',
                value: (
                   <span className='flex gap-1'>
-                     <Button size='small'>Edit</Button>
+                     <Button size='small'>
+                        <Link
+                           href={`/admin-dashboard/users/${user.id}`}
+                           className='flex items-center gap-1'
+                        >
+                           <FaEdit />
+                           <span>Edit</span>
+                        </Link>
+                     </Button>
                      <DeleteButton userId={user.id} />
                   </span>
                ),
