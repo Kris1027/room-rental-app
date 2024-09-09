@@ -41,7 +41,7 @@
 -  [x] Authentication (nextAuth)
 -  [x] Authorization
 -  [x] Edit, Delete and Add New User in admin dashboard
--  [ ] Edit, Delete and Add New Room in admin dashboard
+-  [x] Edit, Delete and Add New Room in admin dashboard
 -  [ ] Messages managament in admin dashboard
 -  [ ] Settings managament in admin dashboard
 -  [ ] Validation (Zod)

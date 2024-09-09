@@ -1,4 +1,5 @@
 import { Button } from '@/app/_components/button';
+import { adminUpdateRoomAction } from '@/app/_lib/actions';
 import { getRoom } from '@/app/_lib/rooms-api';
 import { CancelButton } from '@/app/admin-dashboard/rooms/cancel-button';
 import { type roomsProps } from '@/app/types/data-types';
@@ -11,7 +12,10 @@ export default async function RoomUpdateForm(params: {
    const room: roomsProps = await getRoom(id);
 
    return (
-      <form className='m-4 p-4 bg-gray-100 rounded-lg shadow'>
+      <form
+         action={adminUpdateRoomAction}
+         className='m-4 p-4 bg-gray-100 rounded-lg shadow'
+      >
          <div className='grid grid-cols-2 gap-4'>
             <div className='flex flex-col'>
                <label
