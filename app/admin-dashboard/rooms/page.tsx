@@ -18,9 +18,9 @@ export default async function AdminRooms() {
    const rooms = (await getRooms()) as roomsProps[];
 
    return (
-      <div className='shadow-md sm:rounded-lg'>
+      <div className='shadow-md sm:rounded-lg p-6'>
          <Button>Add New Room</Button>
-         <div className='overflow-x-auto'>
+         <div className='overflow-x-auto p-6'>
             <table className='w-full text-sm text-left text-gray-500'>
                <RoomsColumns />
                <RoomsList rooms={rooms} />

@@ -18,9 +18,9 @@ export default async function AdminUsers() {
    const users = (await getUsers()) as usersProps[];
 
    return (
-      <div className='shadow-md sm:rounded-lg'>
+      <div className='shadow-md sm:rounded-lg p-6'>
          <UserForm />
-         <div className='overflow-x-auto'>
+         <div className='overflow-x-auto p-6'>
             <table className='w-full text-sm text-left text-gray-500'>
                <UsersColumns />
                <UsersList users={users} />

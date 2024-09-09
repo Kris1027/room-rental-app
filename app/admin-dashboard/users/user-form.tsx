@@ -5,7 +5,7 @@ export function UserForm() {
    return (
       <form
          action={adminCreateUserAction}
-         className='max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg space-y-4'
+         className='max-w-lg mx-auto p-4 bg-white shadow-md rounded-lg space-y-4'
       >
          <div className='flex flex-col'>
             <label
