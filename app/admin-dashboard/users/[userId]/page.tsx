@@ -78,6 +78,23 @@ export default async function UserUpdateForm(params: {
                   defaultValue={user.full_name}
                />
             </div>
+            <div className='flex flex-col'>
+               <label
+                  htmlFor='admin'
+                  className='mb-1 text-sm font-medium text-gray-700'
+               >
+                  Admin
+               </label>
+               <select
+                  name='is_admin'
+                  id='is_admin'
+                  className='px-3 py-2 border rounded-md'
+                  defaultValue={user.is_admin}
+               >
+                  <option value='true'>Yes</option>
+                  <option value='false'>No</option>
+               </select>
+            </div>
          </div>
          <div className='mt-4 flex justify-end space-x-2'>
             <CancelButton />

@@ -50,11 +50,12 @@ export async function adminUpdateUserAction(formData: FormData) {
    const id = formData.get('id') as string;
    const email = formData.get('email') as string;
    const full_name = formData.get('full_name') as string;
+   const is_admin = formData.get('is_admin') as string;
 
    const updatedFields = {
-      id: Number(id),
       email,
       full_name,
+      is_admin,
    };
 
    const { error } = await supabase
