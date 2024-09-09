@@ -1,8 +1,12 @@
 import { Button } from '@/app/_components/button';
+import { adminCreateRoomAction } from '@/app/_lib/actions';
 
 export function RoomForm() {
    return (
-      <form className='max-w-lg mx-auto p-4 bg-white shadow-md rounded-lg space-y-4'>
+      <form
+         action={adminCreateRoomAction}
+         className='max-w-lg mx-auto p-4 bg-white shadow-md rounded-lg space-y-4'
+      >
          <div className='flex flex-col'>
             <label htmlFor='name' className='text-sm font-medium text-gray-700'>
                Image

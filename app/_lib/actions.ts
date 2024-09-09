@@ -1,5 +1,6 @@
 'use server';
 
+import { createRoom } from '@/app/_lib/rooms-api';
 import { supabase } from '@/app/_lib/supabase';
 import { createUser, getUser } from '@/app/_lib/users-api';
 import { signIn, signOut } from '@/auth';
@@ -68,4 +69,41 @@ export async function adminUpdateUserAction(formData: FormData) {
 
    revalidatePath('/admin-dashboard/users/' + id);
    redirect('/admin-dashboard/users');
+}
+
+export async function adminCreateRoomAction(formData: FormData) {
+   const image_url = formData.get('image_url') as string;
+   const name = formData.get('name') as string;
+   const description = formData.get('description') as string;
+   const regular_price = formData.get('regular_price') as string;
+   const max_capacity = formData.get('max_capacity') as string;
+   const discount = formData.get('discount') as string;
+
+   try {
+      if (name) {
+         const existingRoom = await getUser(name);
+
+         if (!existingRoom && image_url) {
+            await createRoom({
+               image_url,
+               name,
+               description,
+               regular_price: Number(regular_price),
+               max_capacity: Number(max_capacity),
+               discount: Number(discount),
+            });
+         } else {
+            console.error('Room already exists or image url is missing.');
+            return false;
+         }
+      }
+
+      revalidatePath('/admin-dashboard/rooms');
+      revalidatePath('/rooms');
+
+      return true;
+   } catch (error) {
+      console.error('Error creating room:', error);
+      return false;
+   }
 }
