@@ -47,7 +47,7 @@ export function RoomDetails({ room }: { room: roomsProps }) {
                   <span className='flex gap-1'>
                      <Button size='small'>
                         <Link
-                           href={`/admin-dashboard/users/${room.id}`}
+                           href={`/admin-dashboard/rooms/${room.id}`}
                            className='flex items-center gap-1'
                         >
                            <FaEdit />
