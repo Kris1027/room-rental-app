@@ -56,7 +56,7 @@ export function RoomForm() {
                Regular price
             </label>
             <input
-               type='text'
+               type='number'
                name='regular_price'
                id='regular_price'
                placeholder='Regular price'
