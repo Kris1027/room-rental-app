@@ -1,5 +1,5 @@
 import { usersProps } from '@/app/types/data-types';
-import { UserDetails } from './user-details';
+import { UserDetails } from '@/app/admin-dashboard/users/user-details';
 
 export function UsersList({ users }: { users: usersProps[] }) {
    return (

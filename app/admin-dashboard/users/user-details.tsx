@@ -1,8 +1,8 @@
 import { Button } from '@/app/_components/button';
 import { formatDateTime } from '@/app/_utils/format-date-time';
 import { TrueOrFalse } from '@/app/_utils/true-or-false';
+import { DeleteButton } from '@/app/admin-dashboard/users/delete-button';
 import { type usersProps } from '@/app/types/data-types';
-import { DeleteButton } from './delete-button';
 import Link from 'next/link';
 import { FaEdit } from 'react-icons/fa';
 
