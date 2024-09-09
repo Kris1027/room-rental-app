@@ -1,5 +1,5 @@
-import { Button } from '@/app/_components/button';
 import { getRooms } from '@/app/_lib/rooms-api';
+import { RoomForm } from '@/app/admin-dashboard/rooms/room-form';
 import { RoomsColumns } from '@/app/admin-dashboard/rooms/rooms-columns';
 import { RoomsList } from '@/app/admin-dashboard/rooms/rooms-list';
 import { type roomsProps } from '@/app/types/data-types';
@@ -19,13 +19,13 @@ export default async function AdminRooms() {
 
    return (
       <div className='shadow-md sm:rounded-lg p-6'>
-         <Button>Add New Room</Button>
          <div className='overflow-x-auto p-6'>
             <table className='w-full text-sm text-left text-gray-500'>
                <RoomsColumns />
                <RoomsList rooms={rooms} />
             </table>
          </div>
+         <RoomForm />
       </div>
    );
 }
