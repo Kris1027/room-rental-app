@@ -63,4 +63,6 @@ export async function adminUpdateUserAction(formData: FormData) {
       .eq('id', id);
 
    if (error) throw new Error('User could not be updated');
+
+   revalidatePath('/admin-dashboard/users');
 }

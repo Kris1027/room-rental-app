@@ -2,6 +2,7 @@ import { Button } from '@/app/_components/button';
 import { adminUpdateUserAction } from '@/app/_lib/actions';
 import { getUserById } from '@/app/_lib/users-api';
 import { CancelButton } from '@/app/admin-dashboard/users/cancel-button';
+import { GrUpdate } from 'react-icons/gr';
 
 export default async function UserUpdateForm(params: {
    params: { userId: string };
@@ -81,6 +82,7 @@ export default async function UserUpdateForm(params: {
          <div className='mt-4 flex justify-end space-x-2'>
             <CancelButton />
             <Button type='submit' variant='positive'>
+               <GrUpdate />
                Update
             </Button>
          </div>
