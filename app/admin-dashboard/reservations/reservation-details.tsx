@@ -4,7 +4,7 @@ import { StatusStyle } from '@/app/_utils/status-style';
 import { TrueOrFalse } from '@/app/_utils/true-or-false';
 import { type reservationsProps } from '@/app/types/data-types';
 
-export function RoomDetails({
+export function ReservationDetails({
    reservation,
 }: {
    reservation: reservationsProps;
