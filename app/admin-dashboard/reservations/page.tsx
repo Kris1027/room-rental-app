@@ -4,6 +4,7 @@ import { ReservationsList } from '@/app/admin-dashboard/reservations/reservation
 import { type reservationsProps } from '@/app/types/data-types';
 import { auth } from '@/auth';
 import { redirect } from 'next/navigation';
+import { ReservationForm } from '@/app/admin-dashboard/reservations/reservation-form';
 
 export const revalidate = 0;
 
@@ -24,7 +25,7 @@ export default async function AdminReservations() {
                <ReservationsList reservations={reservations} />
             </table>
          </div>
-         {/* <ReservationForm /> */}
+         <ReservationForm />
       </div>
    );
 }
