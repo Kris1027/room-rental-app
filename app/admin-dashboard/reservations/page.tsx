@@ -1,10 +1,10 @@
 import { getReservations } from '@/app/_lib/reservations-api';
+import { ReservationForm } from '@/app/admin-dashboard/reservations/reservation-form';
 import { ReservationsColumns } from '@/app/admin-dashboard/reservations/reservations-columns';
 import { ReservationsList } from '@/app/admin-dashboard/reservations/reservations-list';
 import { type reservationsProps } from '@/app/types/data-types';
 import { auth } from '@/auth';
 import { redirect } from 'next/navigation';
-import { ReservationForm } from '@/app/admin-dashboard/reservations/reservation-form';
 
 export const revalidate = 0;
 

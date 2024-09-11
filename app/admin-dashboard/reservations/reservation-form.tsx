@@ -1,7 +1,13 @@
 import { Button } from '@/app/_components/button';
+import { getRooms } from '@/app/_lib/rooms-api';
+import { getUsers } from '@/app/_lib/users-api';
 import { ReservationDatePicker } from '@/app/admin-dashboard/reservations/reservation-datepicker';
+import { type roomsProps, type usersProps } from '@/app/types/data-types';
 
-export function ReservationForm() {
+export async function ReservationForm() {
+   const users = (await getUsers()) as usersProps[];
+   const rooms = (await getRooms()) as roomsProps[];
+
    return (
       <form className='max-w-lg mx-auto p-4 bg-white shadow-md rounded-lg space-y-4'>
          <div className='flex flex-col'>
@@ -11,14 +17,13 @@ export function ReservationForm() {
             >
                User ID
             </label>
-            <input
-               type='number'
-               name='user_id'
-               id='user_id'
-               placeholder='User ID'
-               required
-               className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500'
-            />
+            <select className='w-full px-3 my-1 py-2 border border-neutral-300 rounded-md shadow-sm cursor-pointer'>
+               {users.map((user) => (
+                  <option key={user.id} value={user.id}>
+                     {user.id}: {user.full_name}
+                  </option>
+               ))}
+            </select>
          </div>
          <div className='flex flex-col'>
             <label
@@ -27,14 +32,13 @@ export function ReservationForm() {
             >
                Room ID
             </label>
-            <input
-               type='number'
-               name='room_id'
-               id='room_id'
-               placeholder='Room ID'
-               required
-               className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500'
-            />
+            <select className='w-full px-3 my-1 py-2 border border-neutral-300 rounded-md shadow-sm cursor-pointer'>
+               {rooms.map((room) => (
+                  <option key={room.id} value={room.id}>
+                     {room.id}: {room.name}
+                  </option>
+               ))}
+            </select>
          </div>
          <ReservationDatePicker />
          <div className='flex flex-col'>
@@ -93,9 +97,9 @@ export function ReservationForm() {
                Status
             </label>
             <select
+               className='w-full px-3 my-1 py-2 border border-neutral-300 rounded-md shadow-sm cursor-pointer'
                name='status'
                id='status'
-               className='px-3 py-2 border rounded-md'
             >
                <option value='true'>unconfirmed</option>
                <option value='false'>confirmed</option>
@@ -110,9 +114,9 @@ export function ReservationForm() {
                Paid
             </label>
             <select
+               className='w-full px-3 my-1 py-2 border border-neutral-300 rounded-md shadow-sm cursor-pointer'
                name='is_paid'
                id='is_paid'
-               className='px-3 py-2 border rounded-md'
             >
                <option value='true'>Yes</option>
                <option value='false'>No</option>
