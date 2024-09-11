@@ -120,6 +120,8 @@ export function ReservationForm({
                name='num_guests'
                id='num_guests'
                required
+               min={1}
+               defaultValue={1}
             />
          </div>
          {message && (
