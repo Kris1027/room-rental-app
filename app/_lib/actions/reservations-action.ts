@@ -8,12 +8,14 @@ export async function adminCreateReservationAction(formData: FormData) {
    const room_id = formData.get('room_id') as string;
    const start_date = formData.get('start_date') as string;
    const end_date = formData.get('end_date') as string;
+   const num_nights = formData.get('num_nights') as string;
 
    const newReservation = {
       user_id: Number(user_id),
       room_id: Number(room_id),
       start_date,
       end_date,
+      num_nights: Number(num_nights),
    };
 
    try {

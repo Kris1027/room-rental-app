@@ -25,7 +25,6 @@ export function ReservationForm({
       event.preventDefault();
       const formData = new FormData(event.currentTarget);
 
-      // Add start_date and end_date to formData
       formData.append('start_date', formatDateForDatabase(startDate));
       if (endDate) formData.append('end_date', formatDateForDatabase(endDate));
 
@@ -36,6 +35,15 @@ export function ReservationForm({
          setMessage('Failed to create reservation. Please try again.');
       }
    };
+
+   const numberOfNights =
+      startDate && endDate
+         ? Math.ceil(
+              (endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)
+           )
+         : 0;
+
+   console.log(numberOfNights);
 
    return (
       <form
@@ -85,6 +93,22 @@ export function ReservationForm({
             </select>
          </div>
          <ReservationDatePicker />
+         <div className='flex flex-col'>
+            <label
+               htmlFor='num_nights'
+               className='text-sm font-medium text-gray-700'
+            >
+               Number of Nights
+            </label>
+            <input
+               className='px-3 py-2 border rounded-md bg-gray-100 outline-none'
+               type='number'
+               name='num_nights'
+               id='num_nights'
+               value={numberOfNights}
+               readOnly
+            />
+         </div>
          {message && (
             <div
                className={
