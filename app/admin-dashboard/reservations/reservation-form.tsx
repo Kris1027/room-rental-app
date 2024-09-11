@@ -1,4 +1,5 @@
 import { Button } from '@/app/_components/button';
+import { ReservationDatePicker } from '@/app/admin-dashboard/reservations/reservation-datepicker';
 
 export function ReservationForm() {
    return (
@@ -35,38 +36,7 @@ export function ReservationForm() {
                className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500'
             />
          </div>
-         <div className='flex flex-col'>
-            <label
-               htmlFor='start_date'
-               className='text-sm font-medium text-gray-700'
-            >
-               Start date
-            </label>
-            <input
-               type='text'
-               name='start_date'
-               id='start_date'
-               placeholder='Start date'
-               required
-               className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500'
-            />
-         </div>
-         <div className='flex flex-col'>
-            <label
-               htmlFor='end_date'
-               className='text-sm font-medium text-gray-700'
-            >
-               End date
-            </label>
-            <input
-               type='text'
-               name='end_date'
-               id='end_date'
-               placeholder='End date'
-               required
-               className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500'
-            />
-         </div>{' '}
+         <ReservationDatePicker />
          <div className='flex flex-col'>
             <label
                htmlFor='num_nights'
