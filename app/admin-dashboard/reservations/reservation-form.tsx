@@ -5,7 +5,7 @@ import { adminCreateReservationAction } from '@/app/_lib/actions/reservations-ac
 import { ReservationDatePicker } from '@/app/admin-dashboard/reservations/reservation-datepicker';
 import { useReservation } from '@/app/contexts/reservation-date-context';
 import { type roomsProps, type usersProps } from '@/app/types/data-types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export function ReservationForm({
    users,
@@ -16,6 +16,8 @@ export function ReservationForm({
 }) {
    const { startDate, endDate } = useReservation();
    const [message, setMessage] = useState<string | null>(null);
+   const [selectedRoom, setSelectedRoom] = useState<roomsProps | null>(null);
+   const [totalPrice, setTotalPrice] = useState<number>(0);
 
    const formatDateForDatabase = (date: Date) => {
       return date.toISOString().slice(0, 19).replace('T', ' ') + '+00';
@@ -27,6 +29,7 @@ export function ReservationForm({
 
       formData.append('start_date', formatDateForDatabase(startDate));
       if (endDate) formData.append('end_date', formatDateForDatabase(endDate));
+      formData.append('total_price', totalPrice.toString());
 
       const result = await adminCreateReservationAction(formData);
       if (result) {
@@ -42,6 +45,22 @@ export function ReservationForm({
               (endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)
            )
          : 0;
+
+   const handleRoomChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+      const roomId = parseInt(event.target.value);
+      const room = rooms.find((r) => r.id === roomId) || null;
+      setSelectedRoom(room);
+   };
+
+   useEffect(() => {
+      if (selectedRoom && numberOfNights > 0) {
+         const pricePerNight =
+            selectedRoom.regular_price - selectedRoom.discount;
+         setTotalPrice(pricePerNight * numberOfNights);
+      } else {
+         setTotalPrice(0);
+      }
+   }, [selectedRoom, numberOfNights]);
 
    return (
       <form
@@ -81,6 +100,7 @@ export function ReservationForm({
                name='room_id'
                id='room_id'
                required
+               onChange={handleRoomChange}
             >
                <option value=''>Select a room</option>
                {rooms.map((room) => (
@@ -122,6 +142,22 @@ export function ReservationForm({
                required
                min={1}
                defaultValue={1}
+            />
+         </div>
+         <div className='flex flex-col'>
+            <label
+               htmlFor='total_price'
+               className='text-sm font-medium text-gray-700'
+            >
+               Total Price
+            </label>
+            <input
+               className='px-3 py-2 border rounded-md bg-gray-100 outline-none'
+               type='number'
+               name='total_price'
+               id='total_price'
+               value={totalPrice.toFixed(2)}
+               readOnly
             />
          </div>
          {message && (
