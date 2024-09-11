@@ -43,8 +43,6 @@ export function ReservationForm({
            )
          : 0;
 
-   console.log(numberOfNights);
-
    return (
       <form
          onSubmit={handleSubmit}
@@ -107,6 +105,21 @@ export function ReservationForm({
                id='num_nights'
                value={numberOfNights}
                readOnly
+            />
+         </div>
+         <div>
+            <label
+               htmlFor='num_guests'
+               className='text-sm font-medium text-gray-700'
+            >
+               Number of Guests
+            </label>
+            <input
+               className='w-full px-3 my-1 py-2 border border-neutral-300 rounded-md shadow-sm cursor-pointer'
+               type='number'
+               name='num_guests'
+               id='num_guests'
+               required
             />
          </div>
          {message && (
