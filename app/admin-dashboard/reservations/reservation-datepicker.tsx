@@ -1,16 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useReservation } from '@/app/contexts/reservation-date-context';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 export function ReservationDatePicker() {
-   const [startDate, setStartDate] = useState(new Date());
-   const [endDate, setEndDate] = useState<Date | null>(null);
-
-   useEffect(() => {
-      setEndDate(new Date(startDate.getTime() + 2 * 24 * 60 * 60 * 1000));
-   }, [startDate]);
+   const { startDate, endDate, setStartDate, setEndDate } = useReservation();
 
    const handleStartDateChange = (date: Date | null) => {
       if (date) {
