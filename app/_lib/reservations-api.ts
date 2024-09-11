@@ -12,3 +12,32 @@ export async function getReservations() {
 
    return reservations;
 }
+
+export async function createReservation(newReservation: {
+   user_id: number;
+   room_id: number;
+   start_date: string;
+   end_date: string;
+}) {
+   {
+      const { data, error } = await supabase
+         .from('reservations')
+         .insert([newReservation]);
+
+      if (error) {
+         console.error(error);
+         throw new Error('Reservation could not be created');
+      }
+
+      return data;
+   }
+}
+
+export async function getReservation(id: number) {
+   const { data } = await supabase
+      .from('reservations')
+      .select('*')
+      .eq('id', id)
+      .single();
+   return data;
+}

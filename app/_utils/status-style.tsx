@@ -1,5 +1,5 @@
 export const StatusStyle = (status: string) => {
-   switch (status.toLowerCase()) {
+   switch (status?.toLowerCase()) {
       case 'confirmed':
          return 'px-2 py-1 rounded text-xs font-medium bg-green-100 text-green-800';
       case 'unconfirmed':

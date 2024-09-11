@@ -34,8 +34,9 @@ export function ReservationDatePicker() {
                className='w-full px-3 my-1 py-2 border border-neutral-300 rounded-md shadow-sm cursor-pointer'
                selected={startDate}
                onChange={handleStartDateChange}
-               dateFormat='dd/MM/yyyy'
                minDate={new Date()}
+               name='start_date'
+               id='start_date'
             />
          </div>
          <div className='flex flex-col'>
@@ -49,8 +50,9 @@ export function ReservationDatePicker() {
                className='w-full px-3 my-1 py-2 border border-neutral-300 rounded-md shadow-sm cursor-pointer'
                selected={endDate}
                onChange={(date) => date && setEndDate(date)}
-               dateFormat='dd/MM/yyyy'
                minDate={getMinEndDate()}
+               name='end_date'
+               id='end_date'
             />
          </div>
       </>
