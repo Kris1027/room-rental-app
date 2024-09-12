@@ -43,7 +43,7 @@ export default async function UserDashboard() {
             </Link>
             <Link
                href='#'
-               className='flex items-center p-4 bg-purple-100 rounded-lg hover:bg-purple-200 transition-colors'
+               className='flex items-center p-4 bg-yellow-100 rounded-lg hover:bg-yellow-200 transition-colors'
             >
                <FiCreditCard className='mr-3 text-xl' />
                <span>Payments</span>
