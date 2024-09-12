@@ -9,14 +9,14 @@ const config: Config = {
    theme: {
       extend: {
          colors: {
-            primary: 'bg-blue-100',
-            secondary: 'bg-yellow-100',
-            danger: 'bg-red-100',
-            positive: 'bg-green-100',
-            primaryHover: 'hover:bg-blue-200',
-            secondaryHover: 'hover:bg-yellow-200',
-            dangerHover: 'hover:bg-red-200',
-            positiveHover: 'hover:bg-green-200',
+            primary: '#DBEAFE',
+            secondary: '#FEF3C7',
+            danger: '#FEE2E2',
+            positive: '#D1FAE5',
+            primaryHover: '#BFDBFE',
+            secondaryHover: '#FDE68A',
+            dangerHover: '#FECACA',
+            positiveHover: '#A7F3D0',
          },
       },
    },

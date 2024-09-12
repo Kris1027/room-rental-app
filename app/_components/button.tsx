@@ -23,10 +23,10 @@ export const Button: React.FC<ButtonProps> = ({
       'flex items-center p-4 text-black justify-center gap-1 rounded-lg transition-colors outline-none';
 
    const variantStyles = {
-      primary: 'bg-blue-100 hover:bg-blue-200',
-      secondary: 'bg-purple-100 hover:bg-purple-200',
-      danger: 'bg-red-100 hover:bg-red-200',
-      positive: 'bg-green-100 hover:bg-green-200',
+      primary: 'bg-primary hover:bg-primaryHover',
+      secondary: 'bg-secondary hover:bg-secondaryHover',
+      danger: 'bg-danger hover:bg-dangerHover',
+      positive: 'bg-positive hover:bg-positiveHover',
    };
 
    const sizeStyles = {
