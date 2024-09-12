@@ -27,6 +27,7 @@ export const Button: React.FC<ButtonProps> = ({
       secondary: 'bg-secondary hover:bg-secondaryHover',
       danger: 'bg-danger hover:bg-dangerHover',
       positive: 'bg-positive hover:bg-positiveHover',
+      purple: 'bg-purple hover:bg-purpleHover',
    };
 
    const sizeStyles = {
