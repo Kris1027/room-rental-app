@@ -1,8 +1,6 @@
-import React from 'react';
 import { auth } from '@/auth';
 import Image from 'next/image';
-import Link from 'next/link';
-import { FiSettings, FiCalendar, FiLogOut, FiCreditCard } from 'react-icons/fi';
+import { FiCalendar, FiCreditCard, FiLogOut, FiSettings } from 'react-icons/fi';
 import { Button } from '../_components/button';
 
 export default async function Account() {
