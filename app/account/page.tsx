@@ -3,14 +3,15 @@ import { auth } from '@/auth';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FiSettings, FiCalendar, FiLogOut, FiCreditCard } from 'react-icons/fi';
+import { Button } from '../_components/button';
 
-export default async function UserDashboard() {
+export default async function Account() {
    const session = await auth();
    const userImage = session?.user?.image as string;
    const userName = session?.user?.name as string;
 
    return (
-      <div className='max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg'>
+      <div className='bg-gray-100 md:p-8 mx-auto max-w-7xl w-full'>
          <div className='flex items-center mb-6'>
             <Image
                src={userImage}
@@ -27,34 +28,22 @@ export default async function UserDashboard() {
          </div>
 
          <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-            <Link
-               href='#'
-               className='flex items-center p-4 bg-blue-100 rounded-lg hover:bg-blue-200 transition-colors'
-            >
-               <FiSettings className='mr-3 text-xl' />
+            <Button size='large'>
+               <FiSettings size={24} />
                <span>Settings</span>
-            </Link>
-            <Link
-               href='#'
-               className='flex items-center p-4 bg-green-100 rounded-lg hover:bg-green-200 transition-colors'
-            >
-               <FiCalendar className='mr-3 text-xl' />
+            </Button>
+            <Button size='large' variant='secondary'>
+               <FiCalendar size={24} />
                <span>Reservations</span>
-            </Link>
-            <Link
-               href='#'
-               className='flex items-center p-4 bg-yellow-100 rounded-lg hover:bg-yellow-200 transition-colors'
-            >
-               <FiCreditCard className='mr-3 text-xl' />
+            </Button>
+            <Button size='large' variant='positive'>
+               <FiCreditCard size={24} />
                <span>Payments</span>
-            </Link>
-            <Link
-               href='#'
-               className='flex items-center p-4 bg-red-100 rounded-lg hover:bg-red-200 transition-colors'
-            >
-               <FiLogOut className='mr-3 text-xl' />
+            </Button>
+            <Button size='large' variant='danger'>
+               <FiLogOut size={24} />
                <span>Logout</span>
-            </Link>
+            </Button>
          </div>
       </div>
    );
