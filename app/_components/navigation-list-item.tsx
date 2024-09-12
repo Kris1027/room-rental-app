@@ -11,9 +11,9 @@ export function NavigationListItem({ item }: { item: NavLinks }) {
       <li>
          <Link
             href={item.path}
-            className={`hover:bg-gradient-to-r hover:from-blue-500 hover:to-teal-400 hover:bg-clip-text hover:text-transparent transition duration-300 ${
+            className={`hover:bg-gradient-to-r hover:from-primary hover:to-dangerHover hover:bg-clip-text hover:text-transparent transition duration-300 ${
                pathname === item.path
-                  ? 'bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent'
+                  ? 'bg-gradient-to-r from-primary to-dangerHover bg-clip-text text-transparent'
                   : ''
             }`}
          >
