@@ -13,7 +13,7 @@ const config: Config = {
             secondary: '#FEF3C7',
             danger: '#FEE2E2',
             positive: '#D1FAE5',
-            purple: '#E9D5FF',
+            purple: '#F3E8FF',
             primaryHover: '#BFDBFE',
             secondaryHover: '#FDE68A',
             dangerHover: '#FECACA',

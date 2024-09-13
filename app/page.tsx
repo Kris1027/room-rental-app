@@ -14,7 +14,7 @@ export default function Home() {
                </p>
                <Link
                   href='/rooms'
-                  className='bg-white text-black py-2 px-4 rounded-full font-semibold hover:bg-gray-200 transition'
+                  className='bg-primary text-black py-2 px-4 rounded-full font-semibold hover:bg-primaryHover transition'
                >
                   Explore Our Rooms
                </Link>
@@ -126,7 +126,7 @@ export default function Home() {
             </p>
             <Link
                href='/rooms'
-               className='bg-blue-600 text-white py-3 px-8 rounded-full font-semibold hover:bg-blue-500 transition'
+               className='bg-blue-600 text-white py-3 px-8 rounded-full font-semibold hover:bg-blue-500 transition-colors'
             >
                Book Now
             </Link>
