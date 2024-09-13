@@ -1,7 +1,8 @@
 'use server';
 
+import { createReservation } from '@/app/_lib/reservations-api';
+import { supabase } from '@/app/_lib/supabase';
 import { revalidatePath } from 'next/cache';
-import { createReservation } from '../reservations-api';
 
 export async function adminCreateReservationAction(formData: FormData) {
    const user_id = formData.get('user_id') as string;
@@ -36,4 +37,15 @@ export async function adminCreateReservationAction(formData: FormData) {
       console.error('Error creating reservation:', error);
       return false;
    }
+}
+
+export async function adminDeleteReservationAction(reservationId: number) {
+   const { error } = await supabase
+      .from('reservations')
+      .delete()
+      .eq('id', reservationId);
+
+   if (error) throw new Error('Reservation could not be deleted');
+
+   revalidatePath('/admin-dashboard/reservations');
 }
