@@ -2,6 +2,7 @@ import { Button } from '@/app/_components/button';
 import { formatDateTime } from '@/app/_utils/format-date-time';
 import { StatusStyle } from '@/app/_utils/status-style';
 import { TrueOrFalse } from '@/app/_utils/true-or-false';
+import { DeleteButton } from '@/app/admin-dashboard/reservations/delete-button';
 import { type reservationsProps } from '@/app/types/data-types';
 
 export function ReservationDetails({
@@ -60,7 +61,7 @@ export function ReservationDetails({
                value: (
                   <span className='flex gap-1'>
                      <Button size='small'>Edit</Button>
-                     <Button size='small'>Delete</Button>
+                     <DeleteButton reservationId={reservation.id} />
                   </span>
                ),
             },
