@@ -4,6 +4,8 @@ import { StatusStyle } from '@/app/_utils/status-style';
 import { TrueOrFalse } from '@/app/_utils/true-or-false';
 import { DeleteButton } from '@/app/admin-dashboard/reservations/delete-button';
 import { type reservationsProps } from '@/app/types/data-types';
+import Link from 'next/link';
+import { FaEdit } from 'react-icons/fa';
 
 export function ReservationDetails({
    reservation,
@@ -60,7 +62,15 @@ export function ReservationDetails({
                label: 'Actions',
                value: (
                   <span className='flex gap-1'>
-                     <Button size='small'>Edit</Button>
+                     <Button size='small'>
+                        <Link
+                           href={`/admin-dashboard/reservations/${reservation.id}`}
+                           className='flex items-center gap-1'
+                        >
+                           <FaEdit />
+                           <span>Edit</span>
+                        </Link>
+                     </Button>
                      <DeleteButton reservationId={reservation.id} />
                   </span>
                ),
