@@ -25,10 +25,13 @@ export default async function AdminMessages() {
                      className='bg-white shadow-md rounded-lg overflow-hidden'
                   >
                      <div className='p-4'>
-                        <h2 className='text-lg font-semibold text-gray-700 mb-2'>
+                        <h2 className='text-lg font-semibold text-gray-700'>
                            User ID: {message.user_id}
                         </h2>
-                        <p className='text-gray-600 mb-4'>{message.message}</p>
+                        <span className='text-sm text-gray-500'>
+                           {message.user_email}
+                        </span>
+                        <p className='text-gray-600 my-4'>{message.message}</p>
                         <div className='flex justify-end'>
                            <DeleteButton messageId={message.id} />
                         </div>
