@@ -1,8 +1,9 @@
+import { Button } from '@/app/_components/button';
+import { signOutAction } from '@/app/_lib/actions';
 import { auth } from '@/auth';
 import Image from 'next/image';
-import { FiCalendar, FiCreditCard, FiLogOut, FiSettings } from 'react-icons/fi';
-import { Button } from '../_components/button';
 import Link from 'next/link';
+import { FiCalendar, FiCreditCard, FiLogOut, FiSettings } from 'react-icons/fi';
 
 export default async function Account() {
    const session = await auth();
@@ -42,10 +43,12 @@ export default async function Account() {
                <FiCreditCard size={24} />
                <span>Payments</span>
             </Button>
-            <Button size='large' variant='danger'>
-               <FiLogOut size={24} />
-               <span>Logout</span>
-            </Button>
+            <form action={signOutAction}>
+               <Button size='large' variant='danger' type='submit' fullWidth>
+                  <FiLogOut size={24} />
+                  <span>Logout</span>
+               </Button>
+            </form>
          </div>
       </div>
    );
