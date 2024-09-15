@@ -14,6 +14,7 @@ import {
 export default async function UserReservations() {
    const session = await auth();
    const userId = session?.user?.userId;
+   const userEmail = session?.user?.email;
 
    const reservations = (await getReservationsByUserId(
       Number(userId)
@@ -83,7 +84,7 @@ export default async function UserReservations() {
                </div>
             ))}
          </div>
-         <UserMessage user={Number(userId)} />
+         <UserMessage userId={Number(userId)} userEmail={String(userEmail)} />
       </div>
    );
 }

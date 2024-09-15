@@ -44,9 +44,9 @@
 -  [x] Edit, Delete and Add New Room in admin dashboard
 -  [x] Edit, Delete and Add New Reservations in admin dashboard
 -  [x] Create Reservations by users
+-  [x] Messages managament in admin dashboard and user panel
 -  [ ] User account panel
 -  [ ] UI for created reservation and reservation management for users
--  [ ] Messages managament in admin dashboard
 -  [ ] Settings managament in admin dashboard
 -  [ ] Validation (Zod)
 -  [ ] Uploading file-image of rooms and converting into urls

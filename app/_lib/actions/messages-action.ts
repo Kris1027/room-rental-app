@@ -5,13 +5,14 @@ import { supabase } from '@/app/_lib/supabase';
 import { revalidatePath } from 'next/cache';
 
 export async function sendMessageAction(formData: FormData) {
-   console.log(formData);
    const user_id = formData.get('user_id') as string;
    const message = formData.get('message') as string;
+   const user_email = formData.get('user_email') as string;
 
    const newMessage = {
       user_id: Number(user_id),
       message,
+      user_email,
    };
 
    try {

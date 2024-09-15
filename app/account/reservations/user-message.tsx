@@ -2,7 +2,13 @@ import React from 'react';
 import { Button } from '@/app/_components/button';
 import { sendMessageAction } from '@/app/_lib/actions/messages-action';
 
-export function UserMessage({ user }: { user: number | undefined }) {
+export function UserMessage({
+   userId,
+   userEmail,
+}: {
+   userId: number | undefined;
+   userEmail: string | undefined;
+}) {
    const handleSubmit = async (formData: FormData) => {
       'use server';
       await sendMessageAction(formData);
@@ -18,7 +24,15 @@ export function UserMessage({ user }: { user: number | undefined }) {
                type='number'
                id='user_id'
                name='user_id'
-               value={user}
+               value={userId}
+               hidden
+               readOnly
+            />
+            <input
+               type='email'
+               id='user_email'
+               name='user_email'
+               value={userEmail}
                hidden
                readOnly
             />

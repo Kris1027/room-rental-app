@@ -3,6 +3,7 @@ import { supabase } from '@/app/_lib/supabase';
 export async function createMessage(newMessage: {
    user_id: number;
    message: string;
+   user_email: string;
 }) {
    const { data, error } = await supabase.from('messages').insert([newMessage]);
 
