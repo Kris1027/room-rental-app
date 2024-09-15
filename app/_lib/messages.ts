@@ -13,3 +13,16 @@ export async function createMessage(newMessage: {
 
    return data;
 }
+
+export async function getMessages() {
+   const { data: messages, error } = await supabase
+      .from('messages')
+      .select('*');
+
+   if (error) {
+      console.error('Error fetching messages:', error);
+      return null;
+   }
+
+   return messages;
+}
