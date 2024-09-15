@@ -1,6 +1,5 @@
-import React from 'react';
-import { FaTrash } from 'react-icons/fa';
 import { getMessages } from '@/app/_lib/messages';
+import { DeleteButton } from '@/app/admin-dashboard/messages/delete-button';
 import { auth } from '@/auth';
 import { redirect } from 'next/navigation';
 
@@ -31,10 +30,7 @@ export default async function AdminMessages() {
                         </h2>
                         <p className='text-gray-600 mb-4'>{message.message}</p>
                         <div className='flex justify-end'>
-                           <button className='bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded flex items-center'>
-                              <FaTrash className='mr-2' />
-                              Delete
-                           </button>
+                           <DeleteButton messageId={message.id} />
                         </div>
                      </div>
                   </div>

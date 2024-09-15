@@ -1,7 +1,8 @@
 'use server';
 
-import { revalidatePath } from 'next/cache';
 import { createMessage } from '@/app/_lib/messages';
+import { supabase } from '@/app/_lib/supabase';
+import { revalidatePath } from 'next/cache';
 
 export async function sendMessageAction(formData: FormData) {
    console.log(formData);
@@ -27,4 +28,15 @@ export async function sendMessageAction(formData: FormData) {
       console.error('Error creating message:', error);
       return false;
    }
+}
+
+export async function deleteMessageAction(messageId: number) {
+   const { error } = await supabase
+      .from('messages')
+      .delete()
+      .eq('id', messageId);
+
+   if (error) throw new Error('Message could not be deleted');
+
+   revalidatePath('/admin-dashboard/messages');
 }
