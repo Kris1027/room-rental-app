@@ -1,16 +1,23 @@
+import React from 'react';
 import { Button } from '@/app/_components/button';
+import { sendMessageAction } from '@/app/_lib/actions/messages-action';
 
-export async function UserMessage({ user }: { user: number | undefined }) {
+export function UserMessage({ user }: { user: number | undefined }) {
+   const handleSubmit = async (formData: FormData) => {
+      'use server';
+      await sendMessageAction(formData);
+   };
+
    return (
-      <div>
+      <div className='max-w-md mx-auto'>
          <h1 className='text-3xl font-bold my-6 text-gray-800'>
             Feel free to contact us with any questions
          </h1>
-         <form action=''>
+         <form action={handleSubmit}>
             <input
                type='number'
                id='user_id'
-               name='user_id '
+               name='user_id'
                value={user}
                hidden
                readOnly
@@ -18,11 +25,13 @@ export async function UserMessage({ user }: { user: number | undefined }) {
             <textarea
                name='message'
                id='message'
-               className='w-full p-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary'
+               className='w-full p-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary mb-4'
                placeholder='Enter your message here'
                required
             ></textarea>
-            <Button size='large'>Send</Button>
+            <Button type='submit' fullWidth>
+               Send
+            </Button>
          </form>
       </div>
    );
