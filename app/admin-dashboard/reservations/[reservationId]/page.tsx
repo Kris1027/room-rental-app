@@ -1,4 +1,5 @@
 import { Button } from '@/app/_components/button';
+import { adminUpdateReservationAction } from '@/app/_lib/actions/reservations-action';
 import { getReservation } from '@/app/_lib/reservations-api';
 import { EditDatePicker } from '@/app/admin-dashboard/reservations/[reservationId]/edit-datepicker';
 import { CancelButton } from '@/app/admin-dashboard/reservations/cancel-button';
@@ -12,7 +13,10 @@ export default async function ReservationUpdateForm(params: {
    const reservation: reservationsProps = await getReservation(id);
 
    return (
-      <form className='m-4 p-4 bg-gray-100 rounded-lg shadow'>
+      <form
+         action={adminUpdateReservationAction}
+         className='m-4 p-4 bg-gray-100 rounded-lg shadow'
+      >
          <div className='grid grid-cols-2 gap-4'>
             <div className='flex flex-col'>
                <label
@@ -142,7 +146,7 @@ export default async function ReservationUpdateForm(params: {
                   className='px-3 py-2 border rounded-md outline-none'
                   defaultValue={reservation.status}
                >
-                  <option value='pending'>unconfirmed</option>
+                  <option value='unconfirmed'>unconfirmed</option>
                   <option value='confirmed'>confirmed</option>
                   <option value='canceled'>canceled</option>
                </select>
