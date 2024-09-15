@@ -41,3 +41,17 @@ export async function getReservation(id: number) {
       .single();
    return data;
 }
+
+export async function getReservationsByUserId(userId: number) {
+   const { data: reservations, error } = await supabase
+      .from('reservations')
+      .select('*')
+      .eq('user_id', userId);
+
+   if (error) {
+      console.error('Error fetching users:', error);
+      return null;
+   }
+
+   return reservations;
+}

@@ -2,6 +2,7 @@ import { auth } from '@/auth';
 import Image from 'next/image';
 import { FiCalendar, FiCreditCard, FiLogOut, FiSettings } from 'react-icons/fi';
 import { Button } from '../_components/button';
+import Link from 'next/link';
 
 export default async function Account() {
    const session = await auth();
@@ -30,10 +31,13 @@ export default async function Account() {
                <FiSettings size={24} />
                <span>Settings</span>
             </Button>
-            <Button size='large' variant='secondary'>
+            <Link
+               className='flex items-center text-black justify-center gap-1 rounded-lg transition-colors outline-none bg-secondary hover:bg-secondaryHover py-4 text-lg'
+               href='/account/reservations'
+            >
                <FiCalendar size={24} />
                <span>Reservations</span>
-            </Button>
+            </Link>
             <Button size='large' variant='positive'>
                <FiCreditCard size={24} />
                <span>Payments</span>
