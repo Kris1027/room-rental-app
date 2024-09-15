@@ -1,5 +1,6 @@
 import { getReservationsByUserId } from '@/app/_lib/reservations-api';
 import { formatDateTime } from '@/app/_utils/format-date-time';
+import { UserMessage } from '@/app/account/reservations/user-message';
 import { reservationsProps } from '@/app/types/data-types';
 import { auth } from '@/auth';
 import {
@@ -82,6 +83,7 @@ export default async function UserReservations() {
                </div>
             ))}
          </div>
+         <UserMessage user={Number(userId)} />
       </div>
    );
 }
