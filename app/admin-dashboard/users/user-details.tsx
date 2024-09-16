@@ -34,7 +34,7 @@ export function UserDetails({ user }: { user: usersProps }) {
                            href={`/admin-dashboard/users/${user.id}`}
                            className='flex items-center gap-1'
                         >
-                           <FaEdit />
+                           <FaEdit size={16} />
                            <span>Edit</span>
                         </Link>
                      </Button>

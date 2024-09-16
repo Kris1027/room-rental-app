@@ -1,7 +1,7 @@
 import { Button } from '@/app/_components/button';
 import { adminCreateUserAction } from '@/app/_lib/actions';
 
-export function UserForm() {
+export function UserForm({ onCancel }: { onCancel: () => void }) {
    return (
       <form
          action={adminCreateUserAction}
@@ -41,6 +41,9 @@ export function UserForm() {
          </div>
          <Button type='submit' fullWidth>
             Add New User
+         </Button>
+         <Button variant='danger' fullWidth onClick={onCancel}>
+            Cancel
          </Button>
       </form>
    );
