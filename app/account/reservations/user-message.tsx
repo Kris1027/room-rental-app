@@ -15,7 +15,7 @@ export function UserMessage({
    };
 
    return (
-      <div className='max-w-md mx-auto'>
+      <div className='w-full mx-auto text-center'>
          <h1 className='text-3xl font-bold my-6 text-gray-800'>
             Feel free to contact us with any questions
          </h1>
