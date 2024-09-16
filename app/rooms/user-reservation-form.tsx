@@ -18,7 +18,7 @@ export async function UserReservationForm({ room }: { room: roomsProps }) {
    return (
       <form
          action={userCreateReservationAction}
-         className='flex flex-col justify-center bg-gray-100 w-full gap-2 p-10'
+         className='flex flex-col justify-center bg-gradient-to-r from-primary to-secondary w-full gap-2 p-10 rounded-lg'
       >
          <input
             type='number'
