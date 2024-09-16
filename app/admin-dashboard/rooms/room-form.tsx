@@ -1,7 +1,7 @@
 import { Button } from '@/app/_components/button';
 import { adminCreateRoomAction } from '@/app/_lib/actions';
 
-export function RoomForm() {
+export function RoomForm({ onCancel }: { onCancel: () => void }) {
    return (
       <form
          action={adminCreateRoomAction}
@@ -92,6 +92,9 @@ export function RoomForm() {
          </div>
          <Button type='submit' fullWidth>
             Add New Room
+         </Button>
+         <Button variant='danger' fullWidth onClick={onCancel}>
+            Cancel
          </Button>
       </form>
    );
