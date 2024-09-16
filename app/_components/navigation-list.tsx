@@ -1,5 +1,4 @@
 import { AccountButton } from '@/app/_components/account-button';
-import { AdminButton } from '@/app/_components/admin-button';
 import { LoginLink } from '@/app/_components/login-link';
 import { NavigationListItem } from '@/app/_components/navigation-list-item';
 import { SignOutButton } from '@/app/_components/sign-out-button';
@@ -26,7 +25,6 @@ export async function NavigationList() {
                <NavigationListItem key={item.name} item={item} />
             ))}
             <AccountButton />
-            <AdminButton />
             {session?.user ? <SignOutButton /> : <LoginLink />}
          </ul>
       </nav>

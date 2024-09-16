@@ -4,6 +4,7 @@ import { auth } from '@/auth';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FiCalendar, FiCreditCard, FiLogOut, FiSettings } from 'react-icons/fi';
+import { RiAdminLine } from 'react-icons/ri';
 
 export default async function Account() {
    const session = await auth();
@@ -26,6 +27,18 @@ export default async function Account() {
                <p className='text-gray-600'>User Account Panel</p>
             </div>
          </div>
+
+         {session?.user.isAdmin && (
+            <div className='mb-6'>
+               <Link
+                  className='flex items-center text-black justify-center gap-1 rounded-lg transition-colors outline-none bg-purple hover:bg-purpleHover py-4 text-lg w-full'
+                  href='/admin-dashboard'
+               >
+                  <RiAdminLine size={24} />
+                  <span>Admin Dashboard</span>
+               </Link>
+            </div>
+         )}
 
          <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
             <Button size='large'>
