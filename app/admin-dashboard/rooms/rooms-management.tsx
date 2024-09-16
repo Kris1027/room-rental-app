@@ -6,7 +6,7 @@ import { RoomsColumns } from '@/app/admin-dashboard/rooms/rooms-columns';
 import { RoomsList } from '@/app/admin-dashboard/rooms/rooms-list';
 import { type roomsProps } from '@/app/types/data-types';
 import { useState } from 'react';
-import { FaUserPlus } from 'react-icons/fa';
+import { FaKey } from 'react-icons/fa';
 
 export function RoomsManagement({ rooms }: { rooms: roomsProps[] }) {
    const [showForm, setShowForm] = useState(false);
@@ -25,8 +25,8 @@ export function RoomsManagement({ rooms }: { rooms: roomsProps[] }) {
          </div>
          {!showForm && (
             <Button onClick={() => setShowForm(!showForm)}>
-               <FaUserPlus size={16} />
-               <span>Add New User</span>
+               <FaKey size={16} />
+               <span>Add New Room</span>
             </Button>
          )}
          {showForm && <RoomForm onCancel={handleCancel} />}
