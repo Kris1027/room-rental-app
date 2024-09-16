@@ -30,3 +30,11 @@ export type reservationsProps = {
    status: 'unconfirmed' | 'confirmed' | 'canceled';
    is_paid: 'Yes' | 'No';
 };
+
+export type messagesProps = {
+   id: number;
+   created_at: string;
+   user_id: number;
+   user_email: string;
+   message: string;
+};

@@ -1,5 +1,6 @@
 import { getMessages } from '@/app/_lib/messages';
 import { DeleteButton } from '@/app/admin-dashboard/messages/delete-button';
+import { messagesProps } from '@/app/types/data-types';
 import { auth } from '@/auth';
 import { redirect } from 'next/navigation';
 
@@ -10,10 +11,10 @@ export default async function AdminMessages() {
       redirect('/');
    }
 
-   const messages = await getMessages();
+   const messages = (await getMessages()) as messagesProps[];
 
    return (
-      <div className='container mx-auto p-6'>
+      <>
          <h1 className='text-3xl font-bold mb-6 text-gray-800'>
             User Messages
          </h1>
@@ -29,7 +30,9 @@ export default async function AdminMessages() {
                            User ID: {message.user_id}
                         </h2>
                         <span className='text-sm text-gray-500'>
-                           {message.user_email}
+                           <a href={`mailto:${message.user_email}`}>
+                              {message.user_email}
+                           </a>
                         </span>
                         <p className='text-gray-600 my-4'>{message.message}</p>
                         <div className='flex justify-end'>
@@ -39,6 +42,6 @@ export default async function AdminMessages() {
                   </div>
                ))}
          </div>
-      </div>
+      </>
    );
 }
