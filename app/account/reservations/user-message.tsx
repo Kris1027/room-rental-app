@@ -1,6 +1,6 @@
-import React from 'react';
 import { Button } from '@/app/_components/button';
 import { sendMessageAction } from '@/app/_lib/actions/messages-action';
+import { IoIosSend } from 'react-icons/io';
 
 export function UserMessage({
    userId,
@@ -44,7 +44,8 @@ export function UserMessage({
                required
             ></textarea>
             <Button type='submit' fullWidth>
-               Send
+               <IoIosSend />
+               <span>Send</span>
             </Button>
          </form>
       </div>

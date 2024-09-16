@@ -1,30 +1,8 @@
-'use client';
-
-import { useState } from 'react';
+import { Button } from '@/app/_components/button';
+import { sendMessageAction } from '@/app/_lib/actions/messages-action';
+import { IoIosSend } from 'react-icons/io';
 
 export default function Contact() {
-   const [formData, setFormData] = useState({
-      name: '',
-      email: '',
-      message: '',
-   });
-
-   const handleChange = (
-      e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-   ) => {
-      const { name, value } = e.target;
-      setFormData((prevState) => ({ ...prevState, [name]: value }));
-   };
-
-   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
-
-      console.log('Form submitted:', formData);
-
-      setFormData({ name: '', email: '', message: '' });
-      alert('Thank you for your message. We will get back to you soon!');
-   };
-
    return (
       <div className='container mx-auto px-4 py-8'>
          <h1 className='text-3xl font-bold mb-6'>Contact Us</h1>
@@ -37,19 +15,16 @@ export default function Contact() {
                   we will get in touch with you shortly.
                </p>
 
-               <form onSubmit={handleSubmit} className='space-y-4'>
+               <form action={sendMessageAction} className='space-y-4'>
                   <div>
-                     <label htmlFor='name' className='block mb-1'>
-                        Name
-                     </label>
                      <input
-                        type='text'
-                        id='name'
-                        name='name'
-                        value={formData.name}
-                        onChange={handleChange}
+                        type='number'
+                        id='user_id'
+                        name='user_id'
                         required
-                        className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+                        readOnly
+                        value={105}
+                        hidden
                      />
                   </div>
                   <div>
@@ -58,10 +33,9 @@ export default function Contact() {
                      </label>
                      <input
                         type='email'
-                        id='email'
-                        name='email'
-                        value={formData.email}
-                        onChange={handleChange}
+                        id='user_email'
+                        name='user_email'
+                        placeholder='Email'
                         required
                         className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
                      />
@@ -73,19 +47,16 @@ export default function Contact() {
                      <textarea
                         id='message'
                         name='message'
-                        value={formData.message}
-                        onChange={handleChange}
+                        placeholder='Message'
                         required
                         rows={4}
                         className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
                      ></textarea>
                   </div>
-                  <button
-                     type='submit'
-                     className='bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300'
-                  >
-                     Send Message
-                  </button>
+                  <Button type='submit' variant='positive'>
+                     <IoIosSend />
+                     <span>Send Message</span>
+                  </Button>
                </form>
             </div>
 
