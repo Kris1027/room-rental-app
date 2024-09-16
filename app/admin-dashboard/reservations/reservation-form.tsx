@@ -10,9 +10,11 @@ import { useState, useEffect } from 'react';
 export function ReservationForm({
    users,
    rooms,
+   onCancel,
 }: {
    users: usersProps[];
    rooms: roomsProps[];
+   onCancel: () => void;
 }) {
    const { startDate, endDate } = useReservation();
    const [message, setMessage] = useState<string | null>(null);
@@ -173,6 +175,9 @@ export function ReservationForm({
          )}
          <Button type='submit' fullWidth>
             Add New Reservation
+         </Button>
+         <Button variant='danger' fullWidth onClick={onCancel}>
+            Cancel
          </Button>
       </form>
    );

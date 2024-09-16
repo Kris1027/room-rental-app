@@ -11,6 +11,7 @@ import {
 } from '@/app/types/data-types';
 import { auth } from '@/auth';
 import { redirect } from 'next/navigation';
+import { ReservationsManagement } from '@/app/admin-dashboard/reservations/reservations-management';
 
 export const revalidate = 0;
 
@@ -26,15 +27,13 @@ export default async function AdminReservations() {
    const rooms = (await getRooms()) as roomsProps[];
 
    return (
-      <div className='shadow-md sm:rounded-lg p-6'>
+      <>
          <h1 className='text-3xl font-bold text-gray-800'>User Reservations</h1>
-         <div className='overflow-x-auto p-6'>
-            <table className='w-full text-sm text-left text-gray-500'>
-               <ReservationsColumns />
-               <ReservationsList reservations={reservations} />
-            </table>
-         </div>
-         <ReservationForm users={users} rooms={rooms} />
-      </div>
+         <ReservationsManagement
+            reservations={reservations}
+            users={users}
+            rooms={rooms}
+         />
+      </>
    );
 }
