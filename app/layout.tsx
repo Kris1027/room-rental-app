@@ -18,7 +18,7 @@ export default function RootLayout({
       <html lang='en' className='h-full'>
          <body className='flex flex-col min-h-screen'>
             <TopBar />
-            <main className='flex-grow flex overflow-hidden'>
+            <main className='flex-grow flex overflow-hidden bg-gradient-to-r from-primary to-secondary'>
                <ReservationProvider>{children}</ReservationProvider>
             </main>
             <Footer />
