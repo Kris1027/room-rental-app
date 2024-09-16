@@ -120,14 +120,19 @@ export async function userCreateReservationAction(formData: FormData) {
    try {
       if (user_id && room_id && start_date && end_date) {
          await createReservation(newReservation);
+
+         revalidatePath('/admin-dashboard/reservations');
+         revalidatePath('/account/reservations');
+
+         redirect('/thanks');
       } else {
          console.error('Missing required fields');
          return false;
       }
-
-      revalidatePath('/admin-dashboard/reservations');
-      return true;
    } catch (error) {
+      if (error instanceof Error && error.message === 'NEXT_REDIRECT') {
+         throw error;
+      }
       console.error('Error creating reservation:', error);
       return false;
    }
