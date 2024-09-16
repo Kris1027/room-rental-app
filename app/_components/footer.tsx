@@ -19,7 +19,7 @@ export function Footer() {
    const pathname = usePathname();
 
    return (
-      <footer className='bg-black text-white p-6'>
+      <footer className='bg-gradient-to-r from-gray-700 to-gray-900 p-6 shadow-md text-gray-200'>
          <div className='container mx-auto flex flex-col md:flex-row justify-between items-center'>
             <div className='mb-4 md:mb-0'>
                <Logo />

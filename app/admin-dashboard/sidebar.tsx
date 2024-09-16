@@ -20,7 +20,7 @@ const navItems: NavItems[] = [
 export function Sidebar() {
    const pathname = usePathname();
    return (
-      <nav className='bg-black text-white p-6 w-64 flex-shrink-0 overflow-y-auto shadow-lg'>
+      <nav className='bg-gradient-to-r from-gray-700 to-gray-900 p-6 shadow-md text-gray-200'>
          <div className='flex flex-col'>
             <ul className='flex flex-col space-y-2'>
                {navItems.map((item) => (

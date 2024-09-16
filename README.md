@@ -46,7 +46,8 @@
 -  [x] Create Reservations by users
 -  [x] Messages managament in admin dashboard and user panel
 -  [x] UI for created reservation and reservation management for users
--  [ ] User account panel
+-  [x] User account panel
+-  [ ] User settings
 -  [ ] Settings managament in admin dashboard
 -  [ ] Validation (Zod)
 -  [ ] Uploading file-image of rooms and converting into urls

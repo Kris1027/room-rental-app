@@ -3,6 +3,12 @@ import { TopBar } from '@/app/_components/top-bar';
 import type { Metadata } from 'next';
 import './globals.css';
 import { ReservationProvider } from './contexts/reservation-date-context';
+import { Montserrat } from 'next/font/google';
+
+const montserrat = Montserrat({
+   weight: ['400', '700'],
+   subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
    title: 'Room Rental App',
@@ -16,7 +22,7 @@ export default function RootLayout({
 }>) {
    return (
       <html lang='en' className='h-full'>
-         <body className='flex flex-col min-h-screen'>
+         <body className={`${montserrat.className} flex flex-col min-h-screen`}>
             <TopBar />
             <main className='flex-grow flex overflow-hidden bg-gradient-to-r from-primary to-secondary'>
                <ReservationProvider>{children}</ReservationProvider>
