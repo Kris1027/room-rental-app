@@ -27,7 +27,7 @@ export default async function AdminDashboard() {
    let messages = await getMessages();
 
    return (
-      <div className='grid grid-cols-1 gap-2 p-2 text-black text-md sm:grid-cols-2 lg:grid-cols-3 lg:gap-4 lg:p-4 xl:grid-cols-5'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
          <Link
             href='/admin-dashboard/users'
             className='flex justify-between items-center p-4 rounded-xl hover:scale-105 duration-300 bg-primary hover:bg-primaryHover'
@@ -66,15 +66,6 @@ export default async function AdminDashboard() {
                {messages && messages.length} Message
                {messages?.length === 1 ? '' : 's'}
             </span>
-         </Link>
-         <Link
-            href='/admin-dashboard/settings'
-            className='flex justify-between items-center p-4 rounded-xl hover:scale-105 duration-300 bg-purple hover:bg-purpleHover'
-         >
-            <span>
-               <FiSettings size={48} />
-            </span>
-            <span>Settings</span>
          </Link>
       </div>
    );

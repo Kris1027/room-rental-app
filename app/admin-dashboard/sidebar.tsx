@@ -15,7 +15,6 @@ const navItems: NavItems[] = [
    { name: 'Rooms', path: '/admin-dashboard/rooms' },
    { name: 'Reservations', path: '/admin-dashboard/reservations' },
    { name: 'Messages', path: '/admin-dashboard/messages' },
-   { name: 'Settings', path: '/admin-dashboard/settings' },
 ];
 
 export function Sidebar() {
