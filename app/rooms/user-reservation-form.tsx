@@ -10,6 +10,11 @@ export async function UserReservationForm({ room }: { room: roomsProps }) {
 
    const total_price = room.regular_price - room.discount;
 
+   const guestOptions = Array.from(
+      { length: room.max_capacity },
+      (_, i) => i + 1
+   );
+
    return (
       <form
          action={userCreateReservationAction}
@@ -41,15 +46,18 @@ export async function UserReservationForm({ room }: { room: roomsProps }) {
             >
                Guests
             </label>
-            <input
-               type='number'
+            <select
                name='num_guests'
                id='num_guests'
-               required
                className='px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primaryHover'
                defaultValue={1}
-               max={room.max_capacity}
-            />
+            >
+               {guestOptions.map((num) => (
+                  <option key={num} value={num}>
+                     {num}
+                  </option>
+               ))}
+            </select>
          </div>
          <input
             type='number'
