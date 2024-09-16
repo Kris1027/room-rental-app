@@ -19,6 +19,7 @@ export default async function AdminRooms() {
 
    return (
       <div className='shadow-md sm:rounded-lg p-6'>
+         <h1 className='text-3xl font-bold text-gray-800'>Rooms</h1>
          <div className='overflow-x-auto p-6'>
             <table className='w-full text-sm text-left text-gray-500'>
                <RoomsColumns />

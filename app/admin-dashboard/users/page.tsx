@@ -19,13 +19,14 @@ export default async function AdminUsers() {
 
    return (
       <div className='shadow-md sm:rounded-lg p-6'>
-         <UserForm />
+         <h1 className='text-3xl font-bold text-gray-800'>Users</h1>
          <div className='overflow-x-auto p-6'>
             <table className='w-full text-sm text-left text-gray-500'>
                <UsersColumns />
                <UsersList users={users} />
             </table>
          </div>
+         <UserForm />
       </div>
    );
 }

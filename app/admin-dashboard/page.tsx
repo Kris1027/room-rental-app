@@ -1,3 +1,4 @@
+import { getMessages } from '@/app/_lib/messages';
 import { getReservations } from '@/app/_lib/reservations-api';
 import { getRooms } from '@/app/_lib/rooms-api';
 import { getUsers } from '@/app/_lib/users-api';
@@ -5,11 +6,11 @@ import { auth } from '@/auth';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import {
-   FiSettings,
    FiCalendar,
-   FiUser,
    FiKey,
    FiMessageCircle,
+   FiSettings,
+   FiUser,
 } from 'react-icons/fi';
 
 export default async function AdminDashboard() {
@@ -23,7 +24,7 @@ export default async function AdminDashboard() {
    const rooms = await getRooms();
    const reservations = await getReservations();
 
-   let messages = 11;
+   let messages = await getMessages();
 
    return (
       <div className='grid grid-cols-1 gap-2 p-2 text-black text-md sm:grid-cols-2 lg:grid-cols-3 lg:gap-4 lg:p-4 xl:grid-cols-5'>
@@ -62,8 +63,8 @@ export default async function AdminDashboard() {
                <FiMessageCircle size={48} />
             </span>
             <span>
-               {messages} Message
-               {messages === 1 ? '' : 's'}
+               {messages && messages.length} Message
+               {messages?.length === 1 ? '' : 's'}
             </span>
          </Link>
          <Link

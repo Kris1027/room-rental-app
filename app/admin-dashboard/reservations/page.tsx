@@ -27,6 +27,7 @@ export default async function AdminReservations() {
 
    return (
       <div className='shadow-md sm:rounded-lg p-6'>
+         <h1 className='text-3xl font-bold text-gray-800'>User Reservations</h1>
          <div className='overflow-x-auto p-6'>
             <table className='w-full text-sm text-left text-gray-500'>
                <ReservationsColumns />
