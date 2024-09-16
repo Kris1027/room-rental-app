@@ -1,5 +1,5 @@
-import { Room } from '@/app/_components/room';
-import { roomsProps } from '@/app/types/data-types';
+import { Room } from '@/app/rooms/room';
+import { type roomsProps } from '@/app/types/data-types';
 
 export function RoomsList({ rooms }: { rooms: roomsProps[] }) {
    {

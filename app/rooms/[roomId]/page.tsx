@@ -1,13 +1,13 @@
-import { Room } from '@/app/_components/room';
 import { getRoom } from '@/app/_lib/rooms-api';
+import { Room } from '@/app/rooms/room';
 import { auth } from '@/auth';
 
 export default async function DetailedRoom({
    params,
 }: {
-   params: { roomId: string };
+   params: { roomId: number };
 }) {
-   const room = await getRoom(Number(params.roomId));
+   const room = await getRoom(params.roomId);
 
    const session = await auth();
    console.log(session);

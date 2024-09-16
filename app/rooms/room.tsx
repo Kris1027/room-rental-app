@@ -1,4 +1,5 @@
-import { roomsProps } from '@/app/types/data-types';
+import { UserReservationForm } from '@/app/rooms/user-reservation-form';
+import { type roomsProps } from '@/app/types/data-types';
 import { auth } from '@/auth';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -32,14 +33,7 @@ export async function Room({ room }: { room: roomsProps }) {
                )}
             </div>
          </Link>
-         {session?.user && (
-            <Link
-               href={`/rooms/${room.id}/reservation`}
-               className='mt-4 flex items-center text-black justify-center gap-1 rounded-lg transition-colors outline-none bg-positive hover:bg-positiveHover py-2 text-base'
-            >
-               Book Now
-            </Link>
-         )}
+         {session?.user && room.id && <UserReservationForm room={room} />}
       </div>
    );
 }
