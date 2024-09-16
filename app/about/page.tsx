@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function About() {
    return (
-      <div className='bg-gray-100 p-1 md:p-8 mx-auto max-w-7xl'>
+      <div className='p-1 md:p-8 mx-auto max-w-7xl'>
          <section className='bg-white md:p-8 rounded-lg shadow-lg max-w-7xl mx-auto'>
             <h2 className='text-4xl font-bold text-gray-800 mb-6 text-center'>
                About The Grand Horizon Hotel

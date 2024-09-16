@@ -9,7 +9,7 @@ export default async function DetailedRoom({
    const room = await getRoom(params.roomId);
 
    return (
-      <div className='flex items-center justify-center bg-gray-100 w-full'>
+      <div className='flex items-center justify-center w-full'>
          <Room room={room} />
       </div>
    );

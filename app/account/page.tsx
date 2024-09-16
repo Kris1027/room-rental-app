@@ -11,7 +11,7 @@ export default async function Account() {
    const userName = session?.user?.name as string;
 
    return (
-      <div className='bg-gray-100 md:p-8 mx-auto max-w-7xl w-full'>
+      <div className='md:p-8 mx-auto max-w-7xl w-full'>
          <div className='flex items-center mb-6'>
             <Image
                src={userImage}

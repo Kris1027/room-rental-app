@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Home() {
    return (
-      <div className='bg-gray-100 md:p-8 mx-auto max-w-7xl'>
+      <div className='md:p-8 mx-auto max-w-7xl'>
          <section className='bg-cover bg-center h-96 text-white flex items-center justify-center rounded-lg bg-[url("https://tiny.pl/b58hyw-z")]'>
             <div className='bg-black/50 p-10 rounded-lg'>
                <h1 className='text-3xl md:text-5xl font-bold mb-4'>
@@ -126,7 +126,7 @@ export default function Home() {
             </p>
             <Link
                href='/rooms'
-               className='bg-blue-600 text-white py-3 px-8 rounded-full font-semibold hover:bg-blue-500 transition-colors'
+               className='bg-primary text-black py-3 px-8 rounded-full font-semibold hover:bg-primaryHover transition-colors'
             >
                Book Now
             </Link>
