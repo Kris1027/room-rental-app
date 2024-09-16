@@ -1,9 +1,7 @@
 import { getReservations } from '@/app/_lib/reservations-api';
 import { getRooms } from '@/app/_lib/rooms-api';
 import { getUsers } from '@/app/_lib/users-api';
-import { ReservationForm } from '@/app/admin-dashboard/reservations/reservation-form';
-import { ReservationsColumns } from '@/app/admin-dashboard/reservations/reservations-columns';
-import { ReservationsList } from '@/app/admin-dashboard/reservations/reservations-list';
+import { ReservationsManagement } from '@/app/admin-dashboard/reservations/reservations-management';
 import {
    type reservationsProps,
    type roomsProps,
@@ -11,7 +9,6 @@ import {
 } from '@/app/types/data-types';
 import { auth } from '@/auth';
 import { redirect } from 'next/navigation';
-import { ReservationsManagement } from '@/app/admin-dashboard/reservations/reservations-management';
 
 export const revalidate = 0;
 

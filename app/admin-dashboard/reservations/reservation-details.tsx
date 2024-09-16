@@ -4,7 +4,7 @@ import { StatusStyle } from '@/app/_utils/status-style';
 import { TrueOrFalse } from '@/app/_utils/true-or-false';
 import { DeleteButton } from '@/app/admin-dashboard/reservations/delete-button';
 import { type reservationsProps } from '@/app/types/data-types';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 import { FaEdit } from 'react-icons/fa';
 
 export function ReservationDetails({

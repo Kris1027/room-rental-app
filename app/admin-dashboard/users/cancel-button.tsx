@@ -1,5 +1,5 @@
 import { Button } from '@/app/_components/button';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 import { MdCancel } from 'react-icons/md';
 
 export function CancelButton() {

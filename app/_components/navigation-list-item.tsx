@@ -1,7 +1,7 @@
 'use client';
 
 import { type NavLinks } from '@/app/_components/navigation-list';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 import { usePathname } from 'next/navigation';
 
 export function NavigationListItem({ item }: { item: NavLinks }) {

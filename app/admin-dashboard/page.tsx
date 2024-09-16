@@ -3,15 +3,9 @@ import { getReservations } from '@/app/_lib/reservations-api';
 import { getRooms } from '@/app/_lib/rooms-api';
 import { getUsers } from '@/app/_lib/users-api';
 import { auth } from '@/auth';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 import { redirect } from 'next/navigation';
-import {
-   FiCalendar,
-   FiKey,
-   FiMessageCircle,
-   FiSettings,
-   FiUser,
-} from 'react-icons/fi';
+import { FiCalendar, FiKey, FiMessageCircle, FiUser } from 'react-icons/fi';
 
 export default async function AdminDashboard() {
    const session = await auth();

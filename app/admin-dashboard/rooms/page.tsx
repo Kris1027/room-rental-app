@@ -1,8 +1,8 @@
 import { getRooms } from '@/app/_lib/rooms-api';
+import { RoomsManagement } from '@/app/admin-dashboard/rooms/rooms-management';
 import { type roomsProps } from '@/app/types/data-types';
 import { auth } from '@/auth';
 import { redirect } from 'next/navigation';
-import { RoomsManagement } from './rooms-management';
 
 export const revalidate = 0;
 

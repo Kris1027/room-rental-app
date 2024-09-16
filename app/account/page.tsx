@@ -1,8 +1,8 @@
 import { Button } from '@/app/_components/button';
 import { signOutAction } from '@/app/_lib/actions';
 import { auth } from '@/auth';
+import { Link } from 'next-view-transitions';
 import Image from 'next/image';
-import Link from 'next/link';
 import { FiCalendar, FiCreditCard, FiLogOut, FiSettings } from 'react-icons/fi';
 import { RiAdminLine } from 'react-icons/ri';
 

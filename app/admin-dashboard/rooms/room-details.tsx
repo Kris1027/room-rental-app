@@ -3,8 +3,8 @@ import { Expander } from '@/app/_utils/expander';
 import { formatDateTime } from '@/app/_utils/format-date-time';
 import { DeleteButton } from '@/app/admin-dashboard/rooms/delete-button';
 import { type roomsProps } from '@/app/types/data-types';
+import { Link } from 'next-view-transitions';
 import Image from 'next/image';
-import Link from 'next/link';
 import { FaEdit } from 'react-icons/fa';
 
 export function RoomDetails({ room }: { room: roomsProps }) {

@@ -3,7 +3,7 @@ import { formatDateTime } from '@/app/_utils/format-date-time';
 import { TrueOrFalse } from '@/app/_utils/true-or-false';
 import { DeleteButton } from '@/app/admin-dashboard/users/delete-button';
 import { type usersProps } from '@/app/types/data-types';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 import { FaEdit } from 'react-icons/fa';
 
 export function UserDetails({ user }: { user: usersProps }) {

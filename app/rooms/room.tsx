@@ -1,8 +1,8 @@
 import { UserReservationForm } from '@/app/rooms/user-reservation-form';
 import { type roomsProps } from '@/app/types/data-types';
 import { auth } from '@/auth';
+import { Link } from 'next-view-transitions';
 import Image from 'next/image';
-import Link from 'next/link';
 
 export async function Room({ room }: { room: roomsProps }) {
    const session = await auth();

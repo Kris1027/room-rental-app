@@ -1,7 +1,7 @@
 'use client';
 
 import Logo from '@/app/_components/logo';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 import { usePathname } from 'next/navigation';
 
 type FooterLink = {

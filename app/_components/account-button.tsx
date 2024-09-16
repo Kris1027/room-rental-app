@@ -1,6 +1,6 @@
 import { auth } from '@/auth';
 import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 
 export async function AccountButton() {
    const session = await auth();
