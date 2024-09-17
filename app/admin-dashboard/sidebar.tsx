@@ -20,14 +20,14 @@ const navItems: NavItems[] = [
 export function Sidebar() {
    const pathname = usePathname();
    return (
-      <nav className='bg-gradient-to-r from-gray-700 to-gray-900 p-6 shadow-md text-gray-200'>
+      <nav className='p-6'>
          <div className='flex flex-col'>
             <ul className='flex flex-col space-y-2'>
                {navItems.map((item) => (
                   <li key={item.name}>
                      <Link
                         href={item.path}
-                        className={`block py-2 px-4 rounded hover:bg-gray-700 transition duration-300 ${
+                        className={`block py-2 px-4 rounded transition duration-300 ${
                            pathname === item.path
                               ? 'bg-gradient-to-r from-primary to-dangerHover text-black'
                               : ''
