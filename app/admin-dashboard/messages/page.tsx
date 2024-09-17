@@ -1,8 +1,13 @@
 import { getMessages } from '@/app/_lib/messages';
 import { DeleteButton } from '@/app/admin-dashboard/messages/delete-button';
-import { messagesProps } from '@/app/types/data-types';
+import type { messagesProps } from '@/app/types/data-types';
 import { auth } from '@/auth';
+import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
+
+export const metadata: Metadata = {
+   title: 'Admin Messages',
+};
 
 export default async function AdminMessages() {
    const session = await auth();

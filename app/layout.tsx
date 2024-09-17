@@ -12,8 +12,13 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-   title: 'Room Rental App',
-   description: 'Room Rental App created by kris1027',
+   title: {
+      template: '%s | The Grand Horizon Hotel',
+      default: 'The Grand Horizon Hotel',
+   },
+   keywords: 'rooms, rental, grand, hotel, horizon, booking',
+   description:
+      'The Grand Horizon Hotel is a 5-star hotel located in the heart of the city. We offer a range of rooms and suites for guests to enjoy their stay.',
 };
 
 export default function RootLayout({

@@ -2,10 +2,20 @@ import { getMessages } from '@/app/_lib/messages';
 import { getReservations } from '@/app/_lib/reservations-api';
 import { getRooms } from '@/app/_lib/rooms-api';
 import { getUsers } from '@/app/_lib/users-api';
+import type {
+   reservationsProps,
+   roomsProps,
+   usersProps,
+} from '@/app/types/data-types';
 import { auth } from '@/auth';
+import type { Metadata } from 'next';
 import { Link } from 'next-view-transitions';
 import { redirect } from 'next/navigation';
 import { FiCalendar, FiKey, FiMessageCircle, FiUser } from 'react-icons/fi';
+
+export const metadata: Metadata = {
+   title: 'Admin Dashboard',
+};
 
 export default async function AdminDashboard() {
    const session = await auth();
@@ -14,9 +24,9 @@ export default async function AdminDashboard() {
       redirect('/');
    }
 
-   const users = await getUsers();
-   const rooms = await getRooms();
-   const reservations = await getReservations();
+   const users = (await getUsers()) as usersProps[];
+   const rooms = (await getRooms()) as roomsProps[];
+   const reservations = (await getReservations()) as reservationsProps[];
 
    let messages = await getMessages();
 

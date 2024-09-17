@@ -3,6 +3,7 @@ import { formatDateTime } from '@/app/_utils/format-date-time';
 import { UserMessage } from '@/app/account/reservations/user-message';
 import { reservationsProps } from '@/app/types/data-types';
 import { auth } from '@/auth';
+import type { Metadata } from 'next';
 import {
    FaCalendarAlt,
    FaDollarSign,
@@ -10,6 +11,10 @@ import {
    FaMoon,
    FaUsers,
 } from 'react-icons/fa';
+
+export const metadata: Metadata = {
+   title: 'Reservations',
+};
 
 export default async function UserReservations() {
    const session = await auth();

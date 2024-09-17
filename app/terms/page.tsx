@@ -1,3 +1,9 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+   title: 'Terms of Service',
+};
+
 export default function Terms() {
    return (
       <div className='container mx-auto px-4 py-8'>

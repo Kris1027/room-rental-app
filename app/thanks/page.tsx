@@ -1,5 +1,10 @@
+import type { Metadata } from 'next';
 import { Link } from 'next-view-transitions';
 import { FaRegSmileBeam } from 'react-icons/fa';
+
+export const metadata: Metadata = {
+   title: 'Thank You',
+};
 
 export default function Thanks() {
    return (

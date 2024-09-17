@@ -21,6 +21,7 @@
 -  Tailwind CSS
 -  Supabase
 -  NextAuth
+-  Next-View-Transitions
 
 ## List to do:
 

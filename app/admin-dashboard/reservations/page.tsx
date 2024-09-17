@@ -2,15 +2,18 @@ import { getReservations } from '@/app/_lib/reservations-api';
 import { getRooms } from '@/app/_lib/rooms-api';
 import { getUsers } from '@/app/_lib/users-api';
 import { ReservationsManagement } from '@/app/admin-dashboard/reservations/reservations-management';
-import {
-   type reservationsProps,
-   type roomsProps,
-   type usersProps,
+import type {
+   reservationsProps,
+   roomsProps,
+   usersProps,
 } from '@/app/types/data-types';
 import { auth } from '@/auth';
+import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 
-export const revalidate = 0;
+export const metadata: Metadata = {
+   title: 'Admin Reservations',
+};
 
 export default async function AdminReservations() {
    const session = await auth();

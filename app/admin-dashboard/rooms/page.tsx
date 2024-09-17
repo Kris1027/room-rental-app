@@ -1,10 +1,13 @@
 import { getRooms } from '@/app/_lib/rooms-api';
 import { RoomsManagement } from '@/app/admin-dashboard/rooms/rooms-management';
-import { type roomsProps } from '@/app/types/data-types';
+import type { roomsProps } from '@/app/types/data-types';
 import { auth } from '@/auth';
+import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 
-export const revalidate = 0;
+export const metadata: Metadata = {
+   title: 'Admin Rooms',
+};
 
 export default async function AdminRooms() {
    const session = await auth();

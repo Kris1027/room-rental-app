@@ -1,6 +1,11 @@
 import { Button } from '@/app/_components/button';
 import { sendMessageAction } from '@/app/_lib/actions/messages-action';
+import { Metadata } from 'next';
 import { IoIosSend } from 'react-icons/io';
+
+export const metadata: Metadata = {
+   title: 'Contact',
+};
 
 export default function Contact() {
    return (
