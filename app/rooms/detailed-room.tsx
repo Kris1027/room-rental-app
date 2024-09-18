@@ -2,7 +2,12 @@ import { UserReservationForm } from '@/app/rooms/user-reservation-form';
 import type { roomsProps } from '@/app/types/data-types';
 import { auth } from '@/auth';
 import Image from 'next/image';
-import { FaDollarSign, FaTag, FaUserFriends } from 'react-icons/fa';
+import {
+   FaDollarSign,
+   FaTag,
+   FaUserFriends,
+   FaHouseUser,
+} from 'react-icons/fa';
 
 export async function DetailedRoom({ room }: { room: roomsProps }) {
    const session = await auth();
@@ -33,12 +38,12 @@ export async function DetailedRoom({ room }: { room: roomsProps }) {
 
                <div className='grid grid-cols-1 gap-2 md:gap-4'>
                   <div className='flex items-center text-gray-800 font-bold text-lg'>
-                     <FaDollarSign className='mr-2 text-green-600' />
+                     <FaDollarSign size={24} className='mr-2 text-green-600' />
                      <span>Price: ${room.regular_price}</span>
                   </div>
 
                   <div className='flex items-center text-gray-800'>
-                     <FaUserFriends className='mr-2 text-blue-500' />
+                     <FaUserFriends size={24} className='mr-2 text-blue-500' />
                      <span>
                         Max Capacity: <strong>{room.max_capacity}</strong>{' '}
                         people
@@ -47,7 +52,7 @@ export async function DetailedRoom({ room }: { room: roomsProps }) {
 
                   {room.discount > 0 && (
                      <div className='flex items-center text-green-600 font-semibold'>
-                        <FaTag className='mr-2' />
+                        <FaTag size={24} className='mr-2' />
                         <span>Discount: ${room.discount}</span>
                      </div>
                   )}
