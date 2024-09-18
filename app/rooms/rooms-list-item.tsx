@@ -1,12 +1,13 @@
 import type { roomsProps } from '@/app/types/data-types';
 import { Link } from 'next-view-transitions';
 import Image from 'next/image';
+import { FaDollarSign, FaUserFriends, FaTag } from 'react-icons/fa';
 
 export function RoomsListItem({ room }: { room: roomsProps }) {
    return (
       <Link
          href={`/rooms/${room.id}`}
-         className='bg-white border rounded-lg overflow-hidden shadow-md flex flex-col'
+         className='bg-white border rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105 duration-300 flex flex-col'
       >
          <div className='relative w-full pt-[60%]'>
             <Image
@@ -14,24 +15,37 @@ export function RoomsListItem({ room }: { room: roomsProps }) {
                alt={room.name}
                fill
                sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'
-               className='object-cover'
+               className='object-cover rounded-t-lg'
             />
          </div>
-         <div className='p-4 flex-grow flex flex-col justify-between'>
-            <h2 className='text-xl font-semibold mb-2'>{room.name}</h2>
-            <div className='space-y-2'>
-               <div className='flex justify-between items-center'>
-                  <span className='text-gray-600'>Price:</span>
-                  <span className='font-bold'>{room.regular_price} $</span>
+         <div className='p-5 flex-grow flex flex-col justify-between'>
+            <h2 className='text-xl font-bold text-gray-800 mb-3'>
+               {room.name}
+            </h2>
+            <div className='space-y-3'>
+               <div className='flex justify-between items-center text-gray-800 font-medium'>
+                  <div className='flex items-center'>
+                     <FaDollarSign className='mr-2 text-green-600' />
+                     <span>Price:</span>
+                  </div>
+                  <span className='font-bold text-gray-900'>
+                     {room.regular_price} $
+                  </span>
                </div>
                {room.discount > 0 && (
-                  <div className='flex justify-between items-center text-green-600'>
-                     <span>Discount:</span>
-                     <span className='font-bold'>{room.discount}$</span>
+                  <div className='flex justify-between items-center text-green-600 font-semibold'>
+                     <div className='flex items-center'>
+                        <FaTag className='mr-2' />
+                        <span>Discount:</span>
+                     </div>
+                     <span>{room.discount}$</span>
                   </div>
                )}
-               <div className='flex justify-between items-center'>
-                  <span className='text-gray-600'>Max Capacity:</span>
+               <div className='flex justify-between items-center text-gray-800 font-medium'>
+                  <div className='flex items-center'>
+                     <FaUserFriends className='mr-2 text-blue-500' />
+                     <span>Max Capacity:</span>
+                  </div>
                   <span>{room.max_capacity}</span>
                </div>
             </div>
