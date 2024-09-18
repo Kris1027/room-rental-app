@@ -25,29 +25,29 @@ export function RoomsListItem({ room }: { room: roomsProps }) {
             <div className='space-y-3'>
                <div className='flex justify-between items-center text-gray-800 font-medium'>
                   <div className='flex items-center'>
-                     <FaDollarSign className='mr-2 text-green-600' />
+                     <FaDollarSign size={24} className='mr-2 text-green-600' />
                      <span>Price:</span>
                   </div>
                   <span className='font-bold text-gray-900'>
                      {room.regular_price} $
                   </span>
                </div>
+               <div className='flex justify-between items-center text-gray-800 font-medium'>
+                  <div className='flex items-center'>
+                     <FaUserFriends size={24} className='mr-2 text-blue-500' />
+                     <span>Max Capacity:</span>
+                  </div>
+                  <span>{room.max_capacity}</span>
+               </div>
                {room.discount > 0 && (
                   <div className='flex justify-between items-center text-green-600 font-semibold'>
                      <div className='flex items-center'>
-                        <FaTag className='mr-2' />
+                        <FaTag size={24} className='mr-2' />
                         <span>Discount:</span>
                      </div>
                      <span>{room.discount}$</span>
                   </div>
                )}
-               <div className='flex justify-between items-center text-gray-800 font-medium'>
-                  <div className='flex items-center'>
-                     <FaUserFriends className='mr-2 text-blue-500' />
-                     <span>Max Capacity:</span>
-                  </div>
-                  <span>{room.max_capacity}</span>
-               </div>
             </div>
          </div>
       </Link>
