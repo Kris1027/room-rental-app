@@ -1,3 +1,4 @@
+import React from 'react';
 import { getReservationsByUserId } from '@/app/_lib/reservations-api';
 import { formatDateTime } from '@/app/_utils/format-date-time';
 import { UserMessage } from '@/app/account/reservations/user-message';
@@ -10,6 +11,9 @@ import {
    FaExclamationCircle,
    FaMoon,
    FaUsers,
+   FaClock,
+   FaCheckCircle,
+   FaTimesCircle,
 } from 'react-icons/fa';
 
 export const metadata: Metadata = {
@@ -26,70 +30,94 @@ export default async function UserReservations() {
    )) as reservationsProps[];
 
    return (
-      <div className='container mx-auto px-4 py-8'>
-         <h2 className='text-3xl font-bold mb-6 text-gray-800'>
+      <div className='container mx-auto px-4 py-12 '>
+         <h2 className='text-4xl font-bold mb-8 text-gray-800 text-center'>
             Your Reservations
          </h2>
-         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {reservations.map((reservation) => (
                <div
                   key={reservation.id}
-                  className='bg-white rounded-lg shadow-md overflow-hidden'
+                  className='bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105'
                >
-                  <div className='bg-gradient-to-r from-primaryHover to-dangerHover text-black px-4 py-2'>
-                     <h2 className='text-xl font-semibold'>
+                  <div className='bg-gradient-to-r from-secondary to-primary text-black px-6 py-4'>
+                     <h2 className='text-2xl font-semibold'>
                         Reservation #{reservation.id}
                      </h2>
-                  </div>
-                  <div className='p-4'>
-                     <p className='text-sm text-gray-600 mb-2'>
+                     <p className='text-sm opacity-80'>
                         Created on {formatDateTime(reservation.created_at)}
                      </p>
-                     <div className='flex items-center mb-2'>
-                        <FaCalendarAlt className='w-5 h-5 mr-2 text-primaryHover' />
-                        <p>
+                  </div>
+                  <div className='p-6 space-y-4'>
+                     <div className='flex items-center'>
+                        <FaCalendarAlt className='w-5 h-5 mr-3 text-blue-500' />
+                        <p className='text-gray-700'>
                            {formatDateTime(reservation.start_date)} -{' '}
                            {formatDateTime(reservation.end_date)}
                         </p>
                      </div>
-                     <div className='flex items-center mb-2'>
-                        <FaMoon className='w-5 h-5 mr-2 text-primaryHover' />
-                        <p>
+                     <div className='flex items-center'>
+                        <FaMoon className='w-5 h-5 mr-3 text-blue-500' />
+                        <p className='text-gray-700'>
                            {reservation.num_nights} night
                            {reservation.num_nights > 1 ? 's' : ''}
                         </p>
                      </div>
-                     <div className='flex items-center mb-2'>
-                        <FaUsers className='w-5 h-5 mr-2 text-primaryHover' />
-                        <p>
+                     <div className='flex items-center'>
+                        <FaUsers className='w-5 h-5 mr-3 text-blue-500' />
+                        <p className='text-gray-700'>
                            {reservation.num_guests} guest
                            {reservation.num_guests > 1 ? 's' : ''}
                         </p>
                      </div>
-                     <div className='flex items-center mb-2'>
-                        <FaDollarSign className='w-5 h-5 mr-2 text-primaryHover' />
-                        <p>Total: ${reservation.total_price.toFixed(2)}</p>
+                     <div className='flex items-center'>
+                        <FaDollarSign className='w-5 h-5 mr-3 text-blue-500' />
+                        <p className='text-gray-700'>
+                           Total: ${reservation.total_price.toFixed(2)}
+                        </p>
                      </div>
                      <div className='flex items-center'>
-                        <FaExclamationCircle className='w-5 h-5 mr-2 text-primaryHover' />
-                        <p>Status: {reservation.status}</p>
+                        <FaExclamationCircle className='w-5 h-5 mr-3 text-blue-500' />
+                        <p className='text-gray-700'>
+                           Status: {reservation.status}
+                        </p>
                      </div>
                   </div>
-                  <div className='bg-gradient-to-r from-primaryHover to-dangerHover px-4 py-3 mt-4'>
-                     <p
-                        className={`text-sm font-semibold ${
-                           reservation.is_paid
-                              ? 'text-green-600'
-                              : 'text-red-600'
-                        }`}
-                     >
-                        {reservation.is_paid ? 'Paid' : 'Not Paid'}
-                     </p>
+                  <div className='bg-gray-100 px-6 py-4 flex justify-between items-center'>
+                     <div className='flex items-center'>
+                        <FaClock className='w-5 h-5 mr-2 text-gray-600' />
+                        <p className='text-sm text-gray-600'>
+                           {reservation.status === 'confirmed'
+                              ? 'Confirmed'
+                              : 'Pending'}
+                        </p>
+                     </div>
+                     <div className='flex items-center'>
+                        {reservation.is_paid ? (
+                           <FaCheckCircle className='w-5 h-5 mr-2 text-green-500' />
+                        ) : (
+                           <FaTimesCircle className='w-5 h-5 mr-2 text-red-500' />
+                        )}
+                        <p
+                           className={`text-sm font-semibold ${
+                              reservation.is_paid
+                                 ? 'text-green-500'
+                                 : 'text-red-500'
+                           }`}
+                        >
+                           {reservation.is_paid ? 'Paid' : 'Not Paid'}
+                        </p>
+                     </div>
                   </div>
                </div>
             ))}
          </div>
-         <UserMessage userId={Number(userId)} userEmail={String(userEmail)} />
+         <div className='mt-12'>
+            <UserMessage
+               userId={Number(userId)}
+               userEmail={String(userEmail)}
+            />
+         </div>
       </div>
    );
 }
