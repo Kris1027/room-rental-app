@@ -52,5 +52,6 @@
 -  [ ] Validation (Zod)
 -  [ ] Uploading file-image of rooms and converting into urls
 -  [ ] Build chart in the main page of admin dashboard
+-  [ ] Filters for rooms and tables in admin dashboard
 -  [ ] Responsive for multi devices
 -  [ ] Payments

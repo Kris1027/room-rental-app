@@ -29,7 +29,7 @@ export function ReservationsManagement({
 
    return (
       <>
-         <div className='overflow-x-auto p-4'>
+         <div className='p-4'>
             <table className='w-full text-sm text-left text-gray-500'>
                <ReservationsColumns />
                <ReservationsList reservations={reservations} />

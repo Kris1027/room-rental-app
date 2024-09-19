@@ -17,7 +17,7 @@ export function RoomsManagement({ rooms }: { rooms: roomsProps[] }) {
 
    return (
       <div>
-         <div className='overflow-x-auto p-6'>
+         <div className='p-6'>
             <table className='w-full text-sm text-left text-gray-500'>
                <RoomsColumns />
                <RoomsList rooms={rooms} />
