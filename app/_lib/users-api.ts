@@ -1,5 +1,4 @@
 import { supabase } from '@/app/_lib/supabase';
-import { usersProps } from '@/app/types/data-types';
 
 export async function getUsers() {
    const { data: users, error } = await supabase.from('users').select('*');

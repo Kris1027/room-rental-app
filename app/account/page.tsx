@@ -46,10 +46,13 @@ export default async function Account() {
          )}
 
          <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-            <Button size='large'>
+            <Link
+               className='flex items-center text-black justify-center gap-1 rounded-lg transition-colors outline-none bg-primary hover:bg-primaryHover py-4 text-lg'
+               href='/account/settings'
+            >
                <FiSettings size={24} />
                <span>Settings</span>
-            </Button>
+            </Link>
             <Link
                className='flex items-center text-black justify-center gap-1 rounded-lg transition-colors outline-none bg-secondary hover:bg-secondaryHover py-4 text-lg'
                href='/account/reservations'
