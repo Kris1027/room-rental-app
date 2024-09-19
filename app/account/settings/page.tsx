@@ -1,20 +1,25 @@
-import React from 'react';
-import { auth } from '@/auth';
-import { FiUser, FiMail, FiSave } from 'react-icons/fi';
 import { Button } from '@/app/_components/button';
+import { updateUserAction } from '@/app/_lib/actions/users-action';
+import { getUserById } from '@/app/_lib/users-api';
+import { usersProps } from '@/app/types/data-types';
+import { auth } from '@/auth';
+import { FiMail, FiSave, FiUser } from 'react-icons/fi';
 
 export default async function Settings() {
    const session = await auth();
-   const userId = session?.user.userId ?? '';
-   const userFullName = session?.user.name ?? '';
-   const userEmail = session?.user.email ?? '';
+   const userId = session?.user.userId;
+
+   const user = (await getUserById(Number(userId))) as usersProps;
+
+   const userFullName = user.full_name;
+   const userEmail = user.email;
 
    return (
       <div className='container mx-auto px-4 py-8'>
          <h2 className='text-3xl font-bold mb-6 text-gray-800 text-center'>
             Account Settings
          </h2>
-         <form className='space-y-6'>
+         <form action={updateUserAction} className='space-y-6'>
             <input
                type='text'
                name='id'
