@@ -11,6 +11,15 @@ export default async function Settings() {
 
    const user = (await getUserById(Number(userId))) as usersProps;
 
+   if (user.is_admin)
+      return (
+         <div className='container mx-auto px-4 py-8 flex flex-col'>
+            <h2 className='text-3xl font-bold mb-6 text-gray-800 text-center'>
+               You are admin, you can change your settings in admin panel
+            </h2>
+         </div>
+      );
+
    const userFullName = user.full_name;
    const userEmail = user.email;
 

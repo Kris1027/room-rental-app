@@ -6,6 +6,8 @@ import { Link } from 'next-view-transitions';
 import Image from 'next/image';
 import { FiCalendar, FiCreditCard, FiLogOut, FiSettings } from 'react-icons/fi';
 import { RiAdminLine } from 'react-icons/ri';
+import { getUserById } from '../_lib/users-api';
+import { usersProps } from '../types/data-types';
 
 export const metadata: Metadata = {
    title: 'Account',
@@ -13,8 +15,10 @@ export const metadata: Metadata = {
 
 export default async function Account() {
    const session = await auth();
+   const userId = session?.user.userId;
+   const user = (await getUserById(Number(userId))) as usersProps;
    const userImage = session?.user?.image as string;
-   const userName = session?.user?.name as string;
+   const userName = user?.full_name;
 
    return (
       <div className='md:p-8 mx-auto max-w-7xl w-full'>

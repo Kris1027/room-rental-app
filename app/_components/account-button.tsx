@@ -9,7 +9,7 @@ export async function AccountButton() {
    const userId = session?.user.userId;
    const user = (await getUserById(Number(userId))) as usersProps;
 
-   const userName = user.full_name;
+   const userName = user?.full_name;
    const userImage = session?.user?.image as string;
 
    return (
