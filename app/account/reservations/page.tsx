@@ -15,6 +15,7 @@ import {
    FaCheckCircle,
    FaTimesCircle,
 } from 'react-icons/fa';
+import { BackButton } from '@/app/_components/back-button';
 
 export const metadata: Metadata = {
    title: 'Reservations',
@@ -31,6 +32,7 @@ export default async function UserReservations() {
 
    return (
       <div className='container mx-auto px-4 py-12 '>
+         <BackButton />
          <h2 className='text-4xl font-bold mb-8 text-gray-800 text-center'>
             Your Reservations
          </h2>

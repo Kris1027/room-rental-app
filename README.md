@@ -48,7 +48,7 @@
 -  [x] Messages management in admin dashboard and user panel
 -  [x] UI for created reservation and reservation management for users
 -  [x] User account panel
--  [ ] User settings + back button in account pages
+-  [x] User settings + back button in account pages
 -  [ ] Validation (Zod)
 -  [ ] Uploading file-image of rooms and converting into urls
 -  [ ] Build chart in the main page of admin dashboard
