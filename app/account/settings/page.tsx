@@ -1,9 +1,12 @@
+import { BackButton } from '@/app/_components/back-button';
 import { Button } from '@/app/_components/button';
 import { updateUserAction } from '@/app/_lib/actions/users-action';
 import { getUserById } from '@/app/_lib/users-api';
 import { usersProps } from '@/app/types/data-types';
 import { auth } from '@/auth';
+import { Link } from 'next-view-transitions';
 import { FiMail, FiSave, FiUser } from 'react-icons/fi';
+import { RiAdminLine } from 'react-icons/ri';
 
 export default async function Settings() {
    const session = await auth();
@@ -13,10 +16,22 @@ export default async function Settings() {
 
    if (user.is_admin)
       return (
-         <div className='container mx-auto px-4 py-8 flex flex-col'>
+         <div className='container mx-auto px-4 py-8 flex flex-col justify-center items-center'>
             <h2 className='text-3xl font-bold mb-6 text-gray-800 text-center'>
                You are admin, you can change your settings in admin panel
             </h2>
+            <div className='flex gap-4 justify-center'>
+               <BackButton />
+               <Button size='medium' variant='positive'>
+                  <Link
+                     href='/admin-dashboard'
+                     className='flex items-center gap-1'
+                  >
+                     <RiAdminLine size={24} />
+                     <span>Admin Dashboard</span>
+                  </Link>
+               </Button>
+            </div>
          </div>
       );
 
