@@ -4,7 +4,7 @@ import { FaExclamationTriangle, FaHome } from 'react-icons/fa';
 
 export default function NotFound() {
    return (
-      <div className='flex flex-col items-center justify-center mx-auto'>
+      <div className='flex flex-col items-center justify-center flex-1 w-full max-w-7xl mx-auto p-4 md:p-8'>
          <FaExclamationTriangle size={128} className='text-yellow-400' />
          <h1 className='mt-2 text-4xl font-extrabold text-gray-900 tracking-tight sm:text-5xl'>
             Page not found
