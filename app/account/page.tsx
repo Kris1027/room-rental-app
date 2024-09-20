@@ -72,9 +72,7 @@ export default async function Account() {
                <FiCreditCard size={24} />
                <span>Payments</span>
             </Link>
-            <div className='flex items-center text-white font-semibold justify-center gap-1 rounded-lg transition-colors outline-none bg-red-500 hover:bg-red-600 py-4 text-lg'>
-               <SignOutButton />
-            </div>
+            <SignOutButton />
          </div>
       </main>
    );

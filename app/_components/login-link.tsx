@@ -4,7 +4,7 @@ import { FaUser } from 'react-icons/fa';
 export function LoginLink() {
    return (
       <Link
-         className='flex items-center space-x-1 font-semibold'
+         className='flex items-center px-3 py-2 rounded-md text-lg font-semibold transition duration-300 gap-1 justify-center text-amber-800 hover:bg-amber-500 hover:text-white'
          href={'/login'}
       >
          <FaUser size={24} />

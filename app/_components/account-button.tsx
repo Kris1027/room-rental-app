@@ -16,7 +16,7 @@ export async function AccountButton() {
       <>
          {session?.user && (
             <Link href={'/account'}>
-               <li className='flex items-center space-x-1'>
+               <li className='flex items-center px-3 py-2 rounded-md text-lg font-semibold transition duration-300 gap-1 justify-center text-amber-800 hover:bg-amber-500 hover:text-white'>
                   <Image
                      className='rounded-full'
                      src={userImage}
