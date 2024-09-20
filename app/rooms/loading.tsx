@@ -2,8 +2,8 @@ import { FaSpinner } from 'react-icons/fa';
 
 export default function Loading() {
    return (
-      <div className='flex flex-col items-center justify-center w-full'>
-         <h2 className='text-4xl font-serif text-amber-800'>
+      <main className='flex flex-col items-center justify-center flex-1 w-full max-w-7xl mx-auto p-1 md:p-4'>
+         <h2 className='text-4xl font-serif text-amber-800 mb-8 text-center'>
             Grand Horizon Hotel
          </h2>
          <div className='relative w-24 h-24 mb-8'>
@@ -16,6 +16,6 @@ export default function Loading() {
                <FaSpinner className='w-12 h-12 text-amber-700 animate-spin' />
             </div>
          </div>
-      </div>
+      </main>
    );
 }
