@@ -13,8 +13,11 @@ export function RoomsNotFound() {
          <p className='text-gray-500 mb-6'>
             Go to Admin panel and add some rooms
          </p>
-         <Button variant='positive'>
-            <Link href='/admin-dashboard/rooms' className='flex items-center gap-1'>
+         <Button variant='success'>
+            <Link
+               href='/admin-dashboard/rooms'
+               className='flex items-center gap-1'
+            >
                <FaPlus size={24} className='mr-2' />
                <span>Add Room</span>
             </Link>

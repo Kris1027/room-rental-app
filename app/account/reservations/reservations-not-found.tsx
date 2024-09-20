@@ -13,7 +13,7 @@ export function ReservationsNotFound() {
             You haven&apos;t made any reservations yet. Why not plan your next
             getaway?
          </p>
-         <Button variant='positive'>
+         <Button variant='success'>
             <Link href='/rooms' className='flex items-center gap-1'>
                <FaPlus size={24} className='mr-2' />
                <span>Make a Reservation</span>
