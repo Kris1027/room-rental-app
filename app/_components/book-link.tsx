@@ -1,3 +1,4 @@
+import { Button } from '@/app/_components/button';
 import { Link } from 'next-view-transitions';
 
 export function BookLink() {
@@ -10,12 +11,9 @@ export function BookLink() {
             Reserve your room today and start your journey to luxury and
             relaxation.
          </p>
-         <Link
-            href='/rooms'
-            className='bg-primary text-black py-3 px-8 rounded-full font-semibold hover:bg-primaryHover transition-colors'
-         >
-            Book Now
-         </Link>
+         <Button variant='danger' className='mx-auto'>
+            <Link href='/rooms'>Explore Our Rooms</Link>
+         </Button>
       </section>
    );
 }

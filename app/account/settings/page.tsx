@@ -22,7 +22,7 @@ export default async function Settings() {
             </h2>
             <div className='flex gap-4 justify-center'>
                <BackButton />
-               <Button size='medium' variant='positive'>
+               <Button size='medium' variant='success'>
                   <Link
                      href='/admin-dashboard'
                      className='flex items-center gap-1'

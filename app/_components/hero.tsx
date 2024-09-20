@@ -1,3 +1,4 @@
+import { Button } from '@/app/_components/button';
 import { Link } from 'next-view-transitions';
 
 export function Hero() {
@@ -10,12 +11,9 @@ export function Hero() {
             <p className='text-lg md:text-xl mb-6'>
                Experience luxury and comfort like never before.
             </p>
-            <Link
-               href='/rooms'
-               className='bg-primary text-black py-2 px-4 rounded-full font-semibold hover:bg-primaryHover transition'
-            >
-               Explore Our Rooms
-            </Link>
+            <Button variant='danger'>
+               <Link href='/rooms'>Explore Our Rooms</Link>
+            </Button>
          </div>
       </section>
    );
