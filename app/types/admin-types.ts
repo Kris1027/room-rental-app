@@ -12,3 +12,8 @@ export type AdminDashboardLinksProps = {
    icon: React.ReactNode;
    data: usersProps[] | roomsProps[] | reservationsProps[] | messagesProps[];
 };
+
+export type SidebarNavItems = {
+   name: string;
+   path: string;
+};
