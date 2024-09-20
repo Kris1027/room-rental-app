@@ -1,6 +1,6 @@
 'use client';
 
-import Logo from '@/app/_components/logo';
+import { Logo } from '@/app/_components/logo';
 import { Link } from 'next-view-transitions';
 import { usePathname } from 'next/navigation';
 

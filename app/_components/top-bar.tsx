@@ -1,4 +1,4 @@
-import Logo from '@/app/_components/logo';
+import { Logo } from '@/app/_components/logo';
 import { NavigationList } from '@/app/_components/navigation-list';
 
 export function TopBar() {
