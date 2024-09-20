@@ -1,36 +1,54 @@
 'use client';
 
 import { Logo } from '@/app/_components/logo';
+import type { FooterLinkProps } from '@/app/types/component-types';
 import { Link } from 'next-view-transitions';
 import { usePathname } from 'next/navigation';
+import {
+   FaEnvelope,
+   FaFileContract,
+   FaGithub,
+   FaLinkedin,
+   FaShieldAlt,
+} from 'react-icons/fa';
+import { TbWorldWww } from 'react-icons/tb';
 
-type FooterLink = {
-   name: string;
-   path: string;
-};
+const footerLinks: FooterLinkProps[] = [
+   { name: 'Terms of Service', path: '/terms', icon: FaFileContract },
+   { name: 'Privacy Policy', path: '/privacy', icon: FaShieldAlt },
+   { name: 'Contact', path: '/contact', icon: FaEnvelope },
+];
 
-const footerLinks: FooterLink[] = [
-   { name: 'Terms of Service', path: '/terms' },
-   { name: 'Privacy Policy', path: '/privacy' },
-   { name: 'Contact', path: '/contact' },
+const socialLinks = [
+   {
+      name: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/krzysztof-obarzanek/',
+      icon: FaLinkedin,
+   },
+   { name: 'GitHub', url: 'https://github.com/Kris1027', icon: FaGithub },
+   {
+      name: 'Twitter',
+      url: 'https://www.kris1027.pl/',
+      icon: TbWorldWww,
+   },
 ];
 
 export function Footer() {
    const pathname = usePathname();
-
    const currentYear = new Date().getFullYear();
 
    return (
-      <footer className='bg-gradient-to-r from-gray-700 to-gray-900 p-6 shadow-md text-gray-200'>
-         <div className='container mx-auto flex flex-col md:flex-row justify-between items-center'>
-            <div className='mb-4 md:mb-0'>
+      <footer className='bg-gradient-to-r from-amber-100 to-amber-200 p-6 shadow-md'>
+         <div className='container mx-auto flex flex-col space-y-8 lg:space-y-0 lg:flex-row lg:justify-between lg:items-start'>
+            <div className='flex flex-col items-center lg:items-start'>
                <Logo />
-               <p className='text-sm text-gray-400'>
-                  © {currentYear} All rights reserved. Designed & crafted with
+               <p className='text-sm text-amber-800 mt-2 text-center lg:text-left'>
+                  © {currentYear} All rights reserved.
+                  <br className='hidden sm:inline' /> Designed & crafted with
                   love by{' '}
                   <a
                      href='https://www.linkedin.com/in/krzysztof-obarzanek/'
-                     className='text-pink-500'
+                     className='text-amber-600 hover:text-amber-900 font-semibold transition duration-300'
                      rel='noopener noreferrer'
                      target='_blank'
                   >
@@ -38,23 +56,38 @@ export function Footer() {
                   </a>
                </p>
             </div>
-            <nav>
-               <ul className='flex flex-wrap justify-center space-x-4'>
+            <nav className='flex flex-col items-center lg:items-end'>
+               <ul className='flex flex-col sm:flex-row flex-wrap justify-center sm:space-x-4 space-y-2 sm:space-y-0'>
                   {footerLinks.map((link) => (
                      <li key={link.name}>
                         <Link
                            href={link.path}
-                           className={`hover:bg-gradient-to-r hover:from-blue-500 hover:to-teal-400 hover:bg-clip-text hover:text-transparent transition duration-300 text-2xl font-semibold ${
+                           className={`flex items-center px-3 py-2 rounded-md text-lg font-semibold transition duration-300 gap-1 justify-center ${
                               pathname === link.path
-                                 ? 'bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent'
-                                 : ''
+                                 ? 'bg-amber-600 text-white'
+                                 : 'text-amber-800 hover:bg-amber-500 hover:text-white'
                            }`}
                         >
+                           <link.icon />
                            {link.name}
                         </Link>
                      </li>
                   ))}
                </ul>
+               <div className='mt-4 flex space-x-4'>
+                  {socialLinks.map((link) => (
+                     <a
+                        key={link.name}
+                        href={link.url}
+                        className='text-amber-800 hover:text-amber-600 transition duration-300'
+                        rel='noopener noreferrer'
+                        target='_blank'
+                        aria-label={link.name}
+                     >
+                        <link.icon className='w-6 h-6' />
+                     </a>
+                  ))}
+               </div>
             </nav>
          </div>
       </footer>

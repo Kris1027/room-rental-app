@@ -11,3 +11,9 @@ export type BurgerMenuProps = {
 export type MobileMenuProps = {
    children: React.ReactNode;
 };
+
+export type FooterLinkProps = {
+   name: string;
+   path: string;
+   icon: React.ComponentType;
+};
