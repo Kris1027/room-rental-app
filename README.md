@@ -55,3 +55,4 @@
 -  [ ] Filters for rooms and tables in admin dashboard
 -  [ ] Responsive for multi devices
 -  [ ] Payments
+-  [ ] page for guest testimonials and display last in the home page
