@@ -18,13 +18,24 @@ const footerLinks: FooterLink[] = [
 export function Footer() {
    const pathname = usePathname();
 
+   const currentYear = new Date().getFullYear();
+
    return (
       <footer className='bg-gradient-to-r from-gray-700 to-gray-900 p-6 shadow-md text-gray-200'>
          <div className='container mx-auto flex flex-col md:flex-row justify-between items-center'>
             <div className='mb-4 md:mb-0'>
                <Logo />
                <p className='text-sm text-gray-400'>
-                  © 2024 All rights reserved
+                  © {currentYear} All rights reserved. Designed & crafted with
+                  love by{' '}
+                  <a
+                     href='https://www.linkedin.com/in/krzysztof-obarzanek/'
+                     className='text-pink-500'
+                     rel='noopener noreferrer'
+                     target='_blank'
+                  >
+                     kris1027
+                  </a>
                </p>
             </div>
             <nav>
