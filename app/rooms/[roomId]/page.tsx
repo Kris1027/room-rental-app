@@ -16,8 +16,8 @@ export default async function Room({ params }: { params: { roomId: number } }) {
    const room = await getRoom(params.roomId);
 
    return (
-      <div className='flex items-center justify-center w-full'>
+      <main className='flex-1 w-full max-w-7xl mx-auto p-1 md:p-4'>
          <DetailedRoom room={room} />
-      </div>
+      </main>
    );
 }

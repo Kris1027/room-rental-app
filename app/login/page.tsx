@@ -7,12 +7,12 @@ export const metadata: Metadata = {
 
 export default function Login() {
    return (
-      <div className='flex flex-col gap-10 mt-10 items-center mx-auto'>
-         <h2 className='text-3xl font-semibold'>
+      <main className='flex-1 w-full max-w-7xl mx-auto p-1 md:p-4 flex flex-col gap-8'>
+         <h2 className='text-3xl font-semibold text-center'>
             Sign in to access your account
          </h2>
 
          <SignInButton />
-      </div>
+      </main>
    );
 }

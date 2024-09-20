@@ -27,13 +27,13 @@ export default async function AdminReservations() {
    const rooms = (await getRooms()) as roomsProps[];
 
    return (
-      <>
+      <main className='flex-1 w-full max-w-7xl mx-auto p-1 md:p-4'>
          <h1 className='text-3xl font-bold text-gray-800'>User Reservations</h1>
          <ReservationsManagement
             reservations={reservations}
             users={users}
             rooms={rooms}
          />
-      </>
+      </main>
    );
 }

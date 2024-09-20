@@ -19,9 +19,9 @@ export default async function AdminRooms() {
    const rooms = (await getRooms()) as roomsProps[];
 
    return (
-      <>
+      <main className='flex-1 w-full max-w-7xl mx-auto p-1 md:p-4'>
          <h1 className='text-3xl font-bold text-gray-800'>Rooms</h1>
          <RoomsManagement rooms={rooms} />
-      </>
+      </main>
    );
 }

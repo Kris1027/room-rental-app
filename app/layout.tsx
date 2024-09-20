@@ -30,12 +30,10 @@ export default function RootLayout({
       <ViewTransitions>
          <html lang='en' className='h-full'>
             <body
-               className={`${montserrat.className} flex flex-col min-h-screen`}
+               className={`${montserrat.className} bg-gradient-to-r from-primary to-secondary flex flex-col min-h-screen`}
             >
                <TopBar />
-               <main className='flex-grow flex overflow-hidden bg-gradient-to-r from-primary to-secondary'>
-                  <ReservationProvider>{children}</ReservationProvider>
-               </main>
+               <ReservationProvider>{children}</ReservationProvider>
                <Footer />
             </body>
          </html>

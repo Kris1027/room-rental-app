@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function Contact() {
    return (
-      <div className='container mx-auto px-4 py-8'>
+      <main className='flex-1 w-full max-w-7xl mx-auto p-1 md:p-4'>
          <h1 className='text-3xl font-bold mb-6'>Contact Us</h1>
 
          <div className='grid md:grid-cols-2 gap-8'>
@@ -97,6 +97,6 @@ export default function Contact() {
                </div>
             </div>
          </div>
-      </div>
+      </main>
    );
 }

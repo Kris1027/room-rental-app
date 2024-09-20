@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function Thanks() {
    return (
-      <div className='flex items-center justify-center w-full'>
+      <main className='flex justify-center items-center flex-1 w-full max-w-7xl mx-auto p-1 md:p-4'>
          <div className='bg-white p-8 rounded-lg shadow-2xl text-center'>
             <FaRegSmileBeam className='w-16 h-16 text-yellow-400 mx-auto mb-4' />
             <h1 className='text-3xl font-bold text-gray-800 mb-4'>
@@ -24,6 +24,6 @@ export default function Thanks() {
                Reservations
             </Link>
          </div>
-      </div>
+      </main>
    );
 }

@@ -6,14 +6,14 @@ import { FaDollarSign, FaEye, FaTag, FaUserFriends } from 'react-icons/fa';
 
 export function RoomsListItem({ room }: { room: roomsProps }) {
    return (
-      <div className='bg-white border rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105 duration-300 flex flex-col'>
-         <div className='relative w-full pt-[60%]'>
+      <div className='bg-white border rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105 duration-300 flex flex-col w-full'>
+         <div>
             <Image
                src={room.image_url}
                alt={room.name}
-               fill
-               sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'
-               className='object-cover rounded-t-lg'
+               width={400}
+               height={250}
+               className='object-cover rounded-t-lg aspect-video'
             />
          </div>
          <div className='p-5 flex-grow flex flex-col'>

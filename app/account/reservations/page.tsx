@@ -31,7 +31,7 @@ export default async function UserReservations() {
    )) as reservationsProps[];
 
    return (
-      <div className='container mx-auto px-4 py-12 '>
+      <main className='flex-1 w-full max-w-7xl mx-auto p-1 md:p-4'>
          <BackButton />
          <h2 className='text-4xl font-bold mb-8 text-gray-800 text-center'>
             Your Reservations
@@ -126,6 +126,6 @@ export default async function UserReservations() {
                userEmail={String(userEmail)}
             />
          </div>
-      </div>
+      </main>
    );
 }

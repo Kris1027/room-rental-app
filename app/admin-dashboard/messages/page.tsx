@@ -19,7 +19,7 @@ export default async function AdminMessages() {
    const messages = (await getMessages()) as messagesProps[];
 
    return (
-      <>
+      <main className='flex-1 w-full max-w-7xl mx-auto p-1 md:p-4'>
          <h1 className='text-3xl font-bold mb-6 text-gray-800'>
             User Messages
          </h1>
@@ -47,6 +47,6 @@ export default async function AdminMessages() {
                   </div>
                ))}
          </div>
-      </>
+      </main>
    );
 }

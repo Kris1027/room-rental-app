@@ -6,12 +6,12 @@ import { HomeAbout } from '@/app/_components/home-about';
 
 export default function Home() {
    return (
-      <div className='md:p-8 mx-auto max-w-7xl'>
+      <main className='flex-1 w-full max-w-7xl mx-auto p-1 md:p-4'>
          <Hero />
          <HomeAbout />
          <Amenities />
          <GuestTestimonials />
          <BookLink />
-      </div>
+      </main>
    );
 }

@@ -16,7 +16,7 @@ export default async function Settings() {
 
    if (user.is_admin)
       return (
-         <div className='container mx-auto px-4 py-8 flex flex-col justify-center items-center'>
+         <main className='flex-1 w-full max-w-7xl mx-auto p-1 md:p-4'>
             <h2 className='text-3xl font-bold mb-6 text-gray-800 text-center'>
                You are admin, you can change your settings in admin panel
             </h2>
@@ -32,19 +32,19 @@ export default async function Settings() {
                   </Link>
                </Button>
             </div>
-         </div>
+         </main>
       );
 
    const userFullName = user.full_name;
    const userEmail = user.email;
 
    return (
-      <div className='container mx-auto px-4 py-8'>
+      <main className='flex-1 w-full max-w-7xl mx-auto p-1 md:p-4'>
          <BackButton />
          <h2 className='text-3xl font-bold mb-6 text-gray-800 text-center'>
             Account Settings
          </h2>
-         <form action={updateUserAction} className='space-y-6'>
+         <form action={updateUserAction} className='space-y-6 pb-4'>
             <input
                type='text'
                name='id'
@@ -98,6 +98,6 @@ export default async function Settings() {
                Save Changes
             </Button>
          </form>
-      </div>
+      </main>
    );
 }

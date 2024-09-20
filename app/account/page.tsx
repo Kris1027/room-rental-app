@@ -1,13 +1,13 @@
 import { Button } from '@/app/_components/button';
 import { signOutAction } from '@/app/_lib/actions';
+import { getUserById } from '@/app/_lib/users-api';
+import type { usersProps } from '@/app/types/data-types';
 import { auth } from '@/auth';
 import type { Metadata } from 'next';
 import { Link } from 'next-view-transitions';
 import Image from 'next/image';
 import { FiCalendar, FiCreditCard, FiLogOut, FiSettings } from 'react-icons/fi';
 import { RiAdminLine } from 'react-icons/ri';
-import { getUserById } from '../_lib/users-api';
-import { usersProps } from '../types/data-types';
 
 export const metadata: Metadata = {
    title: 'Account',
@@ -21,8 +21,8 @@ export default async function Account() {
    const userName = user?.full_name;
 
    return (
-      <div className='md:p-8 mx-auto max-w-7xl w-full'>
-         <div className='flex items-center mb-6'>
+      <main className='flex-1 w-full max-w-7xl mx-auto p-1 md:p-4'>
+         <div className='flex items-center mb-6 flex-grow'>
             <Image
                src={userImage}
                alt={userName}
@@ -75,6 +75,6 @@ export default async function Account() {
                </Button>
             </form>
          </div>
-      </div>
+      </main>
    );
 }

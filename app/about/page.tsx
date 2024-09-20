@@ -7,8 +7,8 @@ export const metadata: Metadata = {
 
 export default function About() {
    return (
-      <div className='p-1 md:p-8 mx-auto max-w-7xl'>
-         <section className='bg-white md:p-8 rounded-lg shadow-lg max-w-7xl mx-auto'>
+      <main className='flex-1 w-full max-w-7xl mx-auto p-1 md:p-4'>
+         <section className='bg-white md:p-8 rounded-lg shadow-lg mx-auto'>
             <h2 className='text-4xl font-bold text-gray-800 mb-6 text-center'>
                About The Grand Horizon Hotel
             </h2>
@@ -87,6 +87,6 @@ export default function About() {
                </li>
             </ul>
          </section>
-      </div>
+      </main>
    );
 }

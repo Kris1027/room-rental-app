@@ -6,9 +6,9 @@ export default function AdminLayout({
    children: React.ReactNode;
 }>) {
    return (
-      <div className='flex flex-grow max-w-7xl mx-auto'>
+      <main className='flex flex-1 w-full max-w-7xl mx-auto p-1 md:p-4'>
          <Sidebar />
-         <main className='flex-grow overflow-auto p-4'>{children}</main>
-      </div>
+         {children}
+      </main>
    );
 }
