@@ -142,7 +142,7 @@ export default async function RoomUpdateForm(params: {
          </div>
          <div className='mt-4 flex justify-end space-x-2'>
             <CancelButton />
-            <Button type='submit' variant='positive'>
+            <Button type='submit' variant='success'>
                <GrUpdate />
                Update
             </Button>
