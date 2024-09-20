@@ -1,25 +1,13 @@
+import { Hero } from '@/app/_components/hero';
+import HomeAbout from '@/app/_components/home-about';
 import { Link } from 'next-view-transitions';
 import Image from 'next/image';
-import { Hero } from '@/app/_components/hero';
 
 export default function Home() {
    return (
       <div className='md:p-8 mx-auto max-w-7xl'>
          <Hero />
-
-         <section className='my-12'>
-            <h2 className='text-4xl font-bold text-gray-800 mb-6 text-center'>
-               About Our Hotel
-            </h2>
-            <p className='text-lg text-gray-700 max-w-3xl mx-auto text-center'>
-               Nestled along the pristine shores of an azure coastline, The
-               Grand Horizon Hotel offers an unparalleled experience of luxury
-               and tranquility. Our five-star resort, set against a backdrop of
-               breathtaking ocean views and lush tropical gardens, is the
-               perfect destination for travelers seeking both relaxation and
-               adventure.
-            </p>
-         </section>
+         <HomeAbout />
 
          <section className='my-12 bg-white p-8 rounded-lg shadow-lg'>
             <h2 className='text-3xl font-bold text-gray-800 mb-6 text-center'>
