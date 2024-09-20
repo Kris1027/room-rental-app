@@ -27,10 +27,10 @@ export function Sidebar() {
                   <li key={item.name}>
                      <Link
                         href={item.path}
-                        className={`block py-2 px-4 rounded transition duration-300 ${
+                        className={`block w-full px-3 py-2 text-center lg:text-left rounded-md text-lg font-semibold transition duration-300 ${
                            pathname === item.path
-                              ? 'bg-gradient-to-r from-primary to-dangerHover text-black'
-                              : ''
+                              ? 'bg-amber-600 text-white'
+                              : 'text-amber-800 hover:bg-amber-500 hover:text-white'
                         }`}
                      >
                         {item.name}
