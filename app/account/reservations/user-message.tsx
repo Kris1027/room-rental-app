@@ -44,7 +44,7 @@ export function UserMessage({
                required
             ></textarea>
             <Button type='submit' fullWidth>
-               <IoIosSend />
+               <IoIosSend size={24} />
                <span>Send</span>
             </Button>
          </form>
