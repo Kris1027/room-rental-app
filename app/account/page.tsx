@@ -8,6 +8,7 @@ import { Link } from 'next-view-transitions';
 import Image from 'next/image';
 import { FiCalendar, FiCreditCard, FiLogOut, FiSettings } from 'react-icons/fi';
 import { RiAdminLine } from 'react-icons/ri';
+import { SignOutButton } from '../_components/sign-out-button';
 
 export const metadata: Metadata = {
    title: 'Account',
@@ -40,7 +41,7 @@ export default async function Account() {
          {session?.user.isAdmin && (
             <div className='mb-6'>
                <Link
-                  className='flex items-center text-black justify-center gap-1 rounded-lg transition-colors outline-none bg-purple hover:bg-purpleHover py-4 text-lg w-full'
+                  className='flex items-center text-white font-semibold justify-center gap-1 rounded-lg transition-colors outline-none bg-blue-500 hover:bg-blue-600 py-4 text-lg w-full'
                   href='/admin-dashboard'
                >
                   <RiAdminLine size={24} />
@@ -51,29 +52,29 @@ export default async function Account() {
 
          <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
             <Link
-               className='flex items-center text-black justify-center gap-1 rounded-lg transition-colors outline-none bg-primary hover:bg-primaryHover py-4 text-lg'
+               className='flex items-center text-white font-semibold justify-center gap-1 rounded-lg transition-colors outline-none bg-indigo-500 hover:bg-indigo-600 py-4 text-lg'
                href='/account/settings'
             >
                <FiSettings size={24} />
                <span>Settings</span>
             </Link>
             <Link
-               className='flex items-center text-black justify-center gap-1 rounded-lg transition-colors outline-none bg-secondary hover:bg-secondaryHover py-4 text-lg'
+               className='flex items-center text-white font-semibold justify-center gap-1 rounded-lg transition-colors outline-none bg-green-500 hover:bg-green-600 py-4 text-lg'
                href='/account/reservations'
             >
                <FiCalendar size={24} />
                <span>Reservations</span>
             </Link>
-            <Button size='large' variant='positive'>
+            <Link
+               className='flex items-center text-white font-semibold justify-center gap-1 rounded-lg transition-colors outline-none bg-yellow-500 hover:bg-yellow-600 py-4 text-lg'
+               href='/account/reservations'
+            >
                <FiCreditCard size={24} />
                <span>Payments</span>
-            </Button>
-            <form action={signOutAction}>
-               <Button size='large' variant='danger' type='submit' fullWidth>
-                  <FiLogOut size={24} />
-                  <span>Logout</span>
-               </Button>
-            </form>
+            </Link>
+            <div className='flex items-center text-white font-semibold justify-center gap-1 rounded-lg transition-colors outline-none bg-red-500 hover:bg-red-600 py-4 text-lg'>
+               <SignOutButton />
+            </div>
          </div>
       </main>
    );

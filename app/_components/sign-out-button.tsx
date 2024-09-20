@@ -4,10 +4,7 @@ import { IoMdExit } from 'react-icons/io';
 export function SignOutButton() {
    return (
       <form action={signOutAction}>
-         <button
-            type='submit'
-            className='flex items-center space-x-1 font-semibold'
-         >
+         <button type='submit' className='flex gap-1'>
             <IoMdExit size={24} />
             <span>Sign out</span>
          </button>
