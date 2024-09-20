@@ -23,12 +23,12 @@ export default async function AdminMessages() {
          <h1 className='text-3xl font-bold mb-6 text-gray-800'>
             User Messages
          </h1>
-         <div className='space-y-4 max-h-[70vh] overflow-y-auto pr-2'>
+         <div className='space-y-4 pr-2'>
             {messages &&
                messages.map((message) => (
                   <div
                      key={message.id}
-                     className='bg-white shadow-md rounded-lg overflow-hidden'
+                     className='bg-white shadow-md rounded-lg'
                   >
                      <div className='p-4'>
                         <h2 className='text-lg font-semibold text-gray-700'>
