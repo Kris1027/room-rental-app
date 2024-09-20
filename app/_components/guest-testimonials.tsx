@@ -1,4 +1,4 @@
-export default function GuestTestimonials() {
+export function GuestTestimonials() {
    return (
       <section className='my-12'>
          <h2 className='text-3xl font-bold text-gray-800 mb-6 text-center'>

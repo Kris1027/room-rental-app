@@ -1,8 +1,8 @@
-import Amenities from '@/app/_components/amenities';
+import { Amenities } from '@/app/_components/amenities';
 import { BookLink } from '@/app/_components/book-link';
-import GuestTestimonials from '@/app/_components/guest-testimonials';
+import { GuestTestimonials } from '@/app/_components/guest-testimonials';
 import { Hero } from '@/app/_components/hero';
-import HomeAbout from '@/app/_components/home-about';
+import { HomeAbout } from '@/app/_components/home-about';
 
 export default function Home() {
    return (

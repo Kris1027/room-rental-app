@@ -1,4 +1,4 @@
-export default function HomeAbout() {
+export function HomeAbout() {
    return (
       <section className='my-12'>
          <h2 className='text-4xl font-bold text-gray-800 mb-6 text-center'>
