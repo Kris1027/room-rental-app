@@ -12,21 +12,18 @@ export async function NavigationList() {
       { name: 'Home', path: '/' },
       { name: 'About', path: '/about' },
       { name: 'Rooms', path: '/rooms' },
-      { name: 'Services', path: '/terms' },
       { name: 'Contact', path: '/contact' },
    ];
 
    return (
-      <nav className='mt-4 lg:mt-0'>
-         <ul className='flex flex-wrap justify-center items-center space-x-2 lg:space-x-4'>
+      <nav className='w-full flex flex-col lg:flex-row items-center space-y-2 lg:space-y-0 space-x-0 lg:space-x-4'>
+         <ul className='flex flex-col lg:flex-row items-center space-y-2 lg:space-y-0 lg:space-x-4'>
             {navItems.map((item) => (
                <NavigationListItem key={item.name} item={item} />
             ))}
-            <li>
-               <AccountButton />
-            </li>
-            <li>{session?.user ? <SignOutButton /> : <LoginLink />}</li>
          </ul>
+         <AccountButton />
+         {session?.user ? <SignOutButton /> : <LoginLink />}
       </nav>
    );
 }
