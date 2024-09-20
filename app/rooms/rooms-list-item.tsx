@@ -1,14 +1,12 @@
+import { Button } from '@/app/_components/button';
 import type { roomsProps } from '@/app/types/data-types';
 import { Link } from 'next-view-transitions';
 import Image from 'next/image';
-import { FaDollarSign, FaUserFriends, FaTag } from 'react-icons/fa';
+import { FaDollarSign, FaEye, FaTag, FaUserFriends } from 'react-icons/fa';
 
 export function RoomsListItem({ room }: { room: roomsProps }) {
    return (
-      <Link
-         href={`/rooms/${room.id}`}
-         className='bg-white border rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105 duration-300 flex flex-col'
-      >
+      <div className='bg-white border rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105 duration-300 flex flex-col'>
          <div className='relative w-full pt-[60%]'>
             <Image
                src={room.image_url}
@@ -18,7 +16,7 @@ export function RoomsListItem({ room }: { room: roomsProps }) {
                className='object-cover rounded-t-lg'
             />
          </div>
-         <div className='p-5 flex-grow flex flex-col justify-between'>
+         <div className='p-5 flex-grow flex flex-col'>
             <h2 className='text-xl font-bold text-gray-800 mb-3'>
                {room.name}
             </h2>
@@ -50,6 +48,14 @@ export function RoomsListItem({ room }: { room: roomsProps }) {
                )}
             </div>
          </div>
-      </Link>
+         <div className='p-4'>
+            <Button fullWidth>
+               <Link href={`/rooms/${room.id}`} className='flex items-center'>
+                  <FaEye size={24} className='mr-2' />
+                  <span>Details</span>
+               </Link>
+            </Button>
+         </div>
+      </div>
    );
 }
