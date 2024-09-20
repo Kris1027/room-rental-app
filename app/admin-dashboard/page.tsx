@@ -2,6 +2,8 @@ import { getMessages } from '@/app/_lib/messages';
 import { getReservations } from '@/app/_lib/reservations-api';
 import { getRooms } from '@/app/_lib/rooms-api';
 import { getUsers } from '@/app/_lib/users-api';
+import { DashboardCard } from '@/app/admin-dashboard/dashboard-card';
+import type { AdminDashboardLinksProps } from '@/app/types/admin-types';
 import type {
    messagesProps,
    reservationsProps,
@@ -10,44 +12,11 @@ import type {
 } from '@/app/types/data-types';
 import { auth } from '@/auth';
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { redirect } from 'next/navigation';
-import React from 'react';
 import { FiCalendar, FiKey, FiMessageCircle, FiUser } from 'react-icons/fi';
 
 export const metadata: Metadata = {
    title: 'Admin Dashboard',
-};
-
-type AdminDashboardLinksProps = {
-   name: string;
-   path: string;
-   background: string;
-   icon: React.ReactNode;
-   data: usersProps[] | roomsProps[] | reservationsProps[] | messagesProps[];
-};
-
-const DashboardCard = ({ item }: { item: AdminDashboardLinksProps }) => {
-   return (
-      <Link href={item.path}>
-         <div className='bg-white rounded-xl shadow-lg p-6 transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl'>
-            <div
-               className={`${item.background} text-white p-4 rounded-full inline-block mb-4`}
-            >
-               {item.icon}
-            </div>
-            <h2 className='text-2xl font-bold text-gray-800 mb-2'>
-               {item.name}
-            </h2>
-            <p className='text-4xl font-extrabold text-gray-700'>
-               {item.data.length}
-            </p>
-            <p className='text-sm text-gray-500 mt-2'>
-               Total {item.name.toLowerCase()}
-            </p>
-         </div>
-      </Link>
-   );
 };
 
 export default async function AdminDashboard() {
@@ -98,7 +67,7 @@ export default async function AdminDashboard() {
          <h1 className='text-4xl font-bold text-gray-800 mb-8'>
             Admin Dashboard
          </h1>
-         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
+         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
             {AdminDashboardLinks.map((item) => (
                <DashboardCard key={item.name} item={item} />
             ))}
