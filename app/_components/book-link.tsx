@@ -12,7 +12,7 @@ export function BookLink() {
             relaxation.
          </p>
          <Button variant='danger' className='mx-auto'>
-            <Link href='/rooms'>Explore Our Rooms</Link>
+            <Link href='/rooms'>Book Now</Link>
          </Button>
       </section>
    );

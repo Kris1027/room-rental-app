@@ -30,7 +30,7 @@ export default function RootLayout({
       <ViewTransitions>
          <html lang='en' className='h-full'>
             <body
-               className={`${montserrat.className} bg-gradient-to-r from-primary to-secondary flex flex-col min-h-screen`}
+               className={`${montserrat.className} bg-gradient-to-r from-blue-100 to-amber-300 flex flex-col min-h-screen`}
             >
                <TopBar />
                <ReservationProvider>{children}</ReservationProvider>
