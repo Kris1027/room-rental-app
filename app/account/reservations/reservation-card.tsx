@@ -1,6 +1,8 @@
+import { Button } from '@/app/_components/button';
 import { getRoom } from '@/app/_lib/rooms-api';
 import { formatDateTime } from '@/app/_utils/format-date-time';
 import type { reservationsProps, roomsProps } from '@/app/types/data-types';
+import { Link } from 'next-view-transitions';
 import { IconType } from 'react-icons';
 import {
    FaBed,
@@ -8,6 +10,7 @@ import {
    FaCheckCircle,
    FaClock,
    FaDollarSign,
+   FaKey,
    FaMoon,
    FaTag,
    FaTimesCircle,
@@ -38,20 +41,27 @@ const InfoItem = ({
    icon: Icon,
    text,
    color = 'text-blue-500',
+   link,
 }: {
    icon: IconType;
-   text: string;
+   text?: string;
    color?: string;
+   link?: string;
 }) => (
-   <div className='flex items-center space-x-3'>
-      <Icon className={`w-5 h-5 ${color}`} />
-      <p className={`text-gray-700 ${color}`}>{text}</p>
+   <div className='flex items-center gap-4'>
+      <Icon size={24} className={color} />
+      <p className={`text-gray-700 text-sm ${color}`}>{text}</p>
+      {link && (
+         <Button size='small'>
+            <Link href={link}>Room Details</Link>
+         </Button>
+      )}
    </div>
 );
 
 const StatusItem = ({ icon: Icon, text, color }: StatusProps) => (
-   <div className={`flex items-center space-x-2 ${color}`}>
-      <Icon className='w-5 h-5' />
+   <div className={`flex items-center gap-2 ${color}`}>
+      <Icon size={24} />
       <p className='text-sm font-semibold'>{text}</p>
    </div>
 );
@@ -141,11 +151,14 @@ export async function ReservationCard({
                icon={FaDollarSign}
                text={`Total: $${roomTotalPrice.toFixed(2)}`}
             />
-            <InfoItem
-               icon={FaTag}
-               text={`Discount: $${roomDiscount.toFixed(2)}`}
-               color='text-green-600'
-            />
+            <InfoItem link={`/rooms/${reservation.room_id}`} icon={FaKey} />
+            {roomDiscount > 0 && (
+               <InfoItem
+                  icon={FaTag}
+                  text={`Discount: $${roomDiscount.toFixed(2)}`}
+                  color='text-green-600'
+               />
+            )}
          </div>
          <div className='bg-gray-100 px-6 py-4 flex justify-between items-center'>
             <StatusItem
