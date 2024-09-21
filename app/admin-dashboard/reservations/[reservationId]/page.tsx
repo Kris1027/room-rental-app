@@ -149,6 +149,7 @@ export default async function ReservationUpdateForm(params: {
                   <option value='unconfirmed'>unconfirmed</option>
                   <option value='confirmed'>confirmed</option>
                   <option value='canceled'>canceled</option>
+                  <option value='old'>old</option>
                </select>
             </div>
             <div className='flex flex-col'>

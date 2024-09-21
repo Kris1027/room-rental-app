@@ -17,6 +17,8 @@ export type roomsProps = {
    discount: number;
 };
 
+type reservationStatus = 'confirmed' | 'unconfirmed' | 'canceled' | 'old';
+
 export type reservationsProps = {
    id: number;
    created_at: string;
@@ -27,7 +29,7 @@ export type reservationsProps = {
    num_nights: number;
    num_guests: number;
    total_price: number;
-   status: 'unconfirmed' | 'confirmed' | 'canceled';
+   status: reservationStatus;
    is_paid: 'Yes' | 'No';
 };
 

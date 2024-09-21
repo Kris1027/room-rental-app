@@ -12,8 +12,14 @@ export function ReservationDetails({
 }: {
    reservation: reservationsProps;
 }) {
+   const status = reservation.status;
+
    return (
-      <tr className='bg-white border-b hover:bg-gray-50 flex flex-col md:table-row'>
+      <tr
+         className={`${
+            status === 'old' ? 'bg-gray-200' : 'bg-white'
+         } border-b hover:bg-gray-50 flex flex-col md:table-row`}
+      >
          {[
             { label: 'ID', value: reservation.id },
             {

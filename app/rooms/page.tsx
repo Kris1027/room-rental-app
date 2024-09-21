@@ -7,6 +7,8 @@ export const metadata: Metadata = {
    title: 'Rooms',
 };
 
+export const revalidate = 0;
+
 export default async function Rooms() {
    const rooms = (await getRooms()) as roomsProps[];
 

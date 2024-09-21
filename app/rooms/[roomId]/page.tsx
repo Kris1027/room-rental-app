@@ -12,6 +12,8 @@ export async function generateMetadata({
    };
 }
 
+export const revalidate = 0;
+
 export default async function Room({ params }: { params: { roomId: number } }) {
    const room = await getRoom(params.roomId);
 

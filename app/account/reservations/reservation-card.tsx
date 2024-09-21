@@ -14,14 +14,19 @@ import {
    FaUsers,
 } from 'react-icons/fa';
 
-type ReservationStatus = 'confirmed' | 'unconfirmed' | 'canceled';
+type ReservationStatus = 'confirmed' | 'unconfirmed' | 'canceled' | 'old';
 type StatusText =
    | 'Confirmed'
    | 'Unconfirmed'
    | 'Canceled'
+   | 'Old'
    | 'Paid'
    | 'Not Paid';
-type StatusColor = 'text-green-600' | 'text-yellow-600' | 'text-red-600';
+type StatusColor =
+   | 'text-green-600'
+   | 'text-yellow-600'
+   | 'text-red-600'
+   | 'text-gray-600';
 
 type StatusProps = {
    icon: IconType;
@@ -71,6 +76,8 @@ export async function ReservationCard({
             return 'Unconfirmed';
          case 'canceled':
             return 'Canceled';
+         case 'old':
+            return 'Old';
          default:
             return 'Unconfirmed';
       }
@@ -84,6 +91,8 @@ export async function ReservationCard({
             return 'text-yellow-600';
          case 'canceled':
             return 'text-red-600';
+         case 'old':
+            return 'text-gray-600';
          default:
             return 'text-yellow-600';
       }
