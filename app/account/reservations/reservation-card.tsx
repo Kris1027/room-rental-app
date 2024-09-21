@@ -109,7 +109,11 @@ export async function ReservationCard({
    };
 
    return (
-      <div className='bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 border border-gray-200'>
+      <div
+         className={`bg-${
+            reservation.status === 'old' ? 'gray-200' : 'white'
+         } rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 border border-gray-200`}
+      >
          <div
             className='relative h-48 bg-cover bg-center'
             style={{ backgroundImage: `url(${roomImage})` }}
