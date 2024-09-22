@@ -3,7 +3,7 @@ import { type roomsProps } from "@/app/types/data-types";
 
 export function RoomsList({ rooms }: { rooms: roomsProps[] }) {
 	return (
-		<tbody>
+		<tbody className='space-y-2'>
 			{rooms && rooms.map((room) => <RoomDetails key={room.id} room={room} />)}
 		</tbody>
 	);
