@@ -1,86 +1,94 @@
-import type { Metadata } from "next";
-import Image from "next/image";
+import { FeatureCard } from '@/app/_components/feature-card';
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import {
+   FaConciergeBell,
+   FaSwimmer,
+   FaUmbrellaBeach,
+   FaUtensils,
+} from 'react-icons/fa';
 
 export const metadata: Metadata = {
-	title: "About",
+   title: 'About The Grand Horizon Hotel',
 };
 
 export default function About() {
-	return (
-		<main className="flex-1 w-full max-w-7xl mx-auto p-1 md:p-4">
-			<section className="bg-white md:p-8 rounded-lg shadow-lg mx-auto">
-				<h2 className="text-4xl font-bold text-gray-800 mb-6 text-center">
-					About The Grand Horizon Hotel
-				</h2>
+   return (
+      <main className='flex-1 w-full max-w-7xl mx-auto p-4 md:p-8'>
+         <section className='bg-white rounded-xl shadow-2xl overflow-hidden animate-fadeIn'>
+            <div className='relative h-96 md:h-[500px]'>
+               <Image
+                  src='https://tiny.pl/2f06v9n5'
+                  fill
+                  alt='Grand Horizon Hotel'
+                  className='object-cover'
+               />
+            </div>
 
-				<div className="grid grid-cols-1 md:grid-cols-2 gap-4 justify-center">
-					<div className="relative w-full h-96">
-						<Image
-							src="https://tiny.pl/2f06v9n5"
-							fill
-							alt="Hotel view"
-							className="object-contain rounded-lg"
-						/>
-					</div>
-					<div className="relative w-full h-96">
-						<Image
-							src="https://tiny.pl/tsm53y26"
-							fill
-							alt="Hotel view"
-							className="object-contain rounded-lg"
-						/>
-					</div>
-				</div>
+            <div className='p-8'>
+               <p className='text-xl text-gray-700 mb-8 leading-relaxed animate-fadeIn'>
+                  Nestled along the pristine shores of an azure coastline, The
+                  Grand Horizon Hotel offers an unparalleled experience of
+                  luxury and tranquility. Our five-star resort is the perfect
+                  destination for travelers seeking both relaxation and
+                  adventure.
+               </p>
 
-				<ul className="list-inside text-center">
-					<li className="text-xl text-gray-800 mt-6 leading-relaxed tracking-wide">
-						Nestled along the pristine shores of an azure coastline, The Grand
-						Horizon Hotel offers an unparalleled experience of luxury and
-						tranquility. Our five-star resort, set against a backdrop of
-						breathtaking ocean views and lush tropical gardens, is the perfect
-						destination for travelers seeking both relaxation and adventure.
-					</li>
+               <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12'>
+                  <FeatureCard
+                     icon={FaUmbrellaBeach}
+                     title='Breathtaking Views'
+                     description='Enjoy panoramic vistas of the ocean and lush tropical gardens from every room.'
+                  />
+                  <FeatureCard
+                     icon={FaConciergeBell}
+                     title='Luxurious Comfort'
+                     description='Experience elegance in our 200 exquisitely designed rooms and suites.'
+                  />
+                  <FeatureCard
+                     icon={FaUtensils}
+                     title='Culinary Excellence'
+                     description='Indulge in gastronomic delights at our award-winning restaurants.'
+                  />
+                  <FeatureCard
+                     icon={FaSwimmer}
+                     title='Endless Activities'
+                     description='From scuba diving to cultural excursions, adventure awaits at every turn.'
+                  />
+               </div>
 
-					<li className="text-xl text-gray-800 mt-6 leading-relaxed tracking-wide">
-						At The Grand Horizon, elegance meets comfort in our 200 exquisitely
-						designed rooms and suites, each boasting panoramic vistas, plush
-						bedding, and state-of-the-art amenities. Whether you choose a room
-						with a private balcony overlooking the sea or a suite with its own
-						plunge pool, every stay promises to be a rejuvenating retreat.
-					</li>
-
-					<li className="text-xl text-gray-800 mt-6 leading-relaxed tracking-wide">
-						Indulge your senses at our world-class spa, where skilled therapists
-						offer a variety of treatments inspired by ancient wellness
-						traditions. For those looking to stay active, our fully equipped
-						fitness center, infinity pools, and yoga pavilion provide ample
-						opportunities to maintain your routine in style.
-					</li>
-
-					<li className="text-xl text-gray-800 mt-6 leading-relaxed tracking-wide">
-						Gastronomy takes center stage at The Grand Horizon. Our
-						award-winning chefs craft culinary masterpieces using the freshest
-						local ingredients, served across our three signature restaurants.
-						From a beachfront seafood grill to a rooftop fine dining experience
-						under the stars, every meal is a journey of flavors.
-					</li>
-
-					<li className="text-xl text-gray-800 mt-6 leading-relaxed tracking-wide">
-						For the more adventurous, The Grand Horizon offers a wide array of
-						activities, including scuba diving, sailing, and guided cultural
-						excursions to explore the rich history and vibrant culture of the
-						region. Families are also well-catered for, with a dedicated
-						children’s club and a variety of family-friendly activities.
-					</li>
-
-					<li className="text-xl text-gray-800 mt-6 leading-relaxed tracking-wide">
-						Whether you&apos;re planning a romantic getaway, a family vacation,
-						or a corporate retreat, The Grand Horizon Hotel is your gateway to a
-						world of elegance and relaxation. Come and discover where luxury
-						meets the horizon, and create memories that will last a lifetime.
-					</li>
-				</ul>
-			</section>
-		</main>
-	);
+               <div className='grid grid-cols-1 md:grid-cols-2 gap-8 animate-fadeIn'>
+                  <div>
+                     <h2 className='text-2xl font-semibold mb-4'>
+                        Unparalleled Luxury
+                     </h2>
+                     <p className='text-gray-700 mb-4'>
+                        At The Grand Horizon, elegance meets comfort in our
+                        exquisitely designed accommodations. Each room boasts
+                        panoramic vistas, plush bedding, and state-of-the-art
+                        amenities, ensuring a rejuvenating retreat for every
+                        guest.
+                     </p>
+                     <p className='text-gray-700'>
+                        Indulge your senses at our world-class spa, where
+                        skilled therapists offer a variety of treatments
+                        inspired by ancient wellness traditions. For the active
+                        traveler, our fully equipped fitness center, infinity
+                        pools, and yoga pavilion provide ample opportunities to
+                        stay fit in style.
+                     </p>
+                  </div>
+                  <div className='relative h-64 md:h-auto'>
+                     <Image
+                        src='https://tiny.pl/tsm53y26'
+                        fill
+                        alt='Luxury Suite'
+                        className='object-cover rounded-lg'
+                     />
+                  </div>
+               </div>
+            </div>
+         </section>
+      </main>
+   );
 }
