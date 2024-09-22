@@ -1,14 +1,14 @@
 // types.d.ts
 
-import NextAuth from 'next-auth';
+import NextAuth from "next-auth";
 
-declare module 'next-auth' {
-   interface User {
-      userId?: string;
-      isAdmin?: boolean;
-   }
+declare module "next-auth" {
+	interface User {
+		userId?: string;
+		isAdmin?: boolean;
+	}
 
-   interface Session {
-      user: User;
-   }
+	interface Session {
+		user: User;
+	}
 }

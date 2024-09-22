@@ -1,16 +1,16 @@
 'use client';
 
 import { Button } from '@/app/_components/button';
-import {
-   type reservationsProps,
-   type roomsProps,
-   type usersProps,
+import { ReservationForm } from '@/app/admin-dashboard/reservations/reservation-form';
+import { ReservationsColumns } from '@/app/admin-dashboard/reservations/reservations-columns';
+import { ReservationsList } from '@/app/admin-dashboard/reservations/reservations-list';
+import type {
+   reservationsProps,
+   roomsProps,
+   usersProps,
 } from '@/app/types/data-types';
 import { useState } from 'react';
 import { FaCalendar } from 'react-icons/fa';
-import { ReservationForm } from './reservation-form';
-import { ReservationsColumns } from './reservations-columns';
-import { ReservationsList } from './reservations-list';
 
 export function ReservationsManagement({
    reservations,

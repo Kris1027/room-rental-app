@@ -1,7 +1,7 @@
-import { auth } from '@/auth';
+import { auth } from "@/auth";
 
 export const middleware = auth;
 
 export const config = {
-   matcher: ['/account', '/admin-dashboard/'],
+	matcher: ["/account", "/admin-dashboard/"],
 };

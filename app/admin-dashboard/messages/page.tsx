@@ -1,9 +1,11 @@
+import { NoData } from '@/app/_components/no-data';
 import { getMessages } from '@/app/_lib/messages';
 import { DeleteButton } from '@/app/admin-dashboard/messages/delete-button';
 import type { messagesProps } from '@/app/types/data-types';
 import { auth } from '@/auth';
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
+import { FaRegComment } from 'react-icons/fa';
 
 export const metadata: Metadata = {
    title: 'Admin Messages',
@@ -24,7 +26,7 @@ export default async function AdminMessages() {
             User Messages
          </h1>
          <div className='space-y-4 pr-2'>
-            {messages &&
+            {messages && messages.length > 0 ? (
                messages.map((message) => (
                   <div
                      key={message.id}
@@ -45,7 +47,10 @@ export default async function AdminMessages() {
                         </div>
                      </div>
                   </div>
-               ))}
+               ))
+            ) : (
+               <NoData message='No messages' icon={FaRegComment} />
+            )}
          </div>
       </main>
    );
