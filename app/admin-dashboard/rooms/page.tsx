@@ -1,3 +1,4 @@
+import { BackButton } from '@/app/_components/back-button';
 import { NoData } from '@/app/_components/no-data';
 import { getRooms } from '@/app/_lib/rooms-api';
 import { RoomsManagement } from '@/app/admin-dashboard/rooms/rooms-management';
@@ -22,11 +23,14 @@ export default async function AdminRooms() {
 
    return (
       <main className='flex-1 w-full max-w-7xl mx-auto p-1 md:p-4'>
+         <div className='pb-4 lg:hidden'>
+            <BackButton />
+         </div>
          <h1 className='text-3xl font-bold text-gray-800'>Rooms</h1>
          {rooms && rooms.length > 0 ? (
             <RoomsManagement rooms={rooms} />
          ) : (
-            <NoData message="No rooms available" icon={FaKey} />
+            <NoData message='No rooms available' icon={FaKey} />
          )}
       </main>
    );
