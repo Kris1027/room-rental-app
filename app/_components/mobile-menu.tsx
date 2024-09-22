@@ -1,22 +1,22 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { MobileMenuProps } from "../types/component-types";
-import { BurgerMenu } from "./burger-menu";
-import { Logo } from "./logo";
+import { BurgerMenu } from '@/app/_components/burger-menu';
+import { Logo } from '@/app/_components/logo';
+import { useMobileMenu } from '@/app/contexts/mobile-menu-context';
+import type { MobileMenuProps } from '@/app/types/component-types';
 
 export function MobileMenu({ children }: MobileMenuProps) {
-	const [isMenuOpen, setIsMenuOpen] = useState(false);
+   const { isMenuOpen } = useMobileMenu();
 
-	return (
-		<div
-			className={`flex ${
-				!isMenuOpen ? "justify-between" : "flex-col justify-center"
-			} items-center w-full`}
-		>
-			{!isMenuOpen && <Logo />}
-			<BurgerMenu isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
-			{isMenuOpen && <div className="mt-4">{children}</div>}
-		</div>
-	);
+   return (
+      <div
+         className={`flex ${
+            !isMenuOpen ? 'justify-between' : 'flex-col justify-center'
+         } items-center w-full`}
+      >
+         {!isMenuOpen && <Logo />}
+         <BurgerMenu />
+         {isMenuOpen && <div className='mt-4'>{children}</div>}
+      </div>
+   );
 }
