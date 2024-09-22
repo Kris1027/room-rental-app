@@ -49,10 +49,11 @@
 -  [x] UI for created reservation and reservation management for users
 -  [x] User account panel
 -  [x] User settings + back button in account pages
+-  [ ] Filters in rooms page and user reservations
+-  [ ] Filters admin dashboard
 -  [ ] Validation (Zod)
--  [ ] Uploading file-image of rooms and converting into urls
+-  [ ] From one image change to array of images and build image carousel in detailed room page
 -  [ ] Build chart in the main page of admin dashboard
--  [ ] Filters for rooms and tables in admin dashboard
 -  [ ] Responsive for multi devices
 -  [ ] Payments
 -  [ ] page for guest testimonials and display last in the home page
