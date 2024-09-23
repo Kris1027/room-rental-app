@@ -22,14 +22,14 @@ export default async function AdminMessages() {
    const messages = (await getMessages()) as messagesProps[];
 
    return (
-      <main className='flex-1 w-full max-w-7xl mx-auto p-1 md:p-4'>
+      <main className='flex-1 w-full max-w-7xl mx-auto p-0 lg:p-1 md:p-4'>
          <div className='pb-4 lg:hidden'>
             <BackButton />
          </div>
          <h1 className='text-3xl font-bold mb-6 text-gray-800'>
             User Messages
          </h1>
-         <div className='space-y-4 pr-2'>
+         <div className='space-y-4'>
             {messages && messages.length > 0 ? (
                messages.map((message) => (
                   <div
