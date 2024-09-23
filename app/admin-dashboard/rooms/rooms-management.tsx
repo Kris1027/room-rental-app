@@ -17,7 +17,7 @@ export function RoomsManagement({ rooms }: { rooms: roomsProps[] }) {
 
    return (
       <>
-         <div className='p-0 lg:p-6'>
+         <div className='px-0 py-2 lg:p-6'>
             <table className='w-full text-sm text-left text-gray-500'>
                <RoomsColumns />
                <RoomsList rooms={rooms} />
