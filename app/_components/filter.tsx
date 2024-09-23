@@ -1,12 +1,39 @@
 'use client';
-
-import { Button } from '@/app/_components/button';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import {
+   HiOutlineFilter,
+   HiOutlineUser,
+   HiOutlineUserGroup,
+   HiOutlineUsers,
+} from 'react-icons/hi';
+
+const FilterButton = ({
+   children,
+   onClick,
+   active,
+}: {
+   children: React.ReactNode;
+   onClick: () => void;
+   active: boolean;
+}) => (
+   <button
+      onClick={onClick}
+      className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all ${
+         active
+            ? 'bg-blue-600 text-white shadow-lg'
+            : 'bg-white text-gray-700 hover:bg-gray-300'
+      }`}
+   >
+      {children}
+   </button>
+);
 
 export function Filter() {
    const searchParams = useSearchParams();
    const router = useRouter();
    const pathname = usePathname();
+
+   const currentFilter = searchParams.get('capacity') || 'all';
 
    function handleFilter(filter: string) {
       const params = new URLSearchParams(searchParams);
@@ -15,22 +42,39 @@ export function Filter() {
    }
 
    return (
-      <div className='flex gap-2 p-4 items-center justify-end'>
-         <h3 className='text-lg font-semibold'>
-            What capacity are you looking for
-         </h3>
-         <Button onClick={() => handleFilter('all')} size='large'>
-            All
-         </Button>
-         <Button onClick={() => handleFilter('small')} size='large'>
-            1-2
-         </Button>
-         <Button onClick={() => handleFilter('medium')} size='large'>
-            3-5
-         </Button>
-         <Button onClick={() => handleFilter('large')} size='large'>
-            6+
-         </Button>
+      <div className='pb-6 flex flex-col items-end'>
+         <div className='flex items-center justify-between mb-4'>
+            <h3 className='text-xl font-semibold text-gray-800 flex items-center gap-2'>
+               <HiOutlineFilter className='text-blue-600' />
+               Filter by Capacity
+            </h3>
+         </div>
+         <div className='flex flex-wrap gap-3'>
+            <FilterButton
+               onClick={() => handleFilter('all')}
+               active={currentFilter === 'all'}
+            >
+               <HiOutlineUserGroup /> All
+            </FilterButton>
+            <FilterButton
+               onClick={() => handleFilter('small')}
+               active={currentFilter === 'small'}
+            >
+               <HiOutlineUser /> 1-2
+            </FilterButton>
+            <FilterButton
+               onClick={() => handleFilter('medium')}
+               active={currentFilter === 'medium'}
+            >
+               <HiOutlineUsers /> 3-5
+            </FilterButton>
+            <FilterButton
+               onClick={() => handleFilter('large')}
+               active={currentFilter === 'large'}
+            >
+               <HiOutlineUserGroup /> 6+
+            </FilterButton>
+         </div>
       </div>
    );
 }
