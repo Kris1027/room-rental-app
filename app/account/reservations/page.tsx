@@ -1,6 +1,8 @@
 import { BackButton } from '@/app/_components/back-button';
+import Loading from '@/app/account/loading';
 import { UserMessage } from '@/app/account/reservations/user-message';
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import { ReservationsList } from './reservations-list';
 
 export const metadata: Metadata = {
@@ -14,7 +16,9 @@ export default function UserReservations() {
          <h2 className='text-4xl font-bold mb-8 text-gray-800 text-center'>
             Your Reservations
          </h2>
-         <ReservationsList />
+         <Suspense fallback={<Loading />} key='reservations'>
+            <ReservationsList />
+         </Suspense>
          <UserMessage />
       </main>
    );
