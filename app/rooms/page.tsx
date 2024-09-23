@@ -1,6 +1,8 @@
 import { Filter } from '@/app/_components/filter';
+import Loading from '@/app/rooms/loading';
 import { RoomsList } from '@/app/rooms/rooms-list';
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 
 export const metadata: Metadata = {
    title: 'Rooms',
@@ -26,7 +28,9 @@ export default function Rooms({
             </p>
          </div>
          <Filter />
-         <RoomsList filter={filter} />
+         <Suspense fallback={<Loading />} key={filter}>
+            <RoomsList filter={filter} />
+         </Suspense>
       </main>
    );
 }
