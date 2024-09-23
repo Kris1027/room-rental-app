@@ -29,7 +29,7 @@ export function ReservationsManagement({
 
    return (
       <>
-         <div className='p-4'>
+         <div className='px-0 py-2 lg:p-6'>
             <table className='w-full text-sm text-left text-gray-500'>
                <ReservationsColumns />
                <ReservationsList reservations={reservations} />
