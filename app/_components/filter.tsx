@@ -18,7 +18,7 @@ const FilterButton = ({
 }) => (
    <button
       onClick={onClick}
-      className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all ${
+      className={`flex items-center gap-2 px-2 lg:px-4 py-1 lg:py-2 rounded-full transition-all text-xs lg:text-lg ${
          active
             ? 'bg-blue-600 text-white shadow-lg'
             : 'bg-white text-gray-700 hover:bg-gray-300'
@@ -42,9 +42,9 @@ export function Filter() {
    }
 
    return (
-      <div className='pb-6 flex flex-col items-end'>
-         <div className='flex items-center justify-between mb-4'>
-            <h3 className='text-xl font-semibold text-gray-800 flex items-center gap-2'>
+      <div className='pb-2 lg:pb-6 flex flex-col items-end'>
+         <div className='flex items-center justify-between mb-1 lg:mb-4'>
+            <h3 className='text-sm lg:text-xl font-semibold text-gray-800 flex items-center gap-2'>
                <HiOutlineFilter className='text-blue-600' />
                Filter by Capacity
             </h3>
