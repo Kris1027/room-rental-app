@@ -3,7 +3,7 @@ import { Link } from 'next-view-transitions';
 
 export function Hero() {
    return (
-      <section className='bg-cover bg-center h-96 text-white flex items-center justify-center rounded-lg bg-[url("https://tiny.pl/b58hyw-z")]'>
+      <section className='bg-cover bg-center h-96 text-white flex items-center justify-center rounded-t-none rounded-b-lg lg:rounded-lg bg-[url("https://tiny.pl/b58hyw-z")]'>
          <div className='bg-black/50 p-4 lg:p-10 rounded-lg'>
             <h1 className='text-3xl md:text-5xl font-bold mb-4'>
                Welcome to The Grand Horizon Hotel
