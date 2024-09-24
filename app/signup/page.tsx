@@ -1,18 +1,27 @@
 import { Button } from '@/app/_components/button';
 import { supabaseSignupAction } from '@/app/_lib/actions/auth-supabase-action';
+import { FaUserAlt, FaEnvelope, FaLock, FaCheckCircle } from 'react-icons/fa';
+import { Logo } from '../_components/logo';
 
 export default function SignUp() {
    return (
-      <div className='flex-1 w-full max-w-xl mx-auto p-1 md:p-4 flex justify-center items-center'>
+      <main className='flex-1 w-full max-w-7xl mx-auto p-1 md:p-4 flex justify-center items-center'>
          <form
             action={supabaseSignupAction}
-            className='w-full mx-auto p-4 bg-white shadow-md rounded-lg space-y-4'
+            className='bg-white px-4 lg:px-8 py-10 lg:py-20 rounded-lg shadow-xl max-w-xl w-full mx-4 space-y-4'
          >
-            <div className='flex flex-col'>
+            <div className='flex justify-center'>
+               <Logo />
+            </div>
+            <p className='text-gray-600 text-sm lg:text-base text-center'>
+               Register and start exploring our platform
+            </p>
+            <div className='flex flex-col gap-2'>
                <label
                   htmlFor='full_name'
-                  className='text-sm font-medium text-gray-700'
+                  className='text-sm font-medium text-gray-700 flex items-center'
                >
+                  <FaUserAlt className='mr-2' />
                   Full Name
                </label>
                <input
@@ -27,8 +36,9 @@ export default function SignUp() {
             <div className='flex flex-col'>
                <label
                   htmlFor='email'
-                  className='text-sm font-medium text-gray-700'
+                  className='text-sm font-medium text-gray-700 flex items-center'
                >
+                  <FaEnvelope className='mr-2' />
                   Email
                </label>
                <input
@@ -43,8 +53,9 @@ export default function SignUp() {
             <div className='flex flex-col'>
                <label
                   htmlFor='password'
-                  className='text-sm font-medium text-gray-700'
+                  className='text-sm font-medium text-gray-700 flex items-center'
                >
+                  <FaLock className='mr-2' />
                   Password
                </label>
                <input
@@ -59,8 +70,9 @@ export default function SignUp() {
             <div className='flex flex-col'>
                <label
                   htmlFor='confirm_password'
-                  className='text-sm font-medium text-gray-700'
+                  className='text-sm font-medium text-gray-700 flex items-center'
                >
+                  <FaCheckCircle className='mr-2' />
                   Confirm Password
                </label>
                <input
@@ -76,6 +88,6 @@ export default function SignUp() {
                Register
             </Button>
          </form>
-      </div>
+      </main>
    );
 }
