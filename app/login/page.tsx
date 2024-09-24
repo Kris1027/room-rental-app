@@ -1,6 +1,7 @@
+import { CredentialLogin } from '@/app/_components/credential-login';
+import { Logo } from '@/app/_components/logo';
 import { SignInButton } from '@/app/_components/sign-in-button';
 import type { Metadata } from 'next';
-import { Logo } from '../_components/logo';
 
 export const metadata: Metadata = {
    title: 'Login',
@@ -24,6 +25,10 @@ export default function Login() {
 
             <div className='flex justify-center'>
                <SignInButton />
+            </div>
+
+            <div className='flex justify-center pt-4'>
+               <CredentialLogin />
             </div>
 
             <p className='mt-8 text-center text-sm text-gray-500'>
