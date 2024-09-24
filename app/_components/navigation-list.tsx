@@ -4,6 +4,7 @@ import { LogoutLink } from '@/app/_components/logout-link';
 import { NavigationListItem } from '@/app/_components/navigation-list-item';
 import type { NavLinks } from '@/app/types/component-types';
 import { auth } from '@/auth';
+import { CredentialLogout } from './credential-logout';
 
 export async function NavigationList() {
    const session = await auth();
@@ -24,6 +25,7 @@ export async function NavigationList() {
          </ul>
          <AccountButton />
          {session?.user ? <LogoutLink /> : <LoginLink />}
+         <CredentialLogout />
       </nav>
    );
 }
