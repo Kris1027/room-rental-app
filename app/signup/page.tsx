@@ -1,5 +1,4 @@
 import { Button } from '@/app/_components/button';
-import { supabaseSignupAction } from '@/app/_lib/actions/auth-supabase-action';
 import { FaUserAlt, FaEnvelope, FaLock, FaCheckCircle } from 'react-icons/fa';
 import { Logo } from '../_components/logo';
 
@@ -7,7 +6,7 @@ export default function SignUp() {
    return (
       <main className='flex-1 w-full max-w-7xl mx-auto p-1 md:p-4 flex justify-center items-center'>
          <form
-            action={supabaseSignupAction}
+            action=''
             className='bg-white px-4 lg:px-8 py-10 lg:py-20 rounded-lg shadow-xl max-w-xl w-full mx-4 space-y-4'
          >
             <div className='flex justify-center'>

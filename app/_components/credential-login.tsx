@@ -1,10 +1,9 @@
 import { Button } from '@/app/_components/button';
-import { supabaseLoginAction } from '../_lib/actions/auth-supabase-action';
 
 export function CredentialLogin() {
    return (
       <form
-         action={supabaseLoginAction}
+         action=''
          className='w-full mx-auto p-4 bg-white shadow-md rounded-lg space-y-4'
       >
          <div className='flex flex-col'>
