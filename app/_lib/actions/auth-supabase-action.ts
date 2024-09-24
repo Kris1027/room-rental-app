@@ -1,12 +1,13 @@
 'use server';
 
 import { supabase } from '@/app/_lib/supabase';
+import { redirect } from 'next/navigation';
 
 export async function supabaseLoginAction(formData: FormData) {
    const email = formData.get('email') as string;
    const password = formData.get('password') as string;
 
-   const { data, error } = await supabase.auth.signInWithPassword({
+   const { error } = await supabase.auth.signInWithPassword({
       email,
       password,
    });
@@ -15,6 +16,5 @@ export async function supabaseLoginAction(formData: FormData) {
       throw new Error(error.message);
    }
 
-   console.log(data);
-   return data;
+   redirect('/');
 }
