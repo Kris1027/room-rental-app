@@ -1,13 +1,17 @@
 import { AccountButton } from '@/app/_components/account-button';
+import { CredentialLogout } from '@/app/_components/credential-logout';
 import { LoginLink } from '@/app/_components/login-link';
 import { LogoutLink } from '@/app/_components/logout-link';
 import { NavigationListItem } from '@/app/_components/navigation-list-item';
+import { supabase } from '@/app/_lib/supabase';
 import type { NavLinks } from '@/app/types/component-types';
 import { auth } from '@/auth';
-import { CredentialLogout } from './credential-logout';
 
 export async function NavigationList() {
    const session = await auth();
+   const {
+      data: { user },
+   } = await supabase.auth.getUser();
 
    const navItems: NavLinks[] = [
       { name: 'Home', path: '/' },
@@ -24,8 +28,13 @@ export async function NavigationList() {
             ))}
          </ul>
          <AccountButton />
-         {session?.user ? <LogoutLink /> : <LoginLink />}
-         <CredentialLogout />
+         {session?.user && !user ? (
+            <LogoutLink />
+         ) : user && !session?.user ? (
+            <CredentialLogout />
+         ) : (
+            <LoginLink />
+         )}
       </nav>
    );
 }

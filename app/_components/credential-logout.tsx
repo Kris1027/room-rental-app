@@ -9,7 +9,7 @@ export function CredentialLogout() {
             className='flex items-center px-3 py-2 rounded-md text-lg font-semibold transition duration-300 gap-1 justify-center text-amber-800 hover:bg-amber-500 hover:text-white'
          >
             <IoMdExit className='mr-2' size={24} />
-            Credential Logout
+            Sign out
          </button>
       </form>
    );
