@@ -28,3 +28,25 @@ export async function supabaseLogoutAction() {
 
    redirect('/login');
 }
+
+export async function supabaseSignupAction(formData: FormData) {
+   const email = formData.get('email') as string;
+   const password = formData.get('password') as string;
+   const full_name = formData.get('full_name') as string;
+
+   const { error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+         data: {
+            full_name,
+         },
+      },
+   });
+
+   if (error) {
+      throw new Error(error.message);
+   }
+
+   redirect('/');
+}

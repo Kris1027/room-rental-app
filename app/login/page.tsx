@@ -2,6 +2,7 @@ import { CredentialLogin } from '@/app/_components/credential-login';
 import { Logo } from '@/app/_components/logo';
 import { SignInButton } from '@/app/_components/sign-in-button';
 import type { Metadata } from 'next';
+import { Link } from 'next-view-transitions';
 
 export const metadata: Metadata = {
    title: 'Login',
@@ -33,9 +34,9 @@ export default function Login() {
 
             <p className='mt-8 text-center text-sm text-gray-500'>
                Don&apos;t have an account?{' '}
-               <a href='#' className='text-blue-600 hover:underline'>
+               <Link href='/signup' className='text-blue-600 hover:underline'>
                   Create one now
-               </a>
+               </Link>
             </p>
          </div>
       </main>
