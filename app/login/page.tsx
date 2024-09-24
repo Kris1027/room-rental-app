@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function Login() {
    return (
       <main className='flex-1 w-full max-w-7xl mx-auto p-1 md:p-4 flex justify-center items-center'>
-         <div className='bg-white p-8 rounded-lg shadow-xl max-w-xl w-full mx-4'>
+         <div className='bg-white px-4 lg:px-8 py-10 lg:py-20 rounded-lg shadow-xl max-w-xl w-full mx-4'>
             <div className='text-center mb-8'>
                <div className='py-10 scale-125'>
                   <Logo />
