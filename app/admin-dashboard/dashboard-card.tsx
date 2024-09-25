@@ -4,7 +4,7 @@ import { Link } from 'next-view-transitions';
 export function DashboardCard({ item }: { item: AdminDashboardLinksProps }) {
    return (
       <Link href={item.path}>
-         <div className='bg-white rounded-xl shadow-lg p-6 transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl flex flex-col justify-center items-center'>
+         <div className='bg-white rounded-xl shadow-lg p-6 transition duration-300 ease-in-out transform lg:hover:scale-105 hover:shadow-xl flex flex-col justify-center items-center'>
             <div
                className={`${item.background} text-white p-4 rounded-full inline-block mb-4`}
             >

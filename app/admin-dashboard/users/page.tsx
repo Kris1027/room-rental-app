@@ -23,7 +23,7 @@ export default async function AdminUsers() {
 
    return (
       <main className='flex-1 w-full max-w-7xl mx-auto p-1 md:p-4'>
-         <div className='pb-4 lg:hidden'>
+         <div className='py-4 lg:hidden'>
             <BackButton />
          </div>
          <h1 className='text-3xl font-bold text-gray-800'>Users</h1>

@@ -9,7 +9,7 @@ export async function DetailedRoom({ room }: { room: roomsProps }) {
    const session = await auth();
 
    return (
-      <div className='flex flex-col gap-4 items-start justify-center'>
+      <div className='flex flex-col py-2 gap-4 items-start justify-center'>
          <BackButton />
          <div className='bg-white p-2 lg:p-4 rounded-xl shadow-lg max-w-3xl mx-auto'>
             <div className='flex flex-col md:flex-row gap-6'>
