@@ -1,5 +1,5 @@
 import { Button } from '@/app/_components/button';
-import { adminUpdateRoomAction } from '@/app/_lib/actions';
+import { updateRoomAction } from '@/app/_lib/actions/rooms-action';
 import { getRoom } from '@/app/_lib/rooms-api';
 import { CancelButton } from '@/app/admin-dashboard/rooms/cancel-button';
 import type { roomsProps } from '@/app/types/data-types';
@@ -14,7 +14,7 @@ export default async function RoomUpdateForm(params: {
    return (
       <main className='flex-1 w-full max-w-7xl mx-auto p-1 md:p-4'>
          <form
-            action={adminUpdateRoomAction}
+            action={updateRoomAction}
             className='m-4 p-4 bg-gray-100 rounded-lg shadow'
          >
             <div className='grid grid-cols-2 gap-4'>
