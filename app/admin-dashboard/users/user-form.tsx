@@ -5,8 +5,8 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 const schema = z.object({
-   full_name: z.string().min(3),
-   email: z.string().email(),
+   full_name: z.string().min(3, 'Full name must be at least 3 characters long'),
+   email: z.string().email('Invalid email address'),
 });
 
 type FormFields = z.infer<typeof schema>;
@@ -15,8 +15,9 @@ export function UserForm({ onCancel }: { onCancel: () => void }) {
    const {
       register,
       handleSubmit,
-      setError,
       formState: { errors, isSubmitting },
+      setError,
+      reset,
    } = useForm<FormFields>({
       resolver: zodResolver(schema),
    });
@@ -27,13 +28,25 @@ export function UserForm({ onCancel }: { onCancel: () => void }) {
       Object.entries(data).forEach(([key, value]) => {
          formData.append(key, value);
       });
-
       try {
-         await adminCreateUserAction(formData);
-         console.log(formData);
+         const result = await adminCreateUserAction(formData);
+         if (result === true) {
+            reset();
+         } else {
+            setError('root', {
+               type: 'manual',
+               message:
+                  'User already exists or there was an error creating the user.',
+            });
+         }
       } catch (error) {
+         console.error('Error creating user:', error);
          setError('root', {
-            message: 'This email is already taken',
+            type: 'manual',
+            message:
+               error instanceof Error
+                  ? error.message
+                  : 'An unexpected error occurred. Please try again.',
          });
       }
    };
@@ -51,20 +64,15 @@ export function UserForm({ onCancel }: { onCancel: () => void }) {
                Full Name
             </label>
             <input
-               {...register('full_name', {
-                  required: 'Full Name is required',
-                  minLength: {
-                     value: 3,
-                     message: 'Full Name must have at least 3 characters',
-                  },
-               })}
-               type='text'
-               name='full_name'
+               {...register('full_name')}
+               id='full_name'
                placeholder='Full Name'
                className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500'
             />
             {errors.full_name && (
-               <p className='text-red-500'>{errors.full_name.message}</p>
+               <p className='text-red-500 text-center py-2'>
+                  {errors.full_name.message}
+               </p>
             )}
          </div>
          <div className='flex flex-col'>
@@ -75,22 +83,15 @@ export function UserForm({ onCancel }: { onCancel: () => void }) {
                Email
             </label>
             <input
-               {...register('email', {
-                  required: 'Email is required',
-                  validate: (value) => {
-                     if (!value.includes('@')) {
-                        return 'Email must include @';
-                     }
-                     return true;
-                  },
-               })}
-               type='email'
-               name='email'
+               {...register('email')}
+               id='email'
                placeholder='Email'
                className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500'
             />
             {errors.email && (
-               <p className='text-red-500'>{errors.email.message}</p>
+               <p className='text-red-500 text-center py-2'>
+                  {errors.email.message}
+               </p>
             )}
          </div>
          <Button type='submit' disabled={isSubmitting} fullWidth>
@@ -99,7 +100,11 @@ export function UserForm({ onCancel }: { onCancel: () => void }) {
          <Button variant='danger' fullWidth onClick={onCancel}>
             Cancel
          </Button>
-         {errors.root && <p className='text-red-500'>{errors.root.message}</p>}
+         {errors.root && (
+            <p className='text-red-500 text-center py-2'>
+               {errors.root.message}
+            </p>
+         )}
       </form>
    );
 }
