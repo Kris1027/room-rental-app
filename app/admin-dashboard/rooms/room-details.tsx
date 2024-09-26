@@ -1,7 +1,7 @@
 import { Button } from '@/app/_components/button';
 import { Expander } from '@/app/_utils/expander';
 import { formatDateTime } from '@/app/_utils/format-date-time';
-import { DeleteButton } from '@/app/admin-dashboard/rooms/delete-button';
+import { DeleteRoom } from '@/app/admin-dashboard/rooms/delete-room';
 import { type roomsProps } from '@/app/types/data-types';
 import { Link } from 'next-view-transitions';
 import Image from 'next/image';
@@ -58,7 +58,7 @@ export function RoomDetails({ room }: { room: roomsProps }) {
                            <span>Edit</span>
                         </Link>
                      </Button>
-                     <DeleteButton roomId={room.id} />
+                     <DeleteRoom roomId={room.id} />
                   </span>
                ),
             },

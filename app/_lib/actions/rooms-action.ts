@@ -42,3 +42,12 @@ export async function createRoomAction(formData: FormData) {
       return false;
    }
 }
+
+export async function deleteRoomAction(roomId: number) {
+   const { error } = await supabase.from('rooms').delete().eq('id', roomId);
+
+   if (error) throw new Error('Room could not be deleted');
+
+   revalidatePath('/admin-dashboard/rooms');
+   revalidatePath('/rooms');
+}

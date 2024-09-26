@@ -70,15 +70,6 @@ export async function adminUpdateUserAction(formData: FormData) {
    redirect('/admin-dashboard/users');
 }
 
-export async function adminDeleteRoomAction(roomId: number) {
-   const { error } = await supabase.from('rooms').delete().eq('id', roomId);
-
-   if (error) throw new Error('Room could not be deleted');
-
-   revalidatePath('/admin-dashboard/rooms');
-   revalidatePath('/rooms');
-}
-
 export async function adminUpdateRoomAction(formData: FormData) {
    const id = formData.get('id') as string;
    const image_url = formData.get('image_url') as string;
