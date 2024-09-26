@@ -1,4 +1,5 @@
 import { Button } from '@/app/_components/button';
+import { ErrorForm } from '@/app/_components/error-form';
 import { adminCreateUserAction } from '@/app/_lib/actions';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -70,9 +71,7 @@ export function UserForm({ onCancel }: { onCancel: () => void }) {
                className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500'
             />
             {errors.full_name && (
-               <p className='text-red-500 text-center py-2'>
-                  {errors.full_name.message}
-               </p>
+               <ErrorForm>{errors.full_name.message}</ErrorForm>
             )}
          </div>
          <div className='flex flex-col'>
@@ -88,11 +87,7 @@ export function UserForm({ onCancel }: { onCancel: () => void }) {
                placeholder='Email'
                className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500'
             />
-            {errors.email && (
-               <p className='text-red-500 text-center py-2'>
-                  {errors.email.message}
-               </p>
-            )}
+            {errors.email && <ErrorForm>{errors.email.message}</ErrorForm>}
          </div>
          <Button type='submit' disabled={isSubmitting} fullWidth>
             {isSubmitting ? 'Submitting' : 'Add New User'}
@@ -100,11 +95,7 @@ export function UserForm({ onCancel }: { onCancel: () => void }) {
          <Button variant='danger' fullWidth onClick={onCancel}>
             Cancel
          </Button>
-         {errors.root && (
-            <p className='text-red-500 text-center py-2'>
-               {errors.root.message}
-            </p>
-         )}
+         {errors.root && <ErrorForm>{errors.root.message}</ErrorForm>}
       </form>
    );
 }
