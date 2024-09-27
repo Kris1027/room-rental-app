@@ -1,9 +1,8 @@
 'use server';
 
-import { supabase } from '@/app/_lib/supabase';
 import { getRoomByName } from '@/app/_lib/rooms-api';
+import { supabase } from '@/app/_lib/supabase';
 import { revalidatePath } from 'next/cache';
-import { redirect } from 'next/navigation';
 
 export async function createRoomAction(formData: FormData) {
    const image_url = formData.get('image_url') as string;
@@ -78,7 +77,6 @@ export async function updateRoomAction(formData: FormData) {
 
    if (error) throw new Error('Room could not be updated');
 
-   revalidatePath('/admin-dashboard/rooms/' + id);
    revalidatePath('/rooms');
-   redirect('/admin-dashboard/rooms');
+   revalidatePath('/admin-dashboard/rooms');
 }

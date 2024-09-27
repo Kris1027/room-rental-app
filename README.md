@@ -51,9 +51,10 @@
 -  [x] UI for created reservation and reservation management for users
 -  [x] User account panel
 -  [x] User settings + back button in account pages
+-  [ ] Validation (Zod)
+-  [ ] Form management (React-Hook-Form)
 -  [x] Filters in rooms page and user reservations
 -  [ ] Filters in admin dashboard
--  [ ] Validation (Zod)
 -  [ ] From one image change to array of images and build image carousel in detailed room page
 -  [ ] Build chart in the main page of admin dashboard
 -  [ ] Responsive for multi devices

@@ -15,7 +15,13 @@ export function DeleteRoom({ roomId }: { roomId: number }) {
    };
 
    return (
-      <Button onClick={handleDelete} disabled={isPending} variant='danger'>
+      <Button
+         onClick={handleDelete}
+         disabled={isPending}
+         variant='danger'
+         size='small'
+         fullWidth
+      >
          <IoTrashBin />
          {isPending ? 'Deleting...' : 'Delete'}
       </Button>

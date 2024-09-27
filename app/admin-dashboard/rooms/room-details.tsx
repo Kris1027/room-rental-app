@@ -14,7 +14,7 @@ export function RoomDetails({ room }: { room: roomsProps }) {
    const toggleEditMode = () => setIsEditing(!isEditing);
 
    return (
-      <tr className='bg-white border-b hover:bg-gray-50 flex flex-col md:table-row'>
+      <tr className='bg-white border-b flex flex-col md:table-row'>
          {isEditing ? (
             <td colSpan={9} className='p-4'>
                <UpdateRoomForm setIsEditing={setIsEditing} room={room} />
@@ -56,23 +56,23 @@ export function RoomDetails({ room }: { room: roomsProps }) {
                   value: room.discount === null ? 0 : room.discount,
                },
                {
-                  label: 'Actions',
+                  label: '',
                   value: (
-                     <span className='flex gap-1'>
-                        <Button size='small' onClick={toggleEditMode}>
+                     <div className='flex flex-col gap-2 items-start justify-start'>
+                        <Button size='small' onClick={toggleEditMode} fullWidth>
                            <FaEdit />
                            <span>Edit</span>
                         </Button>
                         <DeleteRoom roomId={room.id} />
-                     </span>
+                     </div>
                   ),
                },
             ].map(({ label, value }, index) => (
                <td
                   key={label + index}
-                  className='flex justify-between md:table-cell px-4 py-2'
+                  className='flex justify-between md:table-cell p-2'
                >
-                  <span className='font-bold md:hidden'>{label}</span>
+                  <label className='font-bold md:hidden'>{label}</label>
                   {value}
                </td>
             ))
