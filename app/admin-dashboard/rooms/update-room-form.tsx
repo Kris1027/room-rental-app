@@ -1,144 +1,137 @@
-import { updateRoomAction } from '@/app/_lib/actions/rooms-action';
-import { CancelButton } from './cancel-button';
 import { Button } from '@/app/_components/button';
+import { updateRoomAction } from '@/app/_lib/actions/rooms-action';
+import { formatDateTime } from '@/app/_utils/format-date-time';
+import type { roomsProps } from '@/app/types/data-types';
+import { FaTimes } from 'react-icons/fa';
 import { GrUpdate } from 'react-icons/gr';
-import { roomsProps } from '@/app/types/data-types';
 
-export function UpdateRoomForm({ room }: { room: roomsProps }) {
+export function UpdateRoomForm({
+   room,
+   setIsEditing,
+}: {
+   room: roomsProps;
+   setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
+   const handleCancel = () => {
+      setIsEditing(false);
+   };
+
    return (
       <form
          action={updateRoomAction}
-         className='m-4 p-4 bg-gray-100 rounded-lg shadow'
+         className='w-full max-w-4xl mx-auto shadow-lg rounded-lg overflow-hidden'
       >
-         <div className='grid grid-cols-2 gap-4'>
-            <div className='flex flex-col'>
-               <label
-                  htmlFor='id'
-                  className='mb-1 text-sm font-medium text-gray-700'
+         <input type='hidden' name='id' defaultValue={room.id} />
+         <input
+            type='hidden'
+            name='created_at'
+            defaultValue={room.created_at}
+         />
+
+         <div className='p-4 sm:p-6 space-y-4 sm:space-y-6'>
+            {[
+               { label: 'ID', value: room.id, readonly: true },
+               {
+                  label: 'Created At',
+                  value: formatDateTime(room.created_at),
+                  readonly: true,
+               },
+               {
+                  label: 'Image URL',
+                  value: (
+                     <input
+                        type='text'
+                        name='image_url'
+                        defaultValue={room.image_url}
+                        className='w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out'
+                     />
+                  ),
+               },
+               {
+                  label: 'Name',
+                  value: (
+                     <input
+                        type='text'
+                        name='name'
+                        defaultValue={room.name}
+                        className='w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-md font-semibold focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out'
+                     />
+                  ),
+               },
+               {
+                  label: 'Description',
+                  value: (
+                     <textarea
+                        name='description'
+                        defaultValue={room.description}
+                        className='w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out'
+                        rows={3}
+                     />
+                  ),
+               },
+               {
+                  label: 'Regular Price',
+                  value: (
+                     <input
+                        type='number'
+                        name='regular_price'
+                        defaultValue={room.regular_price}
+                        className='w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out'
+                     />
+                  ),
+               },
+               {
+                  label: 'Max Capacity',
+                  value: (
+                     <input
+                        type='number'
+                        name='max_capacity'
+                        defaultValue={room.max_capacity}
+                        className='w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out'
+                     />
+                  ),
+               },
+               {
+                  label: 'Discount',
+                  value: (
+                     <input
+                        type='number'
+                        name='discount'
+                        defaultValue={
+                           room.discount === null ? 0 : room.discount
+                        }
+                        className='w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out'
+                     />
+                  ),
+               },
+            ].map(({ label, value, readonly }, index) => (
+               <div
+                  key={label + index}
+                  className='flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4'
                >
-                  ID
-               </label>
-               <input
-                  type='number'
-                  name='id'
-                  id='id'
-                  className='px-3 py-2 border rounded-md bg-gray-100 outline-none'
-                  defaultValue={room.id}
-                  readOnly
-               />
-            </div>
-            <div className='flex flex-col'>
-               <label
-                  htmlFor='created_at'
-                  className='mb-1 text-sm font-medium text-gray-700'
-               >
-                  Created at
-               </label>
-               <input
-                  type='text'
-                  name='created_at'
-                  id='created_at'
-                  className='px-3 py-2 border rounded-md bg-gray-100 outline-none'
-                  readOnly
-                  defaultValue={room.created_at}
-               />
-            </div>
-            <div className='flex flex-col'>
-               <label
-                  htmlFor='image_url'
-                  className='mb-1 text-sm font-medium text-gray-700'
-               >
-                  Image URL
-               </label>
-               <input
-                  type='text'
-                  name='image_url'
-                  id='image_url'
-                  className='px-3 py-2 border rounded-md'
-                  defaultValue={room.image_url}
-               />
-            </div>
-            <div className='flex flex-col'>
-               <label
-                  htmlFor='name'
-                  className='mb-1 text-sm font-medium text-gray-700'
-               >
-                  Name
-               </label>
-               <input
-                  type='text'
-                  name='name'
-                  id='name'
-                  className='px-3 py-2 border rounded-md'
-                  defaultValue={room.name}
-               />
-            </div>
-            <div className='flex flex-col'>
-               <label
-                  htmlFor='description'
-                  className='mb-1 text-sm font-medium text-gray-700'
-               >
-                  Description
-               </label>
-               <input
-                  type='text'
-                  name='description'
-                  id='description'
-                  className='px-3 py-2 border rounded-md'
-                  defaultValue={room.description}
-               />
-            </div>
-            <div className='flex flex-col'>
-               <label
-                  htmlFor='regular_price'
-                  className='mb-1 text-sm font-medium text-gray-700'
-               >
-                  Regular price
-               </label>
-               <input
-                  type='number'
-                  name='regular_price'
-                  id='regular_price'
-                  className='px-3 py-2 border rounded-md'
-                  defaultValue={room.regular_price}
-               />
-            </div>
-            <div className='flex flex-col'>
-               <label
-                  htmlFor='max_capacity'
-                  className='mb-1 text-sm font-medium text-gray-700'
-               >
-                  Max capacity
-               </label>
-               <input
-                  type='number'
-                  name='max_capacity'
-                  id='max_capacity'
-                  className='px-3 py-2 border rounded-md'
-                  defaultValue={room.max_capacity}
-               />
-            </div>
-            <div className='flex flex-col'>
-               <label
-                  htmlFor='discount'
-                  className='mb-1 text-sm font-medium text-gray-700'
-               >
-                  Discount
-               </label>
-               <input
-                  type='number'
-                  name='discount'
-                  id='discount'
-                  className='px-3 py-2 border rounded-md'
-                  defaultValue={room.discount}
-               />
-            </div>
+                  <label className='text-sm font-medium text-gray-700 sm:w-1/3'>
+                     {label}
+                  </label>
+                  <div className='w-full sm:w-2/3'>
+                     {readonly ? (
+                        <div className='px-3 sm:px-4 py-2 bg-gray-100 rounded-md text-gray-700'>
+                           {value}
+                        </div>
+                     ) : (
+                        value
+                     )}
+                  </div>
+               </div>
+            ))}
          </div>
-         <div className='mt-4 flex justify-end space-x-2'>
-            <CancelButton />
-            <Button type='submit' variant='success'>
-               <GrUpdate />
-               Update
+         <div className='px-4 sm:px-6 py-3 sm:py-4 bg-gray-50 border-t border-gray-200 flex flex-col sm:flex-row sm:justify-end space-y-2 sm:space-y-0 sm:space-x-3'>
+            <Button variant='secondary' size='small' onClick={handleCancel}>
+               <FaTimes className='mr-2' />
+               <span>Cancel</span>
+            </Button>
+            <Button type='submit' variant='success' size='small'>
+               <GrUpdate className='mr-2' />
+               <span>Update</span>
             </Button>
          </div>
       </form>

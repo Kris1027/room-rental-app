@@ -25,7 +25,7 @@ const schema = z.object({
 
 type FormFields = z.infer<typeof schema>;
 
-export function RoomForm({ onCancel }: { onCancel: () => void }) {
+export function CreateRoomForm({ onCancel }: { onCancel: () => void }) {
    const {
       register,
       handleSubmit,

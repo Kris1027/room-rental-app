@@ -22,6 +22,8 @@
 -  Supabase
 -  NextAuth
 -  Next-View-Transitions
+-  React-Hook-Form
+-  Zod
 
 ## List to do:
 
@@ -56,4 +58,3 @@
 -  [ ] Build chart in the main page of admin dashboard
 -  [ ] Responsive for multi devices
 -  [ ] Payments
--  [ ] page for guest testimonials and display last in the home page
