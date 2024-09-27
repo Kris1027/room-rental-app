@@ -10,13 +10,13 @@ export const Expander = ({ text }: { text: string }) => {
    };
 
    const truncatedText =
-      text.length > 20 ? `${text.substring(0, 20)}...` : text;
+      text.length > 190 ? `${text.substring(0, 190)}...` : text;
 
    return (
       <div>
          <p>
             {isExpanded ? text : truncatedText}
-            {text.length > 20 && (
+            {text.length > 190 && (
                <span
                   className='text-blue-500 cursor-pointer'
                   onClick={toggleText}

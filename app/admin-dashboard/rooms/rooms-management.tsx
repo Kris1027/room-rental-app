@@ -24,8 +24,8 @@ export function RoomsManagement({ rooms }: { rooms: roomsProps[] }) {
             </Button>
          )}
          {showForm && <CreateRoomForm onCancel={handleCancel} />}
-         <div className='px-0 py-2 lg:p-6'>
-            <table className='w-full text-sm text-left text-gray-500'>
+         <div className='px-0 py-2'>
+            <table className='w-full text-xs text-center'>
                <RoomsColumns />
                <RoomsList rooms={rooms} />
             </table>
