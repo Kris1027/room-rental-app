@@ -1,29 +1,12 @@
 import { Button } from '@/app/_components/button';
 import { ErrorForm } from '@/app/_components/error-form';
 import { createRoomAction } from '@/app/_lib/actions/rooms-action';
+import { createRoomSchema } from '@/app/_schemas/rooms-zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-const schema = z.object({
-   image_url: z
-      .string()
-      .includes('https://', { message: 'This is not a link' }),
-   name: z.string().min(3, 'Name must be at least 3 characters long'),
-   description: z
-      .string()
-      .min(50, 'Description must be at least 50 characters long'),
-   regular_price: z.number().positive('Regular price should be greater than 0'),
-   max_capacity: z
-      .number()
-      .gte(1, 'Minimum capacity is 1')
-      .lte(15, 'Maximum capacity is 15'),
-   discount: z
-      .number()
-      .nonnegative('Discount cannot be negative number but 0 is good'),
-});
-
-type FormFields = z.infer<typeof schema>;
+type FormFields = z.infer<typeof createRoomSchema>;
 
 export function CreateRoomForm({ onCancel }: { onCancel: () => void }) {
    const {
@@ -33,7 +16,7 @@ export function CreateRoomForm({ onCancel }: { onCancel: () => void }) {
       setError,
       formState: { errors, isSubmitting },
    } = useForm<FormFields>({
-      resolver: zodResolver(schema),
+      resolver: zodResolver(createRoomSchema),
    });
 
    const onSubmit: SubmitHandler<FormFields> = async (data) => {
