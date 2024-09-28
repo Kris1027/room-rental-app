@@ -26,12 +26,8 @@ export default async function AdminRooms() {
          <div className='py-4 lg:hidden'>
             <BackButton />
          </div>
-         <h1 className='text-3xl font-bold text-gray-800 pb-2'>Rooms</h1>
-         {rooms && rooms.length > 0 ? (
-            <RoomsManagement rooms={rooms} />
-         ) : (
-            <NoData message='No rooms available' icon={FaKey} />
-         )}
+         <h2 className='text-3xl font-bold text-gray-800 pb-2'>Rooms</h2>
+         <RoomsManagement rooms={rooms} />
       </main>
    );
 }

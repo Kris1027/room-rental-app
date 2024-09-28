@@ -52,7 +52,7 @@ export function CreateRoomForm({ onCancel }: { onCancel: () => void }) {
    return (
       <form
          onSubmit={handleSubmit(onSubmit)}
-         className='max-w-lg mx-auto p-4 bg-white shadow-md rounded-lg space-y-4'
+         className='max-w-lg mx-auto p-4 bg-white shadow-md rounded-lg space-y-4 mb-4'
       >
          <div className='flex flex-col'>
             <label htmlFor='name' className='text-sm font-medium text-gray-700'>
