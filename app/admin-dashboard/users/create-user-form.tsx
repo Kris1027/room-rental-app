@@ -1,18 +1,14 @@
 import { Button } from '@/app/_components/button';
 import { ErrorForm } from '@/app/_components/error-form';
 import { adminCreateUserAction } from '@/app/_lib/actions';
+import { createUserSchema } from '@/app/_schemas/users-zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-const schema = z.object({
-   full_name: z.string().min(3, 'Full name must be at least 3 characters long'),
-   email: z.string().email('Invalid email address'),
-});
+type FormFields = z.infer<typeof createUserSchema>;
 
-type FormFields = z.infer<typeof schema>;
-
-export function UserForm({ onCancel }: { onCancel: () => void }) {
+export function CreateUserForm({ onCancel }: { onCancel: () => void }) {
    const {
       register,
       handleSubmit,
@@ -20,7 +16,7 @@ export function UserForm({ onCancel }: { onCancel: () => void }) {
       setError,
       reset,
    } = useForm<FormFields>({
-      resolver: zodResolver(schema),
+      resolver: zodResolver(createUserSchema),
    });
 
    const onSubmit: SubmitHandler<FormFields> = async (data) => {
