@@ -39,14 +39,6 @@ export async function adminCreateUserAction(formData: FormData) {
    }
 }
 
-export async function adminDeleteUserAction(userId: number) {
-   const { error } = await supabase.from('users').delete().eq('id', userId);
-
-   if (error) throw new Error('User could not be deleted');
-
-   revalidatePath('/admin-dashboard/users');
-}
-
 export async function adminUpdateUserAction(formData: FormData) {
    const id = formData.get('id') as string;
    const email = formData.get('email') as string;
