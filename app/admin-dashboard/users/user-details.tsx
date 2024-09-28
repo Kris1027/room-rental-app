@@ -8,7 +8,7 @@ import { FaEdit } from 'react-icons/fa';
 
 export function UserDetails({ user }: { user: usersProps }) {
    return (
-      <tr className='bg-white border-b hover:bg-gray-50 flex flex-col md:table-row'>
+      <tr className='bg-gray-50 border-b hover:bg-gray-50 flex flex-col md:table-row odd:bg-white'>
          {[
             { label: 'ID', value: user.id },
             {

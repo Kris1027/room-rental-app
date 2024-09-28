@@ -1,6 +1,6 @@
 import { Button } from '@/app/_components/button';
 import { ErrorForm } from '@/app/_components/error-form';
-import { adminCreateUserAction } from '@/app/_lib/actions';
+import { createUserAction } from '@/app/_lib/actions/users-action';
 import { createUserSchema } from '@/app/_schemas/users-zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -26,7 +26,7 @@ export function CreateUserForm({ onCancel }: { onCancel: () => void }) {
          formData.append(key, value);
       });
       try {
-         const result = await adminCreateUserAction(formData);
+         const result = await createUserAction(formData);
          if (result === true) {
             reset();
          } else {
