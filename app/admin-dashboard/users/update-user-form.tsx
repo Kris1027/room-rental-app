@@ -1,5 +1,5 @@
 import { Button } from '@/app/_components/button';
-import { adminUpdateUserAction } from '@/app/_lib/actions';
+import { updateUserAction } from '@/app/_lib/actions/users-action';
 import { CancelButton } from '@/app/admin-dashboard/users/cancel-button';
 import type { usersProps } from '@/app/types/data-types';
 import { GrUpdate } from 'react-icons/gr';
@@ -18,7 +18,7 @@ export function UpdateUserForm({
    return (
       <main className='flex-1 w-full max-w-7xl mx-auto p-1 md:p-4'>
          <form
-            action={adminUpdateUserAction}
+            action={updateUserAction}
             className='m-4 p-4 bg-gray-100 rounded-lg shadow'
          >
             <div className='grid grid-cols-2 gap-4'>
