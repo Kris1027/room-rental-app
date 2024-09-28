@@ -19,7 +19,7 @@ export function RoomsManagement({ rooms }: { rooms: roomsProps[] }) {
       <>
          {!showForm && (
             <Button onClick={() => setShowForm(!showForm)}>
-               <FaKey size={16} />
+               <FaKey size={24} />
                <span>Add New Room</span>
             </Button>
          )}
