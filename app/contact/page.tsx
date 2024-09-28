@@ -1,17 +1,22 @@
-import { Button } from '@/app/_components/button';
 import { socialLinks } from '@/app/_components/social-links';
-import { sendMessageAction } from '@/app/_lib/actions/messages-action';
 import { ContactInfo } from '@/app/contact/contact-info';
+import { UserMessageForm } from '@/app/contact/user-message-form';
+import { auth } from '@/auth';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import { FaClock, FaEnvelope, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
-import { IoIosSend } from 'react-icons/io';
 
 export const metadata: Metadata = {
    title: 'Contact The Grand Horizon Hotel',
 };
 
-export default function Contact() {
+export default async function Contact() {
+   const session = await auth();
+   const userId = session?.user.userId;
+   const userEmail = session?.user.email;
+
+   const hide = session ? true : false;
+
    return (
       <main className='flex-1 w-full max-w-7xl mx-auto p-4 md:p-8'>
          <section className='bg-white rounded-xl shadow-2xl overflow-hidden'>
@@ -29,66 +34,18 @@ export default function Contact() {
                   </h1>
                </div>
             </div>
-
             <div className='p-8'>
                <div className='grid md:grid-cols-2 gap-12'>
                   <div className='animate-fadeIn'>
                      <h2 className='text-2xl font-semibold mb-6'>
                         Send Us a Message
                      </h2>
-                     <form action={sendMessageAction} className='space-y-6'>
-                        <input
-                           type='number'
-                           id='user_id'
-                           name='user_id'
-                           required
-                           readOnly
-                           value={105}
-                           hidden
-                        />
-                        <div>
-                           <label
-                              htmlFor='email'
-                              className='block mb-2 font-medium text-gray-700'
-                           >
-                              Email
-                           </label>
-                           <input
-                              type='email'
-                              id='user_email'
-                              name='user_email'
-                              placeholder='Your email address'
-                              required
-                              className='w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300'
-                           />
-                        </div>
-                        <div>
-                           <label
-                              htmlFor='message'
-                              className='block mb-2 font-medium text-gray-700'
-                           >
-                              Message
-                           </label>
-                           <textarea
-                              id='message'
-                              name='message'
-                              placeholder='Your message'
-                              required
-                              rows={4}
-                              className='w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300'
-                           ></textarea>
-                        </div>
-                        <Button
-                           type='submit'
-                           variant='success'
-                           className='w-full justify-center py-3'
-                        >
-                           <IoIosSend className='mr-2' />
-                           <span>Send Message</span>
-                        </Button>
-                     </form>
+                     <UserMessageForm
+                        userId={Number(userId)}
+                        userEmail={userEmail}
+                        hide={hide}
+                     />
                   </div>
-
                   <div className='animate-fadeIn'>
                      <h2 className='text-2xl font-semibold mb-6'>
                         Contact Information
