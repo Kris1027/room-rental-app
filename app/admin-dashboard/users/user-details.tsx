@@ -2,55 +2,57 @@ import { Button } from '@/app/_components/button';
 import { formatDateTime } from '@/app/_utils/format-date-time';
 import { TrueOrFalse } from '@/app/_utils/true-or-false';
 import { DeleteUser } from '@/app/admin-dashboard/users/delete-user';
+import { UpdateUserForm } from '@/app/admin-dashboard/users/update-user-form';
 import type { usersProps } from '@/app/types/data-types';
-import { Link } from 'next-view-transitions';
+import { useState } from 'react';
 import { FaEdit } from 'react-icons/fa';
 
 export function UserDetails({ user }: { user: usersProps }) {
+   const [isEditing, setIsEditing] = useState<boolean>(false);
+
+   const toggleEditMode = () => setIsEditing(!isEditing);
+
    return (
-      <tr className='bg-gray-50 border-b hover:bg-gray-50 flex flex-col md:table-row odd:bg-white'>
-         {[
-            { label: 'ID', value: user.id },
-            {
-               label: 'Created At',
-               value: formatDateTime(user.created_at),
-            },
-            { label: 'Full Name', value: user.full_name },
-            { label: 'Email', value: user.email },
-            {
-               label: 'Is Admin',
-               value: (
-                  <span className={TrueOrFalse(user.is_admin)}>
+      <tr className='bg-gray-50 border-b flex flex-col md:table-row p-2 odd:bg-white'>
+         {isEditing ? (
+            <td colSpan={9} className='p-4'>
+               <UpdateUserForm setIsEditing={setIsEditing} user={user} />
+            </td>
+         ) : (
+            <>
+               <td className='flex p-1 justify-between md:table-cell'>
+                  <label className='font-bold md:hidden'>ID</label>
+                  <span className='text-base'>{user.id}</span>
+               </td>
+               <td className='flex p-1 justify-between md:table-cell'>
+                  <label className='font-bold md:hidden'>Created At</label>
+                  <span>{formatDateTime(user.created_at)}</span>
+               </td>
+               <td className='flex p-1 justify-between md:table-cell'>
+                  <label className='font-bold md:hidden'>Full Name</label>
+                  <span className='text-sm font-bold'>{user.full_name}</span>
+               </td>
+               <td className='flex p-1 justify-between md:table-cell'>
+                  <label className='font-bold md:hidden'>Email</label>
+                  <span className='text-base'>{user.email}</span>
+               </td>
+               <td className='flex p-1 justify-between md:table-cell'>
+                  <label className='font-bold md:hidden'>Is Admin</label>
+                  <span className={`text-base ${TrueOrFalse(user.is_admin)}`}>
                      {user.is_admin ? 'Yes' : 'No'}
                   </span>
-               ),
-            },
-            {
-               label: 'Actions',
-               value: (
-                  <span className='flex gap-1'>
-                     <Button size='small'>
-                        <Link
-                           href={`/admin-dashboard/users/${user.id}`}
-                           className='flex items-center gap-1'
-                        >
-                           <FaEdit size={16} />
-                           <span>Edit</span>
-                        </Link>
+               </td>
+               <td className='flex p-1 justify-between md:table-cell'>
+                  <div className='flex flex-col gap-2 p-2 w-full'>
+                     <Button size='small' onClick={toggleEditMode} fullWidth>
+                        <FaEdit />
+                        <span>Edit</span>
                      </Button>
                      <DeleteUser userId={user.id} />
-                  </span>
-               ),
-            },
-         ].map(({ label, value }, index) => (
-            <td
-               key={label + index}
-               className='flex justify-between md:table-cell px-4 py-2'
-            >
-               <span className='font-bold md:hidden'>{label}:</span>
-               {value}
-            </td>
-         ))}
+                  </div>
+               </td>
+            </>
+         )}
       </tr>
    );
 }

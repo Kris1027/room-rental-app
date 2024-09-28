@@ -1,15 +1,19 @@
 import { Button } from '@/app/_components/button';
 import { adminUpdateUserAction } from '@/app/_lib/actions';
-import { getUserById } from '@/app/_lib/users-api';
 import { CancelButton } from '@/app/admin-dashboard/users/cancel-button';
 import type { usersProps } from '@/app/types/data-types';
 import { GrUpdate } from 'react-icons/gr';
 
-export default async function UserUpdateForm(params: {
-   params: { userId: number };
+export function UpdateUserForm({
+   user,
+   setIsEditing,
+}: {
+   user: usersProps;
+   setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
-   const id = params.params.userId;
-   const user: usersProps = await getUserById(id);
+   const handleCancel = () => {
+      setIsEditing(false);
+   };
 
    return (
       <main className='flex-1 w-full max-w-7xl mx-auto p-1 md:p-4'>
