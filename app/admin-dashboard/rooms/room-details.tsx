@@ -14,7 +14,7 @@ export function RoomDetails({ room }: { room: roomsProps }) {
    const toggleEditMode = () => setIsEditing(!isEditing);
 
    return (
-      <tr className='bg-white border-b flex flex-col md:table-row p-2 odd:bg-gray-50'>
+      <tr className='bg-gray-50 border-b flex flex-col md:table-row p-2 odd:bg-white'>
          {isEditing ? (
             <td colSpan={9} className='p-4'>
                <UpdateRoomForm setIsEditing={setIsEditing} room={room} />
