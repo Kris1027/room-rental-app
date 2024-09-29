@@ -24,10 +24,15 @@ export function CreateReservationForm({
    onCancel: () => void;
 }) {
    const [selectedRoom, setSelectedRoom] = useState<roomsProps | null>(null);
-   const [formattedTotalPrice, setFormattedTotalPrice] = useState('$0.00');
+   const [formattedTotalPrice, setFormattedTotalPrice] = useState(0);
+   const [maxCapacity, setMaxCapacity] = useState<number>(1);
 
    const defaultEndDate = new Date();
    defaultEndDate.setDate(defaultEndDate.getDate() + 2);
+
+   const generateGuestOptions = () => {
+      return Array.from({ length: maxCapacity }, (_, i) => i + 1);
+   };
 
    const {
       control,
@@ -64,10 +69,17 @@ export function CreateReservationForm({
             const price =
                nights * (selectedRoom.regular_price - selectedRoom.discount);
             setValue('total_price', price);
-            setFormattedTotalPrice(`$${price.toFixed(2)}`);
+            setFormattedTotalPrice(price);
          }
       }
    }, [startDate, endDate, numGuests, selectedRoom, setValue]);
+
+   useEffect(() => {
+      if (selectedRoom) {
+         setMaxCapacity(selectedRoom.max_capacity);
+         setValue('num_guests', 1);
+      }
+   }, [selectedRoom, setValue]);
 
    const onSubmit: SubmitHandler<FormFields> = async (data) => {
       const formData = new FormData();
@@ -84,6 +96,7 @@ export function CreateReservationForm({
          const result = await createReservationAction(formData);
          if (result === true) {
             reset();
+            onCancel();
          } else {
             setError('root', {
                type: 'manual',
@@ -163,6 +176,33 @@ export function CreateReservationForm({
 
          <div className='flex flex-col'>
             <label
+               htmlFor='num_guests'
+               className='text-sm font-medium text-gray-700'
+            >
+               Number of Guests
+            </label>
+            <select
+               {...register('num_guests', {
+                  required: true,
+                  valueAsNumber: true,
+               })}
+               className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500'
+               id='num_guests'
+            >
+               <option value=''>Select number of Guests</option>
+               {generateGuestOptions().map((num) => (
+                  <option key={num} value={num}>
+                     {num}
+                  </option>
+               ))}
+            </select>
+            {errors.num_guests && (
+               <ErrorForm>{errors.num_guests.message}</ErrorForm>
+            )}
+         </div>
+
+         <div className='flex flex-col'>
+            <label
                htmlFor='start_date'
                className='text-sm font-medium text-gray-700'
             >
@@ -233,7 +273,7 @@ export function CreateReservationForm({
             </label>
             <input
                {...register('num_nights', { valueAsNumber: true })}
-               className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-gray-100'
+               className='mt-1 px-3 py-2 outline-none w-full cursor-default text-xl'
                id='num_nights'
                readOnly
             />
@@ -244,43 +284,18 @@ export function CreateReservationForm({
 
          <div className='flex flex-col'>
             <label
-               htmlFor='num_guests'
-               className='text-sm font-medium text-gray-700'
-            >
-               Number of Guests
-            </label>
-            <input
-               type='number'
-               {...register('num_guests', {
-                  valueAsNumber: true,
-                  required: true,
-               })}
-               className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500'
-               id='num_guests'
-               min='1'
-               max='15'
-            />
-            {errors.num_guests && (
-               <ErrorForm>{errors.num_guests.message}</ErrorForm>
-            )}
-         </div>
-
-         <div className='flex flex-col'>
-            <label
                htmlFor='total_price'
                className='text-sm font-medium text-gray-700'
             >
                Total Price
             </label>
-            <div className='relative'>
-               <input
-                  {...register('total_price', { valueAsNumber: true })}
-                  className='mt-1 pl-7 pr-3 py-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-gray-100'
-                  id='total_price'
-                  readOnly
-                  value={formattedTotalPrice}
-               />
-            </div>
+            <input
+               {...register('total_price', { valueAsNumber: true })}
+               className='mt-1 px-3 py-2 outline-none w-full cursor-default text-3xl'
+               id='total_price'
+               readOnly
+               value={`$${formattedTotalPrice.toFixed(2)}`}
+            />
             {errors.total_price && (
                <ErrorForm>{errors.total_price.message}</ErrorForm>
             )}
