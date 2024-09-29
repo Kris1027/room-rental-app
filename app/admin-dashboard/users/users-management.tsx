@@ -1,12 +1,13 @@
 'use client';
 
 import { Button } from '@/app/_components/button';
+import { NoData } from '@/app/_components/no-data';
 import { CreateUserForm } from '@/app/admin-dashboard/users/create-user-form';
 import { UsersColumns } from '@/app/admin-dashboard/users/users-columns';
 import { UsersList } from '@/app/admin-dashboard/users/users-list';
 import { usersProps } from '@/app/types/data-types';
 import { useState } from 'react';
-import { FaUserPlus } from 'react-icons/fa';
+import { FaRegUser, FaUserPlus } from 'react-icons/fa';
 
 export default function UsersManagement({ users }: { users: usersProps[] }) {
    const [showForm, setShowForm] = useState(false);
@@ -24,12 +25,16 @@ export default function UsersManagement({ users }: { users: usersProps[] }) {
             </Button>
          )}
          {showForm && <CreateUserForm onCancel={handleCancel} />}
-         <div className='px-0 py-2 lg:p-6'>
-            <table className='w-full text-xs text-center'>
-               <UsersColumns />
-               <UsersList users={users} />
-            </table>
-         </div>
+         {users && users.length > 0 ? (
+            <div className='px-0 py-2'>
+               <table className='w-full text-xs text-center'>
+                  <UsersColumns />
+                  <UsersList users={users} />
+               </table>
+            </div>
+         ) : (
+            <NoData message='No users' icon={FaRegUser} />
+         )}
       </>
    );
 }
