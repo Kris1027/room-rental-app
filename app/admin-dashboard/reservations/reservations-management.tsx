@@ -2,7 +2,7 @@
 
 import { Button } from '@/app/_components/button';
 import { NoData } from '@/app/_components/no-data';
-import { ReservationForm } from '@/app/admin-dashboard/reservations/reservation-form';
+import { CreateReservationForm } from '@/app/admin-dashboard/reservations/create-reservation-form';
 import { ReservationsColumns } from '@/app/admin-dashboard/reservations/reservations-columns';
 import { ReservationsList } from '@/app/admin-dashboard/reservations/reservations-list';
 import type {
@@ -37,7 +37,7 @@ export function ReservationsManagement({
             </Button>
          )}
          {showForm && (
-            <ReservationForm
+            <CreateReservationForm
                onCancel={handleCancel}
                users={users}
                rooms={rooms}
