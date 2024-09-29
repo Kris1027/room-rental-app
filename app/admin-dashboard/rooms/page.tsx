@@ -1,12 +1,10 @@
 import { BackButton } from '@/app/_components/back-button';
-import { NoData } from '@/app/_components/no-data';
 import { getRooms } from '@/app/_lib/rooms-api';
 import { RoomsManagement } from '@/app/admin-dashboard/rooms/rooms-management';
 import type { roomsProps } from '@/app/types/data-types';
 import { auth } from '@/auth';
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
-import { FaKey } from 'react-icons/fa';
 
 export const metadata: Metadata = {
    title: 'Admin Rooms',
