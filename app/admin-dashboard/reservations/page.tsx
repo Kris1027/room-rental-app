@@ -1,5 +1,4 @@
 import { BackButton } from '@/app/_components/back-button';
-import { NoData } from '@/app/_components/no-data';
 import { getReservations } from '@/app/_lib/reservations-api';
 import { getRooms } from '@/app/_lib/rooms-api';
 import { getUsers } from '@/app/_lib/users-api';
@@ -12,7 +11,6 @@ import type {
 import { auth } from '@/auth';
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
-import { FaRegCalendarAlt } from 'react-icons/fa';
 
 export const metadata: Metadata = {
    title: 'Admin Reservations',
@@ -34,20 +32,12 @@ export default async function AdminReservations() {
          <div className='py-4 lg:hidden'>
             <BackButton />
          </div>
-         <h1 className='text-3xl font-bold text-gray-800'>User Reservations</h1>
-         {reservations.length === 0 ? (
-            <NoData
-               message='No reservations'
-               icon={FaRegCalendarAlt}
-               className='mt-4'
-            />
-         ) : (
-            <ReservationsManagement
-               reservations={reservations}
-               users={users}
-               rooms={rooms}
-            />
-         )}
+         <h1 className='text-3xl font-bold text-gray-800 pb-2'>Reservations</h1>
+         <ReservationsManagement
+            reservations={reservations}
+            users={users}
+            rooms={rooms}
+         />
       </main>
    );
 }

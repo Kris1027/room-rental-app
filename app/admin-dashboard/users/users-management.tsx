@@ -19,7 +19,7 @@ export default function UsersManagement({ users }: { users: usersProps[] }) {
    return (
       <>
          {!showForm && (
-            <Button onClick={() => setShowForm(!showForm)}>
+            <Button className='mb-4' onClick={() => setShowForm(!showForm)}>
                <FaUserPlus size={24} />
                <span>Add New User</span>
             </Button>
