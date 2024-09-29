@@ -70,147 +70,153 @@ export function UpdateRoomForm({
          className='w-full max-w-4xl mx-auto shadow-lg rounded-lg overflow-hidden'
       >
          <div className='p-4 sm:p-6 space-y-4 sm:space-y-6'>
-            {[
-               {
-                  label: 'ID',
-                  value: (
-                     <>
-                        <input
-                           {...register('id')}
-                           id='id'
-                           className='w-full px-3 sm:px-4 py-2 bg-gray-100 border border-gray-300 rounded-md focus:outline-none'
-                        />
-                        {errors.id && (
-                           <ErrorForm>{errors.id.message}</ErrorForm>
-                        )}
-                     </>
-                  ),
-               },
-               {
-                  label: 'Created At',
-                  value: (
-                     <>
-                        <input
-                           {...register('created_at')}
-                           id='created_at'
-                           className='w-full px-3 sm:px-4 py-2 bg-gray-100 border border-gray-300 rounded-md focus:outline-none'
-                        />
-                        {errors.created_at && (
-                           <ErrorForm>{errors.created_at.message}</ErrorForm>
-                        )}
-                     </>
-                  ),
-               },
-               {
-                  label: 'Image URL',
-                  value: (
-                     <>
-                        <input
-                           {...register('image_url')}
-                           id='image_url'
-                           className='w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-md focus:outline-none'
-                        />
-                        {errors.image_url && (
-                           <ErrorForm>{errors.image_url.message}</ErrorForm>
-                        )}
-                     </>
-                  ),
-               },
-               {
-                  label: 'Name',
-                  value: (
-                     <>
-                        <input
-                           {...register('name')}
-                           id='name'
-                           className='w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-md focus:outline-none font-semibold'
-                        />
-                        {errors.name && (
-                           <ErrorForm>{errors.name.message}</ErrorForm>
-                        )}
-                     </>
-                  ),
-               },
-               {
-                  label: 'Description',
-                  value: (
-                     <>
-                        <textarea
-                           {...register('description')}
-                           id='description'
-                           className='w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-md focus:outline-none'
-                           rows={3}
-                        />
-                        {errors.description && (
-                           <ErrorForm>{errors.description.message}</ErrorForm>
-                        )}
-                     </>
-                  ),
-               },
-               {
-                  label: 'Regular Price',
-                  value: (
-                     <>
-                        <input
-                           {...register('regular_price', {
-                              valueAsNumber: true,
-                           })}
-                           id='regular_price'
-                           className='w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-md focus:outline-none'
-                        />
-                        {errors.regular_price && (
-                           <ErrorForm>{errors.regular_price.message}</ErrorForm>
-                        )}
-                     </>
-                  ),
-               },
-               {
-                  label: 'Max Capacity',
-                  value: (
-                     <>
-                        <input
-                           {...register('max_capacity', {
-                              valueAsNumber: true,
-                           })}
-                           id='max_capacity'
-                           className='w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-md focus:outline-none'
-                        />
-                        {errors.max_capacity && (
-                           <ErrorForm>{errors.max_capacity.message}</ErrorForm>
-                        )}
-                     </>
-                  ),
-               },
-               {
-                  label: 'Discount',
-                  value: (
-                     <>
-                        <input
-                           {...register('discount', { valueAsNumber: true })}
-                           id='discount'
-                           className='w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-md focus:outline-none'
-                        />
-                        {errors.discount && (
-                           <ErrorForm>{errors.discount.message}</ErrorForm>
-                        )}
-                     </>
-                  ),
-               },
-            ].map(({ label, value }, index) => (
-               <div
-                  key={label + index}
-                  className='flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4'
+            <div className='flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4'>
+               <label
+                  htmlFor='id'
+                  className='text-sm font-medium text-gray-700 sm:w-1/3'
                >
-                  <label className='text-sm font-medium text-gray-700 sm:w-1/3'>
-                     {label}
-                  </label>
-                  <div className='w-full sm:w-2/3'>
-                     <div className='px-3 sm:px-4 py-2  rounded-md text-gray-700'>
-                        {value}
-                     </div>
-                  </div>
+                  ID
+               </label>
+               <div className='w-full'>
+                  <input
+                     {...register('id')}
+                     readOnly
+                     id='id'
+                     className='w-full px-3 sm:px-4 py-2 bg-gray-100 border border-gray-300 rounded-md focus:outline-none'
+                  />
+                  {errors.id && <ErrorForm>{errors.id.message}</ErrorForm>}
                </div>
-            ))}
+            </div>
+            <div className='flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4'>
+               <label
+                  htmlFor='created_at'
+                  className='text-sm font-medium text-gray-700 sm:w-1/3'
+               >
+                  Created At
+               </label>
+               <div className='w-full'>
+                  <input
+                     {...register('created_at')}
+                     readOnly
+                     id='created_at'
+                     className='w-full px-3 sm:px-4 py-2 bg-gray-100 border border-gray-300 rounded-md focus:outline-none'
+                  />
+                  {errors.created_at && (
+                     <ErrorForm>{errors.created_at.message}</ErrorForm>
+                  )}
+               </div>
+            </div>
+            <div className='flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4'>
+               <label
+                  htmlFor='image_url'
+                  className='text-sm font-medium text-gray-700 sm:w-1/3'
+               >
+                  Image URL
+               </label>
+               <div className='w-full'>
+                  <input
+                     {...register('image_url')}
+                     id='image_url'
+                     className='w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-md focus:outline-none'
+                  />
+                  {errors.image_url && (
+                     <ErrorForm>{errors.image_url.message}</ErrorForm>
+                  )}
+               </div>
+            </div>
+            <div className='flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4'>
+               <label
+                  htmlFor='name'
+                  className='text-sm font-medium text-gray-700 sm:w-1/3'
+               >
+                  Name
+               </label>
+               <div className='w-full'>
+                  <input
+                     {...register('name')}
+                     id='name'
+                     className='w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-md focus:outline-none font-semibold'
+                  />
+                  {errors.name && <ErrorForm>{errors.name.message}</ErrorForm>}
+               </div>
+            </div>
+            <div className='flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4'>
+               <label
+                  htmlFor='description'
+                  className='text-sm font-medium text-gray-700 sm:w-1/3'
+               >
+                  Description
+               </label>
+               <div className='w-full'>
+                  <textarea
+                     {...register('description')}
+                     id='description'
+                     className='w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-md focus:outline-none'
+                     rows={3}
+                  />
+                  {errors.description && (
+                     <ErrorForm>{errors.description.message}</ErrorForm>
+                  )}
+               </div>
+            </div>
+            <div className='flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4'>
+               <label
+                  htmlFor='regular_price'
+                  className='text-sm font-medium text-gray-700 sm:w-1/3'
+               >
+                  Regular price
+               </label>
+               <div className='w-full'>
+                  <input
+                     {...register('regular_price', {
+                        valueAsNumber: true,
+                     })}
+                     id='regular_price'
+                     className='w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-md focus:outline-none'
+                  />
+                  {errors.regular_price && (
+                     <ErrorForm>{errors.regular_price.message}</ErrorForm>
+                  )}
+               </div>
+            </div>
+            <div className='flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4'>
+               <label
+                  htmlFor='max_capacity'
+                  className='text-sm font-medium text-gray-700 sm:w-1/3'
+               >
+                  Max capacity
+               </label>
+               <div className='w-full'>
+                  <input
+                     {...register('max_capacity', {
+                        valueAsNumber: true,
+                     })}
+                     id='max_capacity'
+                     className='w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-md focus:outline-none'
+                  />
+                  {errors.max_capacity && (
+                     <ErrorForm>{errors.max_capacity.message}</ErrorForm>
+                  )}
+               </div>
+            </div>
+            <div className='flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4'>
+               <label
+                  htmlFor='discount'
+                  className='text-sm font-medium text-gray-700 sm:w-1/3'
+               >
+                  Discount
+               </label>
+               <div className='w-full'>
+                  <input
+                     {...register('discount', { valueAsNumber: true })}
+                     id='discount'
+                     className='w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-md focus:outline-none'
+                  />
+                  {errors.discount && (
+                     <ErrorForm>{errors.discount.message}</ErrorForm>
+                  )}
+               </div>
+            </div>
          </div>
          <div className='px-4 sm:px-6 py-3 sm:py-4 border-t border-gray-200 flex flex-col sm:flex-row sm:justify-end space-y-2 sm:space-y-0 sm:space-x-3'>
             <Button variant='secondary' size='small' onClick={handleCancel}>
