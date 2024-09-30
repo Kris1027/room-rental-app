@@ -75,7 +75,7 @@ export async function updateReservationAction(formData: FormData) {
       num_guests: Number(num_guests),
       total_price: Number(total_price),
       status,
-      is_paid: Boolean(is_paid),
+      is_paid,
    };
 
    const { error } = await supabase
