@@ -6,7 +6,7 @@ import { createReservationAction } from '@/app/_lib/actions/reservations-action'
 import { createReservationSchema } from '@/app/_schemas/reservations-zod';
 import type { roomsProps, usersProps } from '@/app/types/data-types';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
@@ -24,7 +24,6 @@ export function CreateReservationForm({
    onCancel: () => void;
 }) {
    const [selectedRoom, setSelectedRoom] = useState<roomsProps | null>(null);
-   const [formattedTotalPrice, setFormattedTotalPrice] = useState(0);
    const [maxCapacity, setMaxCapacity] = useState<number>(1);
 
    const defaultEndDate = new Date();
@@ -57,22 +56,24 @@ export function CreateReservationForm({
    const startDate = watch('start_date');
    const endDate = watch('end_date');
    const numGuests = watch('num_guests');
+   const totalPrice = watch('total_price');
 
-   useEffect(() => {
-      if (startDate && endDate) {
+   const calculatePrice = useCallback(() => {
+      if (startDate && endDate && selectedRoom) {
          const nights = Math.ceil(
             (endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)
          );
          setValue('num_nights', nights);
 
-         if (selectedRoom) {
-            const price =
-               nights * (selectedRoom.regular_price - selectedRoom.discount);
-            setValue('total_price', price);
-            setFormattedTotalPrice(price);
-         }
+         const price =
+            nights * (selectedRoom.regular_price - selectedRoom.discount);
+         setValue('total_price', price);
       }
-   }, [startDate, endDate, numGuests, selectedRoom, setValue]);
+   }, [startDate, endDate, selectedRoom, setValue]);
+
+   useEffect(() => {
+      calculatePrice();
+   }, [calculatePrice, numGuests]);
 
    useEffect(() => {
       if (selectedRoom) {
@@ -80,6 +81,10 @@ export function CreateReservationForm({
          setValue('num_guests', 1);
       }
    }, [selectedRoom, setValue]);
+
+   const formatPrice = (price: number) => {
+      return `$${price.toFixed(2)}`;
+   };
 
    const onSubmit: SubmitHandler<FormFields> = async (data) => {
       const formData = new FormData();
@@ -189,7 +194,6 @@ export function CreateReservationForm({
                className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500'
                id='num_guests'
             >
-               <option value=''>Select number of Guests</option>
                {generateGuestOptions().map((num) => (
                   <option key={num} value={num}>
                      {num}
@@ -294,7 +298,7 @@ export function CreateReservationForm({
                className='mt-1 px-3 py-2 outline-none w-full cursor-default text-3xl'
                id='total_price'
                readOnly
-               value={`$${formattedTotalPrice.toFixed(2)}`}
+               value={formatPrice(totalPrice)}
             />
             {errors.total_price && (
                <ErrorForm>{errors.total_price.message}</ErrorForm>
