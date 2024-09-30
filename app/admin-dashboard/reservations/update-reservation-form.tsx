@@ -126,9 +126,9 @@ export function UpdateReservationForm({
    return (
       <form
          onSubmit={handleSubmit(onSubmit)}
-         className='w-full max-w-4xl mx-auto shadow-lg rounded-lg overflow-hidden'
+         className='max-w-4xl mx-auto shadow-lg rounded-lg overflow-hidden p-4 sm:p-6'
       >
-         <div className='p-4 sm:p-6 space-y-4 sm:space-y-6'>
+         <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
             <div className='flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4'>
                <label
                   htmlFor='id'
@@ -136,12 +136,12 @@ export function UpdateReservationForm({
                >
                   ID
                </label>
-               <div className='w-full'>
+               <div className='w-full sm:w-2/3'>
                   <input
                      {...register('id')}
                      readOnly
                      id='id'
-                     className='px-3 py-2 outline-none w-full cursor-default'
+                     className='mt-1 px-3 py-2 outline-none cursor-default text-xl w-full'
                   />
                   {errors.id && <ErrorForm>{errors.id.message}</ErrorForm>}
                </div>
@@ -154,7 +154,7 @@ export function UpdateReservationForm({
                >
                   Created At
                </label>
-               <div className='w-full'>
+               <div className='w-full sm:w-2/3'>
                   <Controller
                      name='created_at'
                      control={control}
@@ -166,7 +166,7 @@ export function UpdateReservationForm({
                            showTimeSelect
                            timeFormat='HH:mm'
                            timeIntervals={15}
-                           className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm w-full outline-none'
+                           className='mt-1 px-3 py-2 outline-none cursor-default text-xl w-full'
                            readOnly
                         />
                      )}
@@ -184,12 +184,12 @@ export function UpdateReservationForm({
                >
                   User ID
                </label>
-               <div className='w-full'>
+               <div className='w-full sm:w-2/3'>
                   <input
                      {...register('user_id')}
                      readOnly
                      id='user_id'
-                     className='px-3 py-2 outline-none w-full cursor-default'
+                     className='mt-1 px-3 py-2 outline-none cursor-default text-xl w-full'
                   />
                   {errors.user_id && (
                      <ErrorForm>{errors.user_id.message}</ErrorForm>
@@ -202,9 +202,9 @@ export function UpdateReservationForm({
                   htmlFor='room_id'
                   className='text-sm font-medium text-gray-700 sm:w-1/3'
                >
-                  Room
+                  Room ID
                </label>
-               <div className='w-full'>
+               <div className='w-full sm:w-2/3'>
                   <select
                      {...register('room_id', {
                         valueAsNumber: true,
@@ -215,7 +215,7 @@ export function UpdateReservationForm({
                            setSelectedRoom(room || null);
                         },
                      })}
-                     className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm w-full outline-none'
+                     className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm outline-none w-full'
                      id='room_id'
                   >
                      {rooms.map((room) => (
@@ -238,7 +238,7 @@ export function UpdateReservationForm({
                >
                   Start Date
                </label>
-               <div className='w-full'>
+               <div className='w-full sm:w-2/3'>
                   <Controller
                      name='start_date'
                      control={control}
@@ -257,7 +257,7 @@ export function UpdateReservationForm({
                            startDate={field.value}
                            endDate={watch('end_date')}
                            minDate={new Date()}
-                           className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm w-full outline-none'
+                           className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm outline-none w-full'
                         />
                      )}
                   />
@@ -274,7 +274,7 @@ export function UpdateReservationForm({
                >
                   End Date
                </label>
-               <div className='w-full'>
+               <div className='w-full sm:w-2/3'>
                   <Controller
                      name='end_date'
                      control={control}
@@ -286,7 +286,7 @@ export function UpdateReservationForm({
                            startDate={watch('start_date')}
                            endDate={field.value}
                            minDate={watch('start_date')}
-                           className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm w-full outline-none'
+                           className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm outline-none w-full'
                         />
                      )}
                   />
@@ -303,11 +303,11 @@ export function UpdateReservationForm({
                >
                   Nights
                </label>
-               <div className='w-full'>
+               <div className='w-full sm:w-2/3'>
                   <input
                      {...register('num_nights')}
                      id='num_nights'
-                     className='px-3 py-2 outline-none w-full cursor-default'
+                     className='mt-1 px-3 py-2 outline-none cursor-default text-xl w-full'
                      readOnly
                   />
                   {errors.num_nights && (
@@ -323,10 +323,10 @@ export function UpdateReservationForm({
                >
                   Guests
                </label>
-               <div className='w-full'>
+               <div className='w-full sm:w-2/3'>
                   <select
                      {...register('num_guests', { valueAsNumber: true })}
-                     className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm w-full outline-none'
+                     className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm outline-none w-full'
                      id='num_guests'
                   >
                      {generateGuestOptions().map((num) => (
@@ -348,11 +348,11 @@ export function UpdateReservationForm({
                >
                   Total Price
                </label>
-               <div className='w-full'>
+               <div className='w-full sm:w-2/3'>
                   <input
                      {...register('total_price')}
                      id='total_price'
-                     className='px-3 py-2 outline-none w-full cursor-default'
+                     className='mt-1 px-3 py-2 outline-none cursor-default text-3xl w-full'
                      readOnly
                      value={formatPrice(totalPrice)}
                   />
@@ -369,11 +369,11 @@ export function UpdateReservationForm({
                >
                   Status
                </label>
-               <div className='w-full'>
+               <div className='w-full sm:w-2/3'>
                   <select
                      {...register('status')}
                      id='status'
-                     className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm w-full outline-none'
+                     className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm outline-none w-full'
                   >
                      <option value='confirmed'>Confirmed</option>
                      <option value='unconfirmed'>Unconfirmed</option>
@@ -393,11 +393,11 @@ export function UpdateReservationForm({
                >
                   Is Paid
                </label>
-               <div className='w-full'>
+               <div className='w-full sm:w-2/3'>
                   <select
                      {...register('is_paid')}
                      id='is_paid'
-                     className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm w-full outline-none'
+                     className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm outline-none w-full'
                   >
                      <option value='Yes'>Yes</option>
                      <option value='No'>No</option>
@@ -408,8 +408,13 @@ export function UpdateReservationForm({
                </div>
             </div>
          </div>
-         <div className='px-4 sm:px-6 py-3 sm:py-4 border-t border-gray-200 flex flex-col sm:flex-row sm:justify-end space-y-2 sm:space-y-0 sm:space-x-3'>
-            <Button variant='secondary' size='small' onClick={handleCancel}>
+         <div className='mt-6 flex flex-col sm:flex-row sm:justify-end space-y-2 sm:space-y-0 sm:space-x-3'>
+            <Button
+               variant='secondary'
+               size='small'
+               onClick={handleCancel}
+               className='w-full sm:w-auto'
+            >
                <FaTimes className='mr-2' />
                <span>Cancel</span>
             </Button>
@@ -418,6 +423,7 @@ export function UpdateReservationForm({
                variant='success'
                size='small'
                disabled={isSubmitting}
+               className='w-full sm:w-auto'
             >
                <GrUpdate className='mr-2' />
                {isSubmitting ? 'Updating...' : 'Update'}
