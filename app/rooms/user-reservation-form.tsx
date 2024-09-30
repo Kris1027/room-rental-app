@@ -1,27 +1,18 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
-import { Controller, useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import { Button } from '@/app/_components/button';
 import { ErrorForm } from '@/app/_components/error-form';
 import { userCreateReservationAction } from '@/app/_lib/actions/reservations-action';
+import { createReservationSchema } from '@/app/_schemas/reservations-zod';
 import { formatPrice } from '@/app/_utils/format-price';
-import { FaUsers, FaCalendarAlt, FaBook } from 'react-icons/fa';
 import type { roomsProps } from '@/app/types/data-types';
-
-const createReservationSchema = z.object({
-   user_id: z.number(),
-   room_id: z.number(),
-   start_date: z.date(),
-   end_date: z.date(),
-   num_nights: z.number().min(1),
-   num_guests: z.number().min(1),
-   total_price: z.number().min(0),
-});
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useCallback, useEffect, useState } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { Controller, useForm } from 'react-hook-form';
+import { FaBook, FaCalendarAlt, FaUsers } from 'react-icons/fa';
+import { z } from 'zod';
 
 type FormFields = z.infer<typeof createReservationSchema>;
 
@@ -51,7 +42,7 @@ export function UserReservationForm({
          room_id: room.id,
          start_date: new Date(),
          end_date: defaultEndDate,
-         num_nights: 1,
+         num_nights: 2,
          num_guests: 1,
          total_price: room.regular_price - room.discount,
       },
@@ -90,10 +81,8 @@ export function UserReservationForm({
 
       try {
          await userCreateReservationAction(formData);
-         // Handle successful submission (e.g., show a success message, redirect, etc.)
       } catch (error) {
          console.error('Error creating reservation:', error);
-         // Handle error (e.g., show an error message)
       }
    };
 
@@ -102,8 +91,14 @@ export function UserReservationForm({
          onSubmit={handleSubmit(onSubmit)}
          className='flex flex-col justify-center gap-4'
       >
-         <input type='hidden' {...register('user_id')} />
-         <input type='hidden' {...register('room_id')} />
+         <input
+            type='hidden'
+            {...register('user_id', { valueAsNumber: true })}
+         />
+         <input
+            type='hidden'
+            {...register('room_id', { valueAsNumber: true })}
+         />
 
          <div className='flex items-center space-x-3'>
             <FaCalendarAlt size={24} />
@@ -183,7 +178,7 @@ export function UserReservationForm({
                </label>
                <select
                   {...register('num_guests', { valueAsNumber: true })}
-                  className='mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primaryHover'
+                  className='mt-1 block px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primaryHover'
                >
                   {Array.from({ length: maxCapacity }, (_, i) => i + 1).map(
                      (num) => (
@@ -209,7 +204,7 @@ export function UserReservationForm({
                </label>
                <input
                   {...register('total_price', { valueAsNumber: true })}
-                  className='mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primaryHover'
+                  className='mt-1 px-3 py-2 outline-none w-full cursor-default text-3xl'
                   readOnly
                   value={formatPrice(totalPrice)}
                />
