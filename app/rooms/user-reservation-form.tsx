@@ -11,7 +11,7 @@ import { useCallback, useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Controller, useForm } from 'react-hook-form';
-import { FaBook, FaCalendarAlt, FaUsers } from 'react-icons/fa';
+import { FaBook, FaCalendarAlt, FaDollarSign, FaUsers } from 'react-icons/fa';
 import { z } from 'zod';
 
 type FormFields = z.infer<typeof createReservationSchema>;
@@ -26,7 +26,7 @@ export function UserReservationForm({
    const [maxCapacity, setMaxCapacity] = useState<number>(room.max_capacity);
 
    const defaultEndDate = new Date();
-   defaultEndDate.setDate(defaultEndDate.getDate() + 1);
+   defaultEndDate.setDate(defaultEndDate.getDate() + 2);
 
    const {
       control,
@@ -89,7 +89,7 @@ export function UserReservationForm({
    return (
       <form
          onSubmit={handleSubmit(onSubmit)}
-         className='flex flex-col justify-center gap-4'
+         className='bg-white shadow-lg rounded-lg p-6 space-y-6'
       >
          <input
             type='hidden'
@@ -100,85 +100,90 @@ export function UserReservationForm({
             {...register('room_id', { valueAsNumber: true })}
          />
 
-         <div className='flex items-center space-x-3'>
-            <FaCalendarAlt size={24} />
-            <div className='flex-grow'>
+         <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+            <div className='space-y-2'>
                <label
                   htmlFor='start_date'
-                  className='text-sm font-semibold text-gray-600'
+                  className='block text-sm font-medium text-gray-700'
                >
                   Check-in Date
                </label>
-               <Controller
-                  name='start_date'
-                  control={control}
-                  render={({ field }) => (
-                     <DatePicker
-                        onChange={(date) => {
-                           field.onChange(date);
-                           if (date) {
-                              const newEndDate = new Date(date);
-                              newEndDate.setDate(newEndDate.getDate() + 1);
-                              setValue('end_date', newEndDate);
-                           }
-                        }}
-                        selected={field.value}
-                        selectsStart
-                        startDate={field.value}
-                        endDate={watch('end_date')}
-                        minDate={new Date()}
-                        className='mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primaryHover'
-                     />
-                  )}
-               />
+               <div className='relative'>
+                  <Controller
+                     name='start_date'
+                     control={control}
+                     render={({ field }) => (
+                        <DatePicker
+                           onChange={(date) => {
+                              field.onChange(date);
+                              if (date) {
+                                 const newEndDate = new Date(date);
+                                 newEndDate.setDate(newEndDate.getDate() + 1);
+                                 setValue('end_date', newEndDate);
+                              }
+                           }}
+                           selected={field.value}
+                           selectsStart
+                           startDate={field.value}
+                           endDate={watch('end_date')}
+                           minDate={new Date()}
+                           className='w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary'
+                        />
+                     )}
+                  />
+                  <FaCalendarAlt className='absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400' />
+               </div>
                {errors.start_date && (
-                  <ErrorForm>{errors.start_date.message}</ErrorForm>
+                  <p className='mt-1 text-sm text-red-600'>
+                     {errors.start_date.message}
+                  </p>
                )}
             </div>
-         </div>
 
-         <div className='flex items-center space-x-3'>
-            <FaCalendarAlt size={24} />
-            <div className='flex-grow'>
+            <div className='space-y-2'>
                <label
                   htmlFor='end_date'
-                  className='text-sm font-semibold text-gray-600'
+                  className='block text-sm font-medium text-gray-700'
                >
                   Check-out Date
                </label>
-               <Controller
-                  name='end_date'
-                  control={control}
-                  render={({ field }) => (
-                     <DatePicker
-                        onChange={(date) => field.onChange(date)}
-                        selected={field.value}
-                        selectsEnd
-                        startDate={watch('start_date')}
-                        endDate={field.value}
-                        minDate={watch('start_date')}
-                        className='mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primaryHover'
-                     />
-                  )}
-               />
+               <div className='relative'>
+                  <Controller
+                     name='end_date'
+                     control={control}
+                     render={({ field }) => (
+                        <DatePicker
+                           onChange={(date) => field.onChange(date)}
+                           selected={field.value}
+                           selectsEnd
+                           startDate={watch('start_date')}
+                           endDate={field.value}
+                           minDate={watch('start_date')}
+                           className='w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary'
+                        />
+                     )}
+                  />
+                  <FaCalendarAlt className='absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400' />
+               </div>
                {errors.end_date && (
-                  <ErrorForm>{errors.end_date.message}</ErrorForm>
+                  <p className='mt-1 text-sm text-red-600'>
+                     {errors.end_date.message}
+                  </p>
                )}
             </div>
          </div>
 
-         <div className='flex items-center space-x-3'>
-            <FaUsers size={24} />
-            <div className='flex-grow'>
-               <label
-                  htmlFor='num_guests'
-                  className='text-sm font-semibold text-gray-600'
-               >
-                  Number of Guests
-               </label>
+         <div className='space-y-2'>
+            <label
+               htmlFor='num_guests'
+               className='block text-sm font-medium text-gray-700'
+            >
+               Number of Guests
+            </label>
+            <div className='relative'>
                <select
                   {...register('num_guests', { valueAsNumber: true })}
-                  className='mt-1 block px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primaryHover'
+                  className='w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary appearance-none'
                >
                   {Array.from({ length: maxCapacity }, (_, i) => i + 1).map(
                      (num) => (
@@ -188,30 +193,35 @@ export function UserReservationForm({
                      )
                   )}
                </select>
-               {errors.num_guests && (
-                  <ErrorForm>{errors.num_guests.message}</ErrorForm>
-               )}
+               <FaUsers className='absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400' />
             </div>
+            {errors.num_guests && (
+               <p className='mt-1 text-sm text-red-600'>
+                  {errors.num_guests.message}
+               </p>
+            )}
          </div>
 
-         <div className='flex items-center space-x-3'>
-            <div className='flex-grow'>
-               <label
-                  htmlFor='total_price'
-                  className='text-sm font-semibold text-gray-600'
-               >
-                  Total Price
-               </label>
+         <div className='space-y-2'>
+            <label
+               htmlFor='total_price'
+               className='block text-sm font-medium text-gray-700'
+            >
+               Total Price
+            </label>
+            <div className='relative'>
                <input
                   {...register('total_price', { valueAsNumber: true })}
-                  className='mt-1 px-3 py-2 outline-none w-full cursor-default text-3xl'
+                  className='px-3 py-2 outline-none w-full cursor-default text-3xl'
                   readOnly
                   value={formatPrice(totalPrice)}
                />
-               {errors.total_price && (
-                  <ErrorForm>{errors.total_price.message}</ErrorForm>
-               )}
             </div>
+            {errors.total_price && (
+               <p className='mt-1 text-sm text-red-600'>
+                  {errors.total_price.message}
+               </p>
+            )}
          </div>
 
          <Button fullWidth type='submit' disabled={isSubmitting}>
