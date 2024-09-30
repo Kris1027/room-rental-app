@@ -40,7 +40,7 @@ export async function createReservationAction(formData: FormData) {
    }
 }
 
-export async function adminDeleteReservationAction(reservationId: number) {
+export async function deleteReservationAction(reservationId: number) {
    const { error } = await supabase
       .from('reservations')
       .delete()

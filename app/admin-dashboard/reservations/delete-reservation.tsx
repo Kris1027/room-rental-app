@@ -1,7 +1,7 @@
 'use client';
 
 import { Button } from '@/app/_components/button';
-import { adminDeleteReservationAction } from '@/app/_lib/actions/reservations-action';
+import { deleteReservationAction } from '@/app/_lib/actions/reservations-action';
 import { useTransition } from 'react';
 import { IoTrashBin } from 'react-icons/io5';
 
@@ -14,7 +14,7 @@ export function DeleteReservation({
 
    const handleDelete = async () => {
       startTransition(() => {
-         adminDeleteReservationAction(reservationId);
+         deleteReservationAction(reservationId);
       });
    };
 
