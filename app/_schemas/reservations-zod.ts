@@ -31,7 +31,7 @@ export const updateReservationSchema = z
    .object({
       id: z.number(),
       created_at: z.date({
-         required_error: 'Create date is required',
+         required_error: 'Start date is required',
          invalid_type_error: "That's not a valid date",
       }),
       user_id: z.number({ invalid_type_error: 'You need to select a user' }),
@@ -53,8 +53,8 @@ export const updateReservationSchema = z
          .min(1, 'At least 1 guest is required')
          .max(15, 'Maximum 15 guests allowed'),
       total_price: z.number().min(0, 'Price cannot be negative'),
-      status: z.enum(['confirmed', 'unconfirmed', 'cancel', 'old']),
-      is_paid: z.boolean(),
+      status: z.enum(['confirmed', 'unconfirmed', 'canceled', 'old']),
+      is_paid: z.enum(['Yes', 'No']),
    })
    .refine((data) => data.end_date > data.start_date, {
       message: 'End date must be after start date',

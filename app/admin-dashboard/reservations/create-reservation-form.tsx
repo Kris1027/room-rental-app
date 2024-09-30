@@ -4,6 +4,7 @@ import { Button } from '@/app/_components/button';
 import { ErrorForm } from '@/app/_components/error-form';
 import { createReservationAction } from '@/app/_lib/actions/reservations-action';
 import { createReservationSchema } from '@/app/_schemas/reservations-zod';
+import { formatPrice } from '@/app/_utils/format-price';
 import type { roomsProps, usersProps } from '@/app/types/data-types';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useCallback, useEffect, useState } from 'react';
@@ -81,10 +82,6 @@ export function CreateReservationForm({
          setValue('num_guests', 1);
       }
    }, [selectedRoom, setValue]);
-
-   const formatPrice = (price: number) => {
-      return `$${price.toFixed(2)}`;
-   };
 
    const onSubmit: SubmitHandler<FormFields> = async (data) => {
       const formData = new FormData();

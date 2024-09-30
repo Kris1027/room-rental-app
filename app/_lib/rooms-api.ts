@@ -1,4 +1,5 @@
 import { supabase } from '@/app/_lib/supabase';
+import { roomsProps } from '@/app/types/data-types';
 
 export async function getRooms() {
    const { data: rooms, error } = await supabase.from('rooms').select('*');
@@ -11,19 +12,18 @@ export async function getRooms() {
    return rooms;
 }
 
-export async function getRoom(roomId: number) {
-   const { data: room, error } = await supabase
+export async function getRoom(roomId: number): Promise<roomsProps> {
+   const { data, error } = await supabase
       .from('rooms')
       .select('*')
       .eq('id', roomId)
       .single();
 
    if (error) {
-      console.error('Error fetching room:', error);
-      return null;
+      throw new Error('Error fetching room data');
    }
 
-   return room;
+   return data;
 }
 
 export async function getRoomByName(roomName: string) {

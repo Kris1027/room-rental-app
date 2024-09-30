@@ -4,14 +4,16 @@ import { StatusStyle } from '@/app/_utils/status-style';
 import { TrueOrFalse } from '@/app/_utils/true-or-false';
 import { DeleteReservation } from '@/app/admin-dashboard/reservations/delete-reservation';
 import { UpdateReservationForm } from '@/app/admin-dashboard/reservations/update-reservation-form';
-import type { reservationsProps } from '@/app/types/data-types';
+import type { reservationsProps, roomsProps } from '@/app/types/data-types';
 import { useState } from 'react';
 import { FaEdit } from 'react-icons/fa';
 
 export function ReservationDetails({
    reservation,
+   rooms,
 }: {
    reservation: reservationsProps;
+   rooms: roomsProps[];
 }) {
    const [isEditing, setIsEditing] = useState<boolean>(false);
    const status = reservation.status;
@@ -29,10 +31,11 @@ export function ReservationDetails({
          } bg-gray-50 border-b flex flex-col md:table-row p-2 odd:bg-white`}
       >
          {isEditing ? (
-            <td colSpan={9} className='p-4'>
+            <td colSpan={12} className='p-4'>
                <UpdateReservationForm
                   setIsEditing={setIsEditing}
                   reservation={reservation}
+                  rooms={rooms}
                />
             </td>
          ) : (

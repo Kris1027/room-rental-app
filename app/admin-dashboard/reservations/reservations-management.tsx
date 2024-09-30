@@ -47,7 +47,7 @@ export function ReservationsManagement({
             <div className='px-0 py-2'>
                <table className='w-full text-xs text-center'>
                   <ReservationsColumns />
-                  <ReservationsList reservations={reservations} />
+                  <ReservationsList reservations={reservations} rooms={rooms} />
                </table>
             </div>
          ) : (
