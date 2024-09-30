@@ -34,8 +34,14 @@ export const updateReservationSchema = z
          required_error: 'Start date is required',
          invalid_type_error: "That's not a valid date",
       }),
-      user_id: z.number({ invalid_type_error: 'You need to select a user' }),
-      room_id: z.number({ invalid_type_error: 'You need to select a room' }),
+      user_id: z.number({
+         required_error: 'User is required',
+         invalid_type_error: 'User must be a number',
+      }),
+      room_id: z.number({
+         required_error: 'Room is required',
+         invalid_type_error: 'Room must be a number',
+      }),
       start_date: z.date({
          required_error: 'Start date is required',
          invalid_type_error: "That's not a valid date",

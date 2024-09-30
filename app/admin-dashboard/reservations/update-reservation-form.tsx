@@ -207,6 +207,7 @@ export function UpdateReservationForm({
                <div className='w-full'>
                   <select
                      {...register('room_id', {
+                        valueAsNumber: true,
                         onChange: (e) => {
                            const room = rooms.find(
                               (r) => r.id === Number(e.target.value)
