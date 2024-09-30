@@ -51,7 +51,7 @@ export async function adminDeleteReservationAction(reservationId: number) {
    revalidatePath('/admin-dashboard/reservations');
 }
 
-export async function adminUpdateReservationAction(formData: FormData) {
+export async function updateReservationAction(formData: FormData) {
    const id = formData.get('id') as string;
    const created_at = formData.get('created_at') as string;
    const user_id = formData.get('user_id') as string;
@@ -85,8 +85,7 @@ export async function adminUpdateReservationAction(formData: FormData) {
 
    if (error) throw new Error('Reservation could not be updated');
 
-   revalidatePath('/admin-dashboard/reservations/' + id);
-   redirect('/admin-dashboard/reservations');
+   revalidatePath('/admin-dashboard/reservations/');
 }
 
 export async function userCreateReservationAction(formData: FormData) {
