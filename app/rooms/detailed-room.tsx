@@ -7,6 +7,7 @@ import { FaDollarSign, FaTag, FaUserFriends } from 'react-icons/fa';
 
 export async function DetailedRoom({ room }: { room: roomsProps }) {
    const session = await auth();
+   const userId = session?.user?.userId;
 
    return (
       <div className='flex flex-col py-2 gap-4 items-start justify-center'>
@@ -64,9 +65,9 @@ export async function DetailedRoom({ room }: { room: roomsProps }) {
                </div>
             </div>
 
-            {session?.user && room.id && (
+            {session?.user && userId && (
                <div className='mt-6'>
-                  <UserReservationForm room={room} />
+                  <UserReservationForm room={room} userId={Number(userId)} />
                </div>
             )}
          </div>

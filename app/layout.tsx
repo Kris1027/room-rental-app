@@ -1,11 +1,10 @@
 import { Footer } from '@/app/_components/footer';
 import { TopBar } from '@/app/_components/top-bar';
 import type { Metadata } from 'next';
-import './globals.css';
-import { ReservationProvider } from './contexts/reservation-date-context';
-import { Montserrat } from 'next/font/google';
 import { ViewTransitions } from 'next-view-transitions';
+import { Montserrat } from 'next/font/google';
 import { MobileMenuProvider } from './contexts/mobile-menu-context';
+import './globals.css';
 
 const montserrat = Montserrat({
    weight: ['400', '500', '700'],
@@ -35,7 +34,7 @@ export default function RootLayout({
             >
                <MobileMenuProvider>
                   <TopBar />
-                  <ReservationProvider>{children}</ReservationProvider>
+                  {children}
                   <Footer />
                </MobileMenuProvider>
             </body>
