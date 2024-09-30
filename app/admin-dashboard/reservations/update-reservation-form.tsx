@@ -126,13 +126,13 @@ export function UpdateReservationForm({
    return (
       <form
          onSubmit={handleSubmit(onSubmit)}
-         className='max-w-4xl mx-auto shadow-lg rounded-lg overflow-hidden p-4 sm:p-6'
+         className='max-w-4xl mx-auto shadow-lg rounded-lg overflow-hidden p-2 sm:p-4 md:p-6'
       >
-         <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
-            <div className='flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4'>
+         <div className='grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4'>
+            <div className='flex flex-col sm:flex-row sm:items-center space-y-1 sm:space-y-0 sm:space-x-2'>
                <label
                   htmlFor='id'
-                  className='text-sm font-medium text-gray-700 sm:w-1/3'
+                  className='text-xs sm:text-sm font-medium text-gray-700 sm:w-1/3'
                >
                   ID
                </label>
@@ -141,16 +141,16 @@ export function UpdateReservationForm({
                      {...register('id')}
                      readOnly
                      id='id'
-                     className='mt-1 px-3 py-2 outline-none cursor-default text-xl w-full'
+                     className='mt-1 px-2 py-1 sm:px-3 sm:py-2 outline-none cursor-default text-sm sm:text-base w-full text-center'
                   />
                   {errors.id && <ErrorForm>{errors.id.message}</ErrorForm>}
                </div>
             </div>
 
-            <div className='flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4'>
+            <div className='flex flex-col sm:flex-row sm:items-center space-y-1 sm:space-y-0 sm:space-x-2'>
                <label
                   htmlFor='created_at'
-                  className='text-sm font-medium text-gray-700 sm:w-1/3'
+                  className='text-xs sm:text-sm font-medium text-gray-700 sm:w-1/3'
                >
                   Created At
                </label>
@@ -166,7 +166,7 @@ export function UpdateReservationForm({
                            showTimeSelect
                            timeFormat='HH:mm'
                            timeIntervals={15}
-                           className='mt-1 px-3 py-2 outline-none cursor-default text-xl w-full'
+                           className='mt-1 px-2 py-1 sm:px-3 sm:py-2 outline-none cursor-default text-sm sm:text-base w-full text-center'
                            readOnly
                         />
                      )}
@@ -177,10 +177,10 @@ export function UpdateReservationForm({
                </div>
             </div>
 
-            <div className='flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4'>
+            <div className='flex flex-col sm:flex-row sm:items-center space-y-1 sm:space-y-0 sm:space-x-2'>
                <label
                   htmlFor='user_id'
-                  className='text-sm font-medium text-gray-700 sm:w-1/3'
+                  className='text-xs sm:text-sm font-medium text-gray-700 sm:w-1/3'
                >
                   User ID
                </label>
@@ -189,7 +189,7 @@ export function UpdateReservationForm({
                      {...register('user_id')}
                      readOnly
                      id='user_id'
-                     className='mt-1 px-3 py-2 outline-none cursor-default text-xl w-full'
+                     className='mt-1 px-2 py-1 sm:px-3 sm:py-2 outline-none cursor-default text-sm sm:text-base w-full text-center'
                   />
                   {errors.user_id && (
                      <ErrorForm>{errors.user_id.message}</ErrorForm>
@@ -197,10 +197,10 @@ export function UpdateReservationForm({
                </div>
             </div>
 
-            <div className='flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4'>
+            <div className='flex flex-col sm:flex-row sm:items-center space-y-1 sm:space-y-0 sm:space-x-2'>
                <label
                   htmlFor='room_id'
-                  className='text-sm font-medium text-gray-700 sm:w-1/3'
+                  className='text-xs sm:text-sm font-medium text-gray-700 sm:w-1/3'
                >
                   Room ID
                </label>
@@ -215,7 +215,7 @@ export function UpdateReservationForm({
                            setSelectedRoom(room || null);
                         },
                      })}
-                     className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm outline-none w-full'
+                     className='mt-1 px-2 py-1 sm:px-3 sm:py-2 border border-gray-300 rounded-md shadow-sm outline-none text-sm sm:text-base w-full text-center'
                      id='room_id'
                   >
                      {rooms.map((room) => (
@@ -231,10 +231,10 @@ export function UpdateReservationForm({
                </div>
             </div>
 
-            <div className='flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4'>
+            <div className='flex flex-col sm:flex-row sm:items-center space-y-1 sm:space-y-0 sm:space-x-2'>
                <label
                   htmlFor='start_date'
-                  className='text-sm font-medium text-gray-700 sm:w-1/3'
+                  className='text-xs sm:text-sm font-medium text-gray-700 sm:w-1/3'
                >
                   Start Date
                </label>
@@ -257,7 +257,7 @@ export function UpdateReservationForm({
                            startDate={field.value}
                            endDate={watch('end_date')}
                            minDate={new Date()}
-                           className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm outline-none w-full'
+                           className='mt-1 px-2 py-1 sm:px-3 sm:py-2 border border-gray-300 rounded-md shadow-sm outline-none text-sm sm:text-base w-full text-center'
                         />
                      )}
                   />
@@ -267,10 +267,10 @@ export function UpdateReservationForm({
                </div>
             </div>
 
-            <div className='flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4'>
+            <div className='flex flex-col sm:flex-row sm:items-center space-y-1 sm:space-y-0 sm:space-x-2'>
                <label
                   htmlFor='end_date'
-                  className='text-sm font-medium text-gray-700 sm:w-1/3'
+                  className='text-xs sm:text-sm font-medium text-gray-700 sm:w-1/3'
                >
                   End Date
                </label>
@@ -286,7 +286,7 @@ export function UpdateReservationForm({
                            startDate={watch('start_date')}
                            endDate={field.value}
                            minDate={watch('start_date')}
-                           className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm outline-none w-full'
+                           className='mt-1 px-2 py-1 sm:px-3 sm:py-2 border border-gray-300 rounded-md shadow-sm outline-none text-sm sm:text-base w-full text-center'
                         />
                      )}
                   />
@@ -296,10 +296,10 @@ export function UpdateReservationForm({
                </div>
             </div>
 
-            <div className='flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4'>
+            <div className='flex flex-col sm:flex-row sm:items-center space-y-1 sm:space-y-0 sm:space-x-2'>
                <label
                   htmlFor='num_nights'
-                  className='text-sm font-medium text-gray-700 sm:w-1/3'
+                  className='text-xs sm:text-sm font-medium text-gray-700 sm:w-1/3'
                >
                   Nights
                </label>
@@ -307,7 +307,7 @@ export function UpdateReservationForm({
                   <input
                      {...register('num_nights')}
                      id='num_nights'
-                     className='mt-1 px-3 py-2 outline-none cursor-default text-xl w-full'
+                     className='mt-1 px-2 py-1 sm:px-3 sm:py-2 outline-none cursor-default text-sm sm:text-base w-full text-center'
                      readOnly
                   />
                   {errors.num_nights && (
@@ -316,17 +316,17 @@ export function UpdateReservationForm({
                </div>
             </div>
 
-            <div className='flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4'>
+            <div className='flex flex-col sm:flex-row sm:items-center space-y-1 sm:space-y-0 sm:space-x-2'>
                <label
                   htmlFor='num_guests'
-                  className='text-sm font-medium text-gray-700 sm:w-1/3'
+                  className='text-xs sm:text-sm font-medium text-gray-700 sm:w-1/3'
                >
                   Guests
                </label>
                <div className='w-full sm:w-2/3'>
                   <select
                      {...register('num_guests', { valueAsNumber: true })}
-                     className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm outline-none w-full'
+                     className='mt-1 px-2 py-1 sm:px-3 sm:py-2 border border-gray-300 rounded-md shadow-sm outline-none text-sm sm:text-base w-full text-center'
                      id='num_guests'
                   >
                      {generateGuestOptions().map((num) => (
@@ -341,10 +341,10 @@ export function UpdateReservationForm({
                </div>
             </div>
 
-            <div className='flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4'>
+            <div className='flex flex-col sm:flex-row sm:items-center space-y-1 sm:space-y-0 sm:space-x-2'>
                <label
                   htmlFor='total_price'
-                  className='text-sm font-medium text-gray-700 sm:w-1/3'
+                  className='text-xs sm:text-sm font-medium text-gray-700 sm:w-1/3'
                >
                   Total Price
                </label>
@@ -352,7 +352,7 @@ export function UpdateReservationForm({
                   <input
                      {...register('total_price')}
                      id='total_price'
-                     className='mt-1 px-3 py-2 outline-none cursor-default text-3xl w-full'
+                     className='mt-1 px-2 py-1 sm:px-3 sm:py-2 outline-none cursor-default text-lg sm:text-2xl w-full text-center'
                      readOnly
                      value={formatPrice(totalPrice)}
                   />
@@ -362,10 +362,10 @@ export function UpdateReservationForm({
                </div>
             </div>
 
-            <div className='flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4'>
+            <div className='flex flex-col sm:flex-row sm:items-center space-y-1 sm:space-y-0 sm:space-x-2'>
                <label
                   htmlFor='status'
-                  className='text-sm font-medium text-gray-700 sm:w-1/3'
+                  className='text-xs sm:text-sm font-medium text-gray-700 sm:w-1/3'
                >
                   Status
                </label>
@@ -373,7 +373,7 @@ export function UpdateReservationForm({
                   <select
                      {...register('status')}
                      id='status'
-                     className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm outline-none w-full'
+                     className='mt-1 px-2 py-1 sm:px-3 sm:py-2 border border-gray-300 rounded-md shadow-sm outline-none text-sm sm:text-base w-full text-center'
                   >
                      <option value='confirmed'>Confirmed</option>
                      <option value='unconfirmed'>Unconfirmed</option>
@@ -386,10 +386,10 @@ export function UpdateReservationForm({
                </div>
             </div>
 
-            <div className='flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4'>
+            <div className='flex flex-col sm:flex-row sm:items-center space-y-1 sm:space-y-0 sm:space-x-2'>
                <label
                   htmlFor='is_paid'
-                  className='text-sm font-medium text-gray-700 sm:w-1/3'
+                  className='text-xs sm:text-sm font-medium text-gray-700 sm:w-1/3'
                >
                   Is Paid
                </label>
@@ -397,7 +397,7 @@ export function UpdateReservationForm({
                   <select
                      {...register('is_paid')}
                      id='is_paid'
-                     className='mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm outline-none w-full'
+                     className='mt-1 px-2 py-1 sm:px-3 sm:py-2 border border-gray-300 rounded-md shadow-sm outline-none text-sm sm:text-base w-full text-center'
                   >
                      <option value='Yes'>Yes</option>
                      <option value='No'>No</option>
