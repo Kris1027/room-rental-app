@@ -44,8 +44,8 @@ export function ReservationsManagement({
             />
          )}
          {reservations && reservations.length > 0 ? (
-            <div className='px-0 py-2 lg:p-6'>
-               <table className='w-full text-sm text-left text-gray-500'>
+            <div className='px-0 py-2'>
+               <table className='w-full text-xs text-center'>
                   <ReservationsColumns />
                   <ReservationsList reservations={reservations} />
                </table>
