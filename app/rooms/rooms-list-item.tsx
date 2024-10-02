@@ -51,7 +51,10 @@ export function RoomsListItem({ room }: { room: roomsProps }) {
          </div>
          <div className='p-4'>
             <Button fullWidth>
-               <Link href={`/rooms/${room.id}`} className='flex items-center'>
+               <Link
+                  href={`/rooms/${room.id}`}
+                  className='flex items-center justify-center w-full'
+               >
                   <FaEye size={24} className='mr-2' />
                   <span>Details</span>
                </Link>
