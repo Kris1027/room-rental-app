@@ -2,21 +2,13 @@ import { BackButton } from '@/app/_components/back-button';
 import { getUsers } from '@/app/_lib/users-api';
 import UsersManagement from '@/app/admin-dashboard/users/users-management';
 import type { usersProps } from '@/app/types/data-types';
-import { auth } from '@/auth';
 import type { Metadata } from 'next';
-import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
    title: 'Admin Users',
 };
 
 export default async function AdminUsers() {
-   const session = await auth();
-
-   if (!session?.user.isAdmin) {
-      redirect('/');
-   }
-
    const users = (await getUsers()) as usersProps[];
 
    return (

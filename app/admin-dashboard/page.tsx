@@ -10,9 +10,7 @@ import type {
    roomsProps,
    usersProps,
 } from '@/app/types/data-types';
-import { auth } from '@/auth';
 import type { Metadata } from 'next';
-import { redirect } from 'next/navigation';
 import { FiCalendar, FiKey, FiMessageCircle, FiUser } from 'react-icons/fi';
 
 export const metadata: Metadata = {
@@ -20,12 +18,6 @@ export const metadata: Metadata = {
 };
 
 export default async function AdminDashboard() {
-   const session = await auth();
-
-   if (!session?.user.isAdmin) {
-      redirect('/');
-   }
-
    const users = (await getUsers()) as usersProps[];
    const rooms = (await getRooms()) as roomsProps[];
    const reservations = (await getReservations()) as reservationsProps[];

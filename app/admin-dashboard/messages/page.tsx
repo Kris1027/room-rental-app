@@ -3,9 +3,7 @@ import { NoData } from '@/app/_components/no-data';
 import { getMessages } from '@/app/_lib/messages';
 import { DeleteButton } from '@/app/admin-dashboard/messages/delete-button';
 import type { messagesProps } from '@/app/types/data-types';
-import { auth } from '@/auth';
 import type { Metadata } from 'next';
-import { redirect } from 'next/navigation';
 import { FaRegComment } from 'react-icons/fa';
 
 export const metadata: Metadata = {
@@ -13,12 +11,6 @@ export const metadata: Metadata = {
 };
 
 export default async function AdminMessages() {
-   const session = await auth();
-
-   if (!session?.user.isAdmin) {
-      redirect('/');
-   }
-
    const messages = (await getMessages()) as messagesProps[];
 
    return (

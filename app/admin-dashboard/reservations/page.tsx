@@ -8,21 +8,13 @@ import type {
    roomsProps,
    usersProps,
 } from '@/app/types/data-types';
-import { auth } from '@/auth';
 import type { Metadata } from 'next';
-import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
    title: 'Admin Reservations',
 };
 
 export default async function AdminReservations() {
-   const session = await auth();
-
-   if (!session?.user.isAdmin) {
-      redirect('/');
-   }
-
    const reservations = (await getReservations()) as reservationsProps[];
    const users = (await getUsers()) as usersProps[];
    const rooms = (await getRooms()) as roomsProps[];
