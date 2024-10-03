@@ -1,23 +1,34 @@
-"use client";
+'use client';
 
-import { Button } from "@/app/_components/button";
-import { deleteMessageAction } from "@/app/_lib/actions/messages-action";
-import { useTransition } from "react";
-import { IoTrashBin } from "react-icons/io5";
+import { Button } from '@/app/_components/button';
+import { deleteMessageAction } from '@/app/_lib/actions/messages-action';
+import { useForm } from 'react-hook-form';
+import { IoTrashBin } from 'react-icons/io5';
+
+interface DeleteFormInputs {
+   messageId: number;
+}
 
 export function DeleteButton({ messageId }: { messageId: number }) {
-	const [isPending, startTransition] = useTransition();
+   const {
+      handleSubmit,
+      formState: { isSubmitting },
+   } = useForm<DeleteFormInputs>({
+      defaultValues: {
+         messageId,
+      },
+   });
 
-	const handleDelete = async () => {
-		startTransition(() => {
-			deleteMessageAction(messageId);
-		});
-	};
+   const onSubmit = async (data: DeleteFormInputs) => {
+      await deleteMessageAction(data.messageId);
+   };
 
-	return (
-		<Button onClick={handleDelete} disabled={isPending} variant="danger">
-			<IoTrashBin />
-			{isPending ? "Deleting..." : "Delete"}
-		</Button>
-	);
+   return (
+      <form onSubmit={handleSubmit(onSubmit)}>
+         <Button type='submit' disabled={isSubmitting} variant='danger'>
+            <IoTrashBin />
+            {isSubmitting ? 'Deleting...' : 'Delete'}
+         </Button>
+      </form>
+   );
 }
