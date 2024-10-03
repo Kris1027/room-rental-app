@@ -1,33 +1,44 @@
 'use client';
 
 import { Button } from '@/app/_components/button';
-import { deleteMessageAction } from '@/app/_lib/actions/messages-action';
 import { useForm } from 'react-hook-form';
 import { IoTrashBin } from 'react-icons/io5';
 
-interface DeleteFormInputs {
-   messageId: number;
-}
+type DeleteFormInputs = {
+   id: number;
+};
 
-export function DeleteButton({ messageId }: { messageId: number }) {
+type DeleteButtonProps = {
+   id: number;
+   onDelete: (id: number) => Promise<void>;
+   buttonText?: string;
+   loadingText?: string;
+};
+
+export function DeleteButton({
+   id,
+   onDelete,
+   buttonText = 'Delete',
+   loadingText = 'Deleting...',
+}: DeleteButtonProps) {
    const {
       handleSubmit,
       formState: { isSubmitting },
    } = useForm<DeleteFormInputs>({
       defaultValues: {
-         messageId,
+         id,
       },
    });
 
    const onSubmit = async (data: DeleteFormInputs) => {
-      await deleteMessageAction(data.messageId);
+      await onDelete(data.id);
    };
 
    return (
       <form onSubmit={handleSubmit(onSubmit)}>
          <Button type='submit' disabled={isSubmitting} variant='danger'>
             <IoTrashBin />
-            {isSubmitting ? 'Deleting...' : 'Delete'}
+            {isSubmitting ? loadingText : buttonText}
          </Button>
       </form>
    );

@@ -1,7 +1,8 @@
 import { BackButton } from '@/app/_components/back-button';
+import { DeleteButton } from '@/app/_components/delete-button';
 import { NoData } from '@/app/_components/no-data';
+import { deleteMessageAction } from '@/app/_lib/actions/messages-action';
 import { getMessages } from '@/app/_lib/messages';
-import { DeleteButton } from '@/app/admin-dashboard/messages/delete-button';
 import type { messagesProps } from '@/app/types/data-types';
 import type { Metadata } from 'next';
 import { FaRegComment } from 'react-icons/fa';
@@ -39,7 +40,12 @@ export default async function AdminMessages() {
                         </span>
                         <p className='text-gray-600 my-4'>{message.message}</p>
                         <div className='flex justify-end'>
-                           <DeleteButton messageId={message.id} />
+                           <DeleteButton
+                              id={message.id}
+                              onDelete={deleteMessageAction}
+                              buttonText='Delete'
+                              loadingText='Deleting...'
+                           />
                         </div>
                      </div>
                   </div>
