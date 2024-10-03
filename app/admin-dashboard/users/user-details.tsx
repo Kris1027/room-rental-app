@@ -1,6 +1,6 @@
 import { Button } from '@/app/_components/button';
 import { formatDateTime } from '@/app/_utils/format-date-time';
-import { TrueOrFalse } from '@/app/_utils/true-or-false';
+import { trueOrFalse } from '@/app/_utils/true-or-false';
 import { DeleteUser } from '@/app/admin-dashboard/users/delete-user';
 import { UpdateUserForm } from '@/app/admin-dashboard/users/update-user-form';
 import type { usersProps } from '@/app/types/data-types';
@@ -38,7 +38,7 @@ export function UserDetails({ user }: { user: usersProps }) {
                </td>
                <td className='flex p-1 justify-between md:table-cell'>
                   <label className='font-bold md:hidden'>Is Admin</label>
-                  <span className={`text-base ${TrueOrFalse(user.is_admin)}`}>
+                  <span className={`text-base ${trueOrFalse(user.is_admin)}`}>
                      {user.is_admin ? 'Yes' : 'No'}
                   </span>
                </td>

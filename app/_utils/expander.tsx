@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-export const Expander = ({ text }: { text: string }) => {
+export function Expander({ text }: { text: string }) {
    const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
    const toggleText = () => {
@@ -27,4 +27,4 @@ export const Expander = ({ text }: { text: string }) => {
          </p>
       </div>
    );
-};
+}

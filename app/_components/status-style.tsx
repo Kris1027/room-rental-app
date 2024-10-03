@@ -1,4 +1,4 @@
-export const StatusStyle = (status: string) => {
+export function statusStyle(status: string) {
    switch (status?.toLowerCase()) {
       case 'confirmed':
          return 'px-2 py-1 rounded text-xs font-medium bg-green-100 text-green-800 uppercase';
@@ -11,4 +11,4 @@ export const StatusStyle = (status: string) => {
       default:
          return 'px-2 py-1 rounded text-xs font-medium bg-gray-100 text-gray-800 uppercase';
    }
-};
+}

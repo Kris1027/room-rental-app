@@ -1,7 +1,7 @@
 import { Button } from '@/app/_components/button';
+import { statusStyle } from '@/app/_components/status-style';
 import { formatDateTime } from '@/app/_utils/format-date-time';
-import { StatusStyle } from '@/app/_utils/status-style';
-import { TrueOrFalse } from '@/app/_utils/true-or-false';
+import { trueOrFalse } from '@/app/_utils/true-or-false';
 import { DeleteReservation } from '@/app/admin-dashboard/reservations/delete-reservation';
 import { UpdateReservationForm } from '@/app/admin-dashboard/reservations/update-reservation-form';
 import type { reservationsProps, roomsProps } from '@/app/types/data-types';
@@ -93,14 +93,14 @@ export function ReservationDetails({
 
                <td className='flex p-1 justify-between md:table-cell'>
                   <label className='font-bold md:hidden'>Status</label>
-                  <span className={StatusStyle(reservation.status)}>
+                  <span className={statusStyle(reservation.status)}>
                      {reservation.status}
                   </span>
                </td>
 
                <td className='flex p-1 justify-between md:table-cell'>
                   <label className='font-bold md:hidden'>Paid</label>
-                  <span className={TrueOrFalse(reservation.is_paid)}>
+                  <span className={trueOrFalse(reservation.is_paid)}>
                      {reservation.is_paid ? 'Yes' : 'No'}
                   </span>
                </td>
