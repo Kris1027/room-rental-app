@@ -1,8 +1,9 @@
 import { Button } from '@/app/_components/button';
+import { DeleteButton } from '@/app/_components/delete-button';
 import { statusStyle } from '@/app/_components/status-style';
+import { deleteReservationAction } from '@/app/_lib/actions/reservations-action';
 import { formatDateTime } from '@/app/_utils/format-date-time';
 import { trueOrFalse } from '@/app/_utils/true-or-false';
-import { DeleteReservation } from '@/app/admin-dashboard/reservations/delete-reservation';
 import { UpdateReservationForm } from '@/app/admin-dashboard/reservations/update-reservation-form';
 import type { reservationsProps, roomsProps } from '@/app/types/data-types';
 import { useState } from 'react';
@@ -111,7 +112,12 @@ export function ReservationDetails({
                         <FaEdit />
                         <span>Edit</span>
                      </Button>
-                     <DeleteReservation reservationId={reservation.id} />
+                     <DeleteButton
+                        id={reservation.id}
+                        onDelete={deleteReservationAction}
+                        buttonText='Delete'
+                        loadingText='Deleting...'
+                     />
                   </div>
                </td>
             </>

@@ -1,7 +1,8 @@
 import { Button } from '@/app/_components/button';
+import { DeleteButton } from '@/app/_components/delete-button';
+import { deleteRoomAction } from '@/app/_lib/actions/rooms-action';
 import { Expander } from '@/app/_utils/expander';
 import { formatDateTime } from '@/app/_utils/format-date-time';
-import { DeleteRoom } from '@/app/admin-dashboard/rooms/delete-room';
 import { UpdateRoomForm } from '@/app/admin-dashboard/rooms/update-room-form';
 import type { roomsProps } from '@/app/types/data-types';
 import Image from 'next/image';
@@ -78,7 +79,12 @@ export function RoomDetails({ room }: { room: roomsProps }) {
                         <FaEdit />
                         <span>Edit</span>
                      </Button>
-                     <DeleteRoom roomId={room.id} />
+                     <DeleteButton
+                        id={room.id}
+                        onDelete={deleteRoomAction}
+                        buttonText='Delete'
+                        loadingText='Deleting...'
+                     />
                   </div>
                </td>
             </>

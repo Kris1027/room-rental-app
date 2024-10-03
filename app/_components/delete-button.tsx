@@ -36,7 +36,12 @@ export function DeleteButton({
 
    return (
       <form onSubmit={handleSubmit(onSubmit)}>
-         <Button type='submit' disabled={isSubmitting} variant='danger'>
+         <Button
+            type='submit'
+            disabled={isSubmitting}
+            variant='danger'
+            fullWidth
+         >
             <IoTrashBin />
             {isSubmitting ? loadingText : buttonText}
          </Button>

@@ -1,7 +1,8 @@
 import { Button } from '@/app/_components/button';
+import { DeleteButton } from '@/app/_components/delete-button';
+import { deleteUserAction } from '@/app/_lib/actions/users-action';
 import { formatDateTime } from '@/app/_utils/format-date-time';
 import { trueOrFalse } from '@/app/_utils/true-or-false';
-import { DeleteUser } from '@/app/admin-dashboard/users/delete-user';
 import { UpdateUserForm } from '@/app/admin-dashboard/users/update-user-form';
 import type { usersProps } from '@/app/types/data-types';
 import { useState } from 'react';
@@ -48,7 +49,12 @@ export function UserDetails({ user }: { user: usersProps }) {
                         <FaEdit />
                         <span>Edit</span>
                      </Button>
-                     <DeleteUser userId={user.id} />
+                     <DeleteButton
+                        id={user.id}
+                        onDelete={deleteUserAction}
+                        buttonText='Delete'
+                        loadingText='Deleting...'
+                     />
                   </div>
                </td>
             </>
