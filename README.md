@@ -4,13 +4,36 @@
 
 ## Challenges Faced During the Movie Rating App
 
-### 1.
+### 1. Database Design and Integration
 
--
+-  Designing an efficient database schema in Supabase that properly relates users, rooms, and reservations
+-  Implementing proper relationships between tables while maintaining data integrity
 
-### 6. Biggest Challenge:
+### 2. Authentication and Authorization
 
--
+-  Setting up NextAuth with Supabase integration
+-  Implementing role-based access control (admin vs regular users)
+-  Managing user sessions and protected routes
+
+### 3. Form Handling and Validation
+
+-  Implementing complex form validation using Zod and React-Hook-Form
+-  Managing multiple form states for different CRUD operations
+-  Implementing date range validation for reservations
+
+### 4. UI/UX Implementation
+
+-  Creating responsive layouts that work across different devices
+-  Implementing smooth page transitions using Next-View-Transitions
+-  Building an intuitive admin dashboard with multiple management sections
+-  Designing user-friendly filters for rooms and reservations
+
+### 5. TypeScript Integration
+
+-  Setting up proper types for all components and functions
+-  Managing type definitions for external libraries
+-  Ensuring type safety across the application
+-  Creating proper interfaces for database models
 
 ## Technologies:
 
