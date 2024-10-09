@@ -14,7 +14,7 @@ export function DashboardCard({ item }: { item: AdminDashboardLinksProps }) {
                {item.name}
             </h2>
             <p className='text-4xl font-extrabold text-gray-700'>
-               {item.data.length}
+               {item.data?.length}
             </p>
             <p className='text-sm text-gray-500 mt-2'>
                Total {item.name.toLowerCase()}

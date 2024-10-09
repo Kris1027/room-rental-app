@@ -54,9 +54,3 @@
 -  [x] Validation (Zod)
 -  [x] Form management (React-Hook-Form)
 -  [x] Filters in rooms page and user reservations
--  [ ] change authentication form Auth.js to Supabase auth - google, github and credentials
--  [ ] instead of link for image, change to get file input (cloudinary)
--  [ ] From one image change to array of images and build image carousel in detailed room page
--  [ ] Filters in admin dashboard
--  [ ] Responsive for multi devices
--  [ ] Payments (stripe?)
