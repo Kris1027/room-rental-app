@@ -4,6 +4,7 @@ import type { roomsProps } from '@/app/types/data-types';
 import { auth } from '@/auth';
 import Image from 'next/image';
 import { FaDollarSign, FaTag, FaUserFriends } from 'react-icons/fa';
+import {RoomLoginButton} from "@/app/rooms/room-login-button";
 
 export async function DetailedRoom({ room }: { room: roomsProps }) {
    const session = await auth();
@@ -65,11 +66,15 @@ export async function DetailedRoom({ room }: { room: roomsProps }) {
                </div>
             </div>
 
-            {session?.user && userId && (
+            {session?.user && userId ? (
                <div className='mt-6'>
                   <UserReservationForm room={room} userId={Number(userId)} />
                </div>
-            )}
+            ):
+                <div className='mt-6'>
+                   <RoomLoginButton />
+                </div>
+                }
          </div>
       </div>
    );
