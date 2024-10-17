@@ -28,8 +28,9 @@ export function CreateRoomForm({ onCancel }: { onCancel: () => void }) {
 
       try {
          const result = await createRoomAction(formData);
-         if (result === true) {
+         if (result) {
             reset();
+            onCancel();
          } else {
             setError('root', {
                type: 'manual',
