@@ -2,7 +2,7 @@
 
 `live` : <https://room-rental-app-kris1027.vercel.app/>
 
-## Challenges Faced During the Movie Rating App
+## Challenges Faced During the Room Rental App
 
 ### 1. Database Design and Integration
 
